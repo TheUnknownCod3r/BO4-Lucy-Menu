@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/MrFawkes1337/B04-Lucy-Menu">
+  <a href="https://github.com/theunknowncod3r/B04-Lucy-Menu">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -19,9 +19,9 @@
   <p align="center">
 	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.
     <br />
-    <a href="https://github.com/MrFawkes1337/BO4-Lucy-Menu/issues">Report Bug</a>
+    <a href="https://github.com/theunknowncod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
-    <a href="https://github.com/MrFawkes1337/BO4-Lucy-Menu/issues">Request Feature</a>
+    <a href="https://github.com/theunknowncod3r/BO4-Lucy-Menu/issues">Request Feature</a>
   </p>
 </div>
 
@@ -72,8 +72,7 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 <!-- ROADMAP -->
 ## Roadmap
 
-Development Cancelled. The community is full of Skids who literally edit something to claim credit, and I aint about that. I took over this menu partially to occupy myself, otherwise to add features to a menu that was basically shit. And for my time, I find an edit with literally zero creativity.
-
+Unknown
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -151,13 +150,13 @@ This wouldn't be possible without the following people
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/MrFawkes1337/BO4-Lucy-Menu.svg?style=for-the-badge
-[contributors-url]: https://github.com/MrFawkes1337/BO4-Lucy-Menu/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/MrFawkes1337/BO4-Lucy-Menu.svg?style=for-the-badge
-[forks-url]: https://github.com/MrFawkes1337/BO4-Lucy-Menu/network/members
-[stars-shield]: https://img.shields.io/github/stars/MrFawkes1337/BO4-Lucy-Menu.svg?style=for-the-badge
-[stars-url]: https://github.com/MrFawkes1337/BO4-Lucy-Menu/stargazers
-[issues-shield]: https://img.shields.io/github/issues/MrFawkes1337/BO4-Lucy-Menu.svg?style=for-the-badge
-[issues-url]: https://github.com/MrFawkes1337/BO4-Lucy-Menu/issues
-[license-shield]: https://img.shields.io/github/license/MrFawkes1337/BO4-Lucy-Menu.svg?style=for-the-badge
-[license-url]: https://github.com/MrFawkes1337/BO4-Lucy-Menu/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/theunknowncod3r/BO4-Lucy-Menu.svg?style=for-the-badge
+[contributors-url]: https://github.com/theunknowncod3r/BO4-Lucy-Menu/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/theunknowncod3r/BO4-Lucy-Menu.svg?style=for-the-badge
+[forks-url]: https://github.com/theunknowncod3r/BO4-Lucy-Menu/network/members
+[stars-shield]: https://img.shields.io/github/stars/theunknowncod3r/BO4-Lucy-Menu.svg?style=for-the-badge
+[stars-url]: https://github.com/theunknowncod3r/BO4-Lucy-Menu/stargazers
+[issues-shield]: https://img.shields.io/github/issues/theunknowncod3r/BO4-Lucy-Menu.svg?style=for-the-badge
+[issues-url]: https://github.com/theunknowncod3r/BO4-Lucy-Menu/issues
+[license-shield]: https://img.shields.io/github/license/theunknowncod3r/BO4-Lucy-Menu.svg?style=for-the-badge
+[license-url]: https://github.com/theunknowncod3r/BO4-Lucy-Menu/blob/master/LICENSE.txt
