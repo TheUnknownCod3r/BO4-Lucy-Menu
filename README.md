@@ -138,10 +138,10 @@ This wouldn't be possible without the following people
 * [Shiversoft Dev](https://www.github.com/shiversoftdev/T7-compiler)
 	without T7 Compiler, BO4 GSC Injection wouldn't be possible.
 
-* [Gillam](https://www.github.com/Gillam/)
+* [G1llam](https://www.github.com/G1llam/)
 	Original Menu creator
 
-* [MrFawkes1337](https://www.github.com/MrFawkes1337/)
+* [TheUnknownCod3r](https://www.github.com/TheUnknownCod3r/)
 	Taking over updates, and Porting new features.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
