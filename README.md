@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/TheUnknownCod3r/B04-Lucy-Menu">
+  <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
