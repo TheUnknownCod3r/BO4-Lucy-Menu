@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu">
+  <a href="https://github.com/TheUnknownCod3r/B04-Lucy-Menu">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -72,7 +72,11 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 <!-- ROADMAP -->
 ## Roadmap
 
-Unknown
+- [] Full Map Completion of EE's
+- [] Map Switch with character support
+- [] More Game Modes, Model changer, More features
+- [] Fix Menu Options Disappearing randomly.
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
