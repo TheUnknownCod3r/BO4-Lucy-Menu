@@ -137,70 +137,70 @@ MenuOptionsPlayer(menu, player)
         break;
         case "Mega Elixirs":
             self addMenu(menu, "Mega Elixirs");//Done
-                self addOpt("Shopping Free", &GiveElixir2, "zm_bgb_shopping_free");
-                self addOpt("Head Drama", &GiveElixir2, "zm_bgb_head_drama");
-                self addOpt("Secret Shopper", &GiveElixir2, "zm_bgb_secret_shopper");
-                self addOpt("Reign Drops", &BO4GiveElixir, "zm_bgb_reign_drops");
-                self addOpt("Power Vacuum", &GiveElixir2, "zm_bgb_power_vacuum");
-                self addOpt("Near Death Experience", &GiveElixir2, "zm_bgb_near_death_experience");
-                self addOpt("Phoenix Up", &BO4GiveElixir, "zm_bgb_phoenix_up");
-                self addOpt("Conflagration Liquidation", &BO4GiveElixir, "zm_bgb_conflagration_liquidation");
-                self addOpt("Join The Party", &BO4GiveElixir, "zm_bgb_join_the_party");
-                self addOpt("Perkaholic", &BO4GiveElixir, "zm_bgb_perkaholic");
-                self addOpt("Refresh Mint", &BO4GiveElixir, "zm_bgb_refresh_mint");
-                self addOpt("Suit Up", &BO4GiveElixir, "zm_bgb_suit_up");
-                self addOpt("Wall Power", &GiveElixir2, "zm_bgb_wall_power");
+                self addOpt("Shopping Free", &GiveTimedElixir, "zm_bgb_shopping_free");
+                self addOpt("Head Drama", &GiveTimedElixir, "zm_bgb_head_drama");
+                self addOpt("Secret Shopper", &GiveTimedElixir, "zm_bgb_secret_shopper");
+                self addOpt("Reign Drops", &GiveInstantElixir, "zm_bgb_reign_drops");
+                self addOpt("Power Vacuum", &GiveTimedElixir, "zm_bgb_power_vacuum");
+                self addOpt("Near Death Experience", &GiveTimedElixir, "zm_bgb_near_death_experience");
+                self addOpt("Phoenix Up", &GiveInstantElixir, "zm_bgb_phoenix_up");
+                self addOpt("Conflagration Liquidation", &GiveInstantElixir, "zm_bgb_conflagration_liquidation");
+                self addOpt("Join The Party", &GiveInstantElixir, "zm_bgb_join_the_party");
+                self addOpt("Perkaholic", &GiveInstantElixir, "zm_bgb_perkaholic");
+                self addOpt("Refresh Mint", &GiveInstantElixir, "zm_bgb_refresh_mint");
+                self addOpt("Suit Up", &GiveInstantElixir, "zm_bgb_suit_up");
+                self addOpt("Wall Power", &GiveTimedElixir, "zm_bgb_wall_power");
         break;
         case "Legendary Elixirs":
             self addMenu(menu, "Legendary Elixirs");//Done
-                self addOpt("Cache Back", &BO4GiveElixir, "zm_bgb_cache_back");
-                self addOpt("Dividend Yield", &GiveElixir2, "zm_bgb_dividend_yield");
-                self addOpt("Free Fire", &GiveElixir2, "zm_bgb_free_fire");
-                self addOpt("Perk Up", &BO4GiveElixir, "zm_bgb_perk_up");
-                self addOpt("Power Keg", &BO4GiveElixir, "zm_bgb_power_keg");
-                self addOpt("Wall To Wall Clearance", &GiveElixir2, "zm_bgb_wall_to_wall_clearance");
-                self addOpt("Undead Man Walking", &GiveElixir2, "zm_bgb_undead_man_walking");
+                self addOpt("Cache Back", &GiveInstantElixir, "zm_bgb_cache_back");
+                self addOpt("Dividend Yield", &GiveTimedElixir, "zm_bgb_dividend_yield");
+                self addOpt("Free Fire", &GiveTimedElixir, "zm_bgb_free_fire");
+                self addOpt("Perk Up", &GiveInstantElixir, "zm_bgb_perk_up");
+                self addOpt("Power Keg", &GiveInstantElixir, "zm_bgb_power_keg");
+                self addOpt("Wall To Wall Clearance", &GiveTimedElixir, "zm_bgb_wall_to_wall_clearance");
+                self addOpt("Undead Man Walking", &GiveTimedElixir, "zm_bgb_undead_man_walking");
         break;
         case "Rare Elixirs":
             self addMenu(menu, "Rare Elixirs");
-                self addOpt("Alchemical Antithesis", &GiveElixir2, "zm_bgb_alchemical_antithesis");
-                self addOpt("Blood Debt", &GiveElixir2, "zm_bgb_blood_debt");
-                self addOpt("Extra Credit", &BO4GiveElixir, "zm_bgb_extra_credit");
-                self addOpt("Immolation Liquidation", &BO4GiveElixir, "zm_bgb_immolation_liquidation");
-                self addOpt("Kill Joy", &BO4GiveElixir, "zm_bgb_kill_joy");
-                self addOpt("Shields Up", &BO4GiveElixir, "zm_bgb_shields_up");
-                self addOpt("Talkin Bout Regeneration", &GiveElixir2, "zm_bgb_talkin_bout_regeneration");
+                self addOpt("Alchemical Antithesis", &GiveTimedElixir, "zm_bgb_alchemical_antithesis");
+                self addOpt("Blood Debt", &GiveTimedElixir, "zm_bgb_blood_debt");
+                self addOpt("Extra Credit", &GiveInstantElixir, "zm_bgb_extra_credit");
+                self addOpt("Immolation Liquidation", &GiveInstantElixir, "zm_bgb_immolation_liquidation");
+                self addOpt("Kill Joy", &GiveInstantElixir, "zm_bgb_kill_joy");
+                self addOpt("Shields Up", &GiveInstantElixir, "zm_bgb_shields_up");
+                self addOpt("Talkin Bout Regeneration", &GiveTimedElixir, "zm_bgb_talkin_bout_regeneration");
         break;
         case "Common Elixirs":
             self addMenu(menu, "Common Elixirs");//Done
-                self addOpt("Bullet Boost", &BO4GiveElixir, "zm_bgb_bullet_boost");
-                self addOpt("CTRL-Z", &GiveElixir2, "zm_bgb_ctrl_z");
-                self addOpt("Dead of Nuclear Winter", &BO4GiveElixir, "zm_bgb_dead_of_nuclear_winter");
-                self addOpt("In Plain Sight", &GiveElixir2, "zm_bgb_in_plain_sight");
-                self addOpt("Licensed Contractor", &BO4GiveElixir, "zm_bgb_licensed_contractor");
-                self addOpt("Phantom Reload", &GiveElixir2, "zm_bgb_phantom_reload");
-                self addOpt("Sword Flay", &GiveElixir2, "zm_bgb_sword_flay");
-                self addOpt("Who's Keeping Score", &BO4GiveElixir, "zm_bgb_whos_keeping_score");
+                self addOpt("Bullet Boost", &GiveInstantElixir, "zm_bgb_bullet_boost");
+                self addOpt("CTRL-Z", &GiveTimedElixir, "zm_bgb_ctrl_z");
+                self addOpt("Dead of Nuclear Winter", &GiveInstantElixir, "zm_bgb_dead_of_nuclear_winter");
+                self addOpt("In Plain Sight", &GiveTimedElixir, "zm_bgb_in_plain_sight");
+                self addOpt("Licensed Contractor", &GiveInstantElixir, "zm_bgb_licensed_contractor");
+                self addOpt("Phantom Reload", &GiveTimedElixir, "zm_bgb_phantom_reload");
+                self addOpt("Sword Flay", &GiveTimedElixir, "zm_bgb_sword_flay");
+                self addOpt("Who's Keeping Score", &GiveInstantElixir, "zm_bgb_whos_keeping_score");
 
         break;
         case "Classic Elixirs":
             self addMenu(menu, "Classic Elixirs");//complete, All Elixirs Work
-                self addOpt("Always Done Swiftly", &GiveElixir2, "zm_bgb_always_done_swiftly");
-                self addOpt("Anywhere But Here", &BO4GiveElixir, "zm_bgb_anywhere_but_here");
-                self addOpt("Burned Out", &GiveElixir2, "zm_bgb_burned_out");
-                self addOpt("Equip Mint", &BO4GiveElixir, "zm_bgb_equip_mint");
-                self addOpt("Head Scan", &GiveElixir2, "zm_bgb_head_scan");
-                self addOpt("Temporal Gift", &GiveElixir2, "zm_bgb_temporal_gift");
-                self addOpt("Aftertaste", &GiveElixir2, "zm_bgb_aftertaste");
-                self addOpt("Point Drops", &BO4GiveElixir, "zm_bgb_point_drops");
-                self addOpt("Anti-Entrapment", &GiveElixir2, "zm_bgb_anti_entrapment");
-                self addOpt("Nowhere But There", &BO4GiveElixir, "zm_bgb_nowhere_but_there");
-                self addOpt("Now You See Me", &GiveElixir2, "zm_bgb_now_you_see_me");
-                self addOpt("Arsenal Accelerator", &GiveElixir2, "zm_bgb_arsenal_accelerator");
-                self addOpt("Pop Shocks", &GiveElixir2, "zm_bgb_pop_shocks");
-                self addOpt("Stock Option", &GiveElixir2, "zm_bgb_stock_option");
-                self addOpt("Newtonian Negation", &GiveElixir2, "zm_bgb_newtonian_negation");
-                self addOpt("Quacknarok", &GiveElixir2, "zm_bgb_quacknarok");
+                self addOpt("Always Done Swiftly", &GiveTimedElixir, "zm_bgb_always_done_swiftly");
+                self addOpt("Anywhere But Here", &GiveInstantElixir, "zm_bgb_anywhere_but_here");
+                self addOpt("Burned Out", &GiveTimedElixir, "zm_bgb_burned_out");
+                self addOpt("Equip Mint", &GiveInstantElixir, "zm_bgb_equip_mint");
+                self addOpt("Head Scan", &GiveTimedElixir, "zm_bgb_head_scan");
+                self addOpt("Temporal Gift", &GiveTimedElixir, "zm_bgb_temporal_gift");
+                self addOpt("Aftertaste", &GiveTimedElixir, "zm_bgb_aftertaste");
+                self addOpt("Point Drops", &GiveInstantElixir, "zm_bgb_point_drops");
+                self addOpt("Anti-Entrapment", &GiveTimedElixir, "zm_bgb_anti_entrapment");
+                self addOpt("Nowhere But There", &GiveInstantElixir, "zm_bgb_nowhere_but_there");
+                self addOpt("Now You See Me", &GiveTimedElixir, "zm_bgb_now_you_see_me");
+                self addOpt("Arsenal Accelerator", &GiveTimedElixir, "zm_bgb_arsenal_accelerator");
+                self addOpt("Pop Shocks", &GiveTimedElixir, "zm_bgb_pop_shocks");
+                self addOpt("Stock Option", &GiveTimedElixir, "zm_bgb_stock_option");
+                self addOpt("Newtonian Negation", &GiveTimedElixir, "zm_bgb_newtonian_negation");
+                self addOpt("Quacknarok", &GiveTimedElixir, "zm_bgb_quacknarok");
         break;
         case "Map Selection":
             self addMenu(menu, "Map Selection");
@@ -293,24 +293,24 @@ MenuOptionsPlayer(menu, player)
         case "Map Specific Weapons":
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
-                self addOpt("Kraken", &GiveKraken);
+                self addOpt("Kraken", &GiveMapSpecific, "Voyage", "Kraken");
             }
             else if(BO4GetMap() == "IX"){
-                self addOpt("Death of Orion", &GiveDOO);
+                self addOpt("Death of Orion", &GiveMapSpecific, "IX", "Death of Orion");
             }
             else if(BO4GetMap() == "Blood"){
-                self addOpt("Blundergat", &BO4GiveBG);
+                self addOpt("Blundergat", &GiveMapSpecific, "Blood", "Blundergat");
                 self addOpt("Monkey Bombs", &BO4GiveWeapon, "cymbal_monkey");
                 self addOpt("Hells Retriever", &BO4GiveWeapon, "tomahawk_t8");
                 self addOpt("Hells Redeemer", &BO4GiveWeapon, "tomahawk_t8_upgraded");
-                self addOpt("Magmagat", &BO4GiveMG);
-                self addOpt("AcidGat", &BO4GiveAG);
-                self addOpt("Spoon", &BO4GiveSpoon);
-                self addOpt("Golden Spork", &BO4GiveSpork);
+                self addOpt("Magmagat", &GiveMapSpecific, "Blood", "Magmagat");
+                self addOpt("AcidGat", &GiveMapSpecific, "Blood", "Acidgat");
+                self addOpt("Spoon", &GiveMapSpecific, "Blood", "Spoon");
+                self addOpt("Golden Spork", &GiveMapSpecific, "Blood", "Spork");
             }
             else if(BO4GetMap() == "Dead"){
-                self addOpt("Give Savage Impaler", &DoWWDotn1);
-                self addOpt("Give Alistairs Folly", &DoWWDotn2);
+                self addOpt("Give Savage Impaler", &GiveMapSpecific, "DOTN", "Impaler");
+                self addOpt("Give Alistairs Folly", &GiveMapSpecific, "DOTN", "AlistairsFolly");
             }else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
                 self addOpt("Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
