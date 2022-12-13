@@ -398,7 +398,7 @@ Weapon Modifications
 ####################################
 
 */
-GiveMapSpecific(Mapname, WeaponName) //Credit TheUnknownCod3r / MrFawkes1337
+GiveMapSpecific(Mapname, WeaponName) //Credit TheUnknownCod3r / MrFawkes1337 //Doesnt work for some reason, Unsure why as nothing changed from when I called the scripts separate
 {
     if (Mapname == "blood")
     {
@@ -457,7 +457,6 @@ GiveMapSpecific(Mapname, WeaponName) //Credit TheUnknownCod3r / MrFawkes1337
             self switchToWeapon(getweapon(#"hash_4ae11871b1233211"));
         }
     }
-    self iPrintLnBold("You Got a Special Weapon: "+WeaponName);
 }
 //freezegun? hash_2605a6745df58840
 

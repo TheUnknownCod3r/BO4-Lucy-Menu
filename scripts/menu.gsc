@@ -449,9 +449,7 @@ MenuOptionsPlayer(menu, player)
             self addOptIncSlider("Round", &Stats_Round, 0, 0, 10000, 100);
         break;
 
-        case "Options":
-            altSubs = StrTok("Personal Menu, Account Menu", ",");
-            
+        case "Options":       
             self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
                 self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
                 self addOpt("Personal Mods", &newMenu, "ClientPMods " + player GetEntityNumber());
