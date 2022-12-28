@@ -405,27 +405,27 @@ GiveMapSpecific(Mapname, WeaponName, Hash) //Credit TheUnknownCod3r / MrFawkes13
     {
         if (WeaponName == "Blundergat")
         {
-            self giveWeapon(getweapon(#""+Hash+"));
-            self switchToWeapon(getweapon(#""+Hash+"));
+            self giveWeapon(getweapon(#""+Hash+""));
+            self switchToWeapon(getweapon(#""+Hash+""));
         }
         else if(WeaponName == "Magmagat")
         {
-            self giveWeapon(getweapon(#""+Hash+"));
-            self switchToWeapon(getweapon(#""+Hash+"));
+            self giveWeapon(getweapon(#""+Hash+""));
+            self switchToWeapon(getweapon(#""+Hash+""));
         }
         else if(WeaponName == "Acidgat")
         {
-            self giveWeapon(getweapon(#""+Hash+"));
-            self switchToWeapon(getweapon(#""+Hash+"));
+            self giveWeapon(getweapon(#""+Hash+""));
+            self switchToWeapon(getweapon(#""+Hash+""));
         }
         else if(WeaponName == "Spoon")
         {
-            self giveWeapon(getWeapon(#""+Hash+"));
+            self giveWeapon(getWeapon(#""+Hash+""));
             self switchToWeapon(getWeapon(#""+Hash+""));
         }
         else if(WeaponName == "Spork")
         {
-            self giveWeapon(getWeapon(#""+Hash+"));
+            self giveWeapon(getWeapon(#""+Hash+""));
             self switchToWeapon(getWeapon(#""+Hash+""));
         }
     }
