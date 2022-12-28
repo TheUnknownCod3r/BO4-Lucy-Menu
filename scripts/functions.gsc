@@ -72,14 +72,14 @@ ProMod()
 {
     self.promod = isDefined(self.promod) ? undefined : true;
     if (isDefined(self.promod))
-        setdvar(#"cg_fov", 120);
+        setdvar("cg_fov", 120);
     else
-        setdvar(#"cg_fov", 80);
+        setdvar("cg_fov", 80);
 }
 
 PSpeed()
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     
     self.PSpeed = isDefined(self.PSpeed) ? undefined : true;
     if(isDefined(self.PSpeed))
@@ -271,7 +271,7 @@ HideGun()
 
 Multijump(currentNum = 0)
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     self notify("SMulti");
     self.Multijump = isDefined(self.Multijump) ? undefined : true;
     self endon("SMulti");
@@ -398,34 +398,35 @@ Weapon Modifications
 ####################################
 
 */
-GiveMapSpecific(Mapname, WeaponName) //Credit TheUnknownCod3r / MrFawkes1337 //Doesnt work for some reason, Unsure why as nothing changed from when I called the scripts separate
+GiveMapSpecific(Mapname, WeaponName, Hash) //Credit TheUnknownCod3r / MrFawkes1337 //Doesnt work for some reason, Unsure why as nothing changed from when I called the scripts separate
 {
+    if(Hash == "Undefined") self iPrintLnBold("Error");
     if (Mapname == "blood")
     {
         if (WeaponName == "Blundergat")
         {
-            self giveWeapon(getweapon(#"hash_19c157f2230454ad"));
-            self switchToWeapon(getweapon(#"hash_19c157f2230454ad"));
+            self giveWeapon(getweapon(#""+Hash+"));
+            self switchToWeapon(getweapon(#""+Hash+"));
         }
         else if(WeaponName == "Magmagat")
         {
-            self giveWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
-            self switchToWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
+            self giveWeapon(getweapon(#""+Hash+"));
+            self switchToWeapon(getweapon(#""+Hash+"));
         }
         else if(WeaponName == "Acidgat")
         {
-            self giveWeapon(getweapon(#"hash_25a13b6f6232a985"));
-            self switchToWeapon(getweapon(#"hash_25a13b6f6232a985"));
+            self giveWeapon(getweapon(#""+Hash+"));
+            self switchToWeapon(getweapon(#""+Hash+"));
         }
         else if(WeaponName == "Spoon")
         {
-            self giveWeapon(getWeapon(#"hash_52b03a79f854eed3"));
-            self switchToWeapon(getWeapon(#"hash_52b03a79f854eed3"));
+            self giveWeapon(getWeapon(#""+Hash+"));
+            self switchToWeapon(getWeapon(#""+Hash+""));
         }
         else if(WeaponName == "Spork")
         {
-            self giveWeapon(getWeapon(#"hash_32a584f5a65c70d1"));
-            self switchToWeapon(getWeapon(#"hash_32a584f5a65c70d1"));
+            self giveWeapon(getWeapon(#""+Hash+"));
+            self switchToWeapon(getWeapon(#""+Hash+""));
         }
     }
     else if(Mapname == "DOTN")
@@ -903,13 +904,13 @@ BO4NoFallDam()
     level.BO4NoFallD = isDefined(level.BO4NoFallD) ? undefined : true;
     if(isDefined(self.BO4NoFallD))
     {
-        SetDvar(#"bg_fallDamageMinHeight", 9999);
-        SetDvar(#"bg_fallDamageMaxHeight", 9999);
+        SetDvar("bg_fallDamageMinHeight", 9999);
+        SetDvar("bg_fallDamageMaxHeight", 9999);
     }
     else
     {
-        setdvar(#"bg_falldamageminheight", 256);
-		setdvar(#"bg_falldamagemaxheight", 512);
+        setdvar("bg_falldamageminheight", 256);
+		setdvar("bg_falldamagemaxheight", 512);
     }
 }
 
@@ -926,7 +927,7 @@ SuperJump()
 
 AllSuperJump()
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     while(isDefined(level.SuperJump))
     {
         if(self JumpButtonPressed())
@@ -946,9 +947,9 @@ SuperSpeed()
     level.SuperSpeed = isDefined(level.SuperSpeed) ? undefined : true;
 
     if(isDefined(level.SuperSpeed))
-        setDvar(#"g_speed", 500);
+        setDvar("g_speed", 500);
     else
-        setDvar(#"g_speed", 200);
+        setDvar("g_speed", 200);
 }
 
 
@@ -1129,11 +1130,11 @@ ClientHandler(func, player)
     }else if(func == "Plasma"){
         player thread PlasmaLoop();
     }else if(func == "BG"){
-        player thread GiveMapSpecific("Blood", "Blundergat");
+        player thread GiveMapSpecific("Blood", "Blundergat", "undefined");
     }else if(func == "MG"){
-        player thread GiveMapSpecific("Blood", "Magmagat");
+        player thread GiveMapSpecific("Blood", "Magmagat", "undefined");
     }else if(func == "AG"){
-        player thread GiveMapSpecific("Blood", "Acidgat");
+        player thread GiveMapSpecific("Blood", "Acidgat", "undefined");
     }else if(func == "Perks"){
         player thread GiveAllPerks();
     }else if(func == "Score"){
@@ -1207,8 +1208,8 @@ doGunGame()
 }
 GunGame()
 {
-        self endon(#"death");
-        self endon(#"disconnect");
+        self endon("death");
+        self endon("disconnect");
         wait 5;
         keys=GetArrayKeys(level.zombie_weapons);
         weaps = array::randomize(keys);
@@ -1217,7 +1218,7 @@ GunGame()
         self SwitchToWeapon(weaps[0]);
         for(i=1;i <= weaps.size-1;i++)
     {
-        self waittill(#"zom_kill");
+        self waittill("zom_kill");
         self iPrintlnBold("You got a new Weapon! Kill Count: ^1"+i);
         self TakeAllWeapons();
         self GiveWeapon(weaps[i]);
@@ -1241,8 +1242,8 @@ DoAllWeaponsZM()
 
 AllWeaponsStart()
 {
-    self endon(#"death");
-    self endon(#"disconnect");
+    self endon("death");
+    self endon("disconnect");
     wait 3;
     WeapKeys = GetArrayKeys(level.zombie_weapons_upgraded);
     PapWeaps = array::randomize(WeapKeys);

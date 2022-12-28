@@ -1,6 +1,6 @@
 runMenuIndex(menu)
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
 
     if(!isDefined(menu))
         menu = "Main";
@@ -99,7 +99,7 @@ runMenuIndex(menu)
 
 MenuOptionsPlayer(menu, player)
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     
     sepmenu = StrTok(menu, " " + player GetEntityNumber());
     newmenu = "";
@@ -293,24 +293,24 @@ MenuOptionsPlayer(menu, player)
         case "Map Specific Weapons":
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
-                self addOpt("Kraken", &GiveMapSpecific, "Voyage", "Kraken");
+                self addOpt("Kraken", &GiveMapSpecific, "Voyage", "Kraken", "Undefined");
             }
             else if(BO4GetMap() == "IX"){
-                self addOpt("Death of Orion", &GiveMapSpecific, "IX", "Death of Orion");
+                self addOpt("Death of Orion", &GiveMapSpecific, "IX", "Death of Orion", "Undefined");
             }
             else if(BO4GetMap() == "Blood"){
-                self addOpt("Blundergat", &GiveMapSpecific, "Blood", "Blundergat");
+                self addOpt("Blundergat", &GiveMapSpecific, "Blood", "Blundergat", "hash_19c157f2230454ad");
                 self addOpt("Monkey Bombs", &BO4GiveWeapon, "cymbal_monkey");
                 self addOpt("Hells Retriever", &BO4GiveWeapon, "tomahawk_t8");
                 self addOpt("Hells Redeemer", &BO4GiveWeapon, "tomahawk_t8_upgraded");
-                self addOpt("Magmagat", &GiveMapSpecific, "Blood", "Magmagat");
-                self addOpt("AcidGat", &GiveMapSpecific, "Blood", "Acidgat");
-                self addOpt("Spoon", &GiveMapSpecific, "Blood", "Spoon");
-                self addOpt("Golden Spork", &GiveMapSpecific, "Blood", "Spork");
+                self addOpt("Magmagat", &GiveMapSpecific, "Blood", "Magmagat", "hash_1b5092cccdb3d65b");
+                self addOpt("AcidGat", &GiveMapSpecific, "Blood", "Acidgat", "hash_25a13b6f6232a985");
+                self addOpt("Spoon", &GiveMapSpecific, "Blood", "Spoon", "hash_52b03a79f854eed3");
+                self addOpt("Golden Spork", &GiveMapSpecific, "Blood", "Spork", "hash_32a584f5a65c70d1");
             }
             else if(BO4GetMap() == "Dead"){
-                self addOpt("Give Savage Impaler", &GiveMapSpecific, "DOTN", "Impaler");
-                self addOpt("Give Alistairs Folly", &GiveMapSpecific, "DOTN", "AlistairsFolly");
+                self addOpt("Give Savage Impaler", &GiveMapSpecific, "DOTN", "Impaler", "Undefined");
+                self addOpt("Give Alistairs Folly", &GiveMapSpecific, "DOTN", "AlistairsFolly", "Undefined");
             }else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
                 self addOpt("Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
@@ -505,7 +505,7 @@ MenuOptionsPlayer(menu, player)
 
 menuMonitor()
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     
     while(true)
     {
@@ -621,7 +621,7 @@ ExecuteFunction(function, i1, i2, i3, i4, i5, i6)
 drawText()
 {
     self endon("menuClosed");
-    self endon(#"disconnect");
+    self endon("disconnect");
     
     if(!isDefined(self.menu["curs"][self getCurrent()]))
         self.menu["curs"][self getCurrent()] = 0;
@@ -696,7 +696,7 @@ openMenu1(menu)
 
 MonitorMenuRefresh()
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     self endon("menuClosed");
 
     if(self isInMenu())

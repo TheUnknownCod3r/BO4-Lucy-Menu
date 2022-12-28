@@ -152,7 +152,7 @@ addOptSlider(name, func, vals, input1, input2, input3, input4)
 
 newMenu(menu)
 {
-    self endon(#"disconnect");
+    self endon("disconnect");
     self endon("menuClosed");
     
     if(!isDefined(menu))
