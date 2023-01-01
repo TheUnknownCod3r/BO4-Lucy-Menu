@@ -38,6 +38,7 @@ playerSetup()
     
     if(self hasMenu())
     {
+        wait 5;
         self iPrintln("^9Welcome To " + level.menuName);
         self iPrintLn("^1Developed By: ^2" + level.menuDeveloper);
         self iPrintln("^0Verification Status: " + self.playerSetting["verification"]);

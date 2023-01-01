@@ -398,66 +398,66 @@ Weapon Modifications
 ####################################
 
 */
-GiveMapSpecific(Mapname, WeaponName, Hash) //Credit TheUnknownCod3r / MrFawkes1337 //Doesnt work for some reason, Unsure why as nothing changed from when I called the scripts separate
+GiveDeathOfOrion()
 {
-    if(Hash == "Undefined") self iPrintLnBold("Error");
-    if (Mapname == "blood")
-    {
-        if (WeaponName == "Blundergat")
-        {
-            self giveWeapon(getweapon(#""+Hash+""));
-            self switchToWeapon(getweapon(#""+Hash+""));
-        }
-        else if(WeaponName == "Magmagat")
-        {
-            self giveWeapon(getweapon(#""+Hash+""));
-            self switchToWeapon(getweapon(#""+Hash+""));
-        }
-        else if(WeaponName == "Acidgat")
-        {
-            self giveWeapon(getweapon(#""+Hash+""));
-            self switchToWeapon(getweapon(#""+Hash+""));
-        }
-        else if(WeaponName == "Spoon")
-        {
-            self giveWeapon(getWeapon(#""+Hash+""));
-            self switchToWeapon(getWeapon(#""+Hash+""));
-        }
-        else if(WeaponName == "Spork")
-        {
-            self giveWeapon(getWeapon(#""+Hash+""));
-            self switchToWeapon(getWeapon(#""+Hash+""));
-        }
-    }
-    else if(Mapname == "DOTN")
-    {
-        if (WeaponName == "Impaler")
-        {
-            self GiveWeapon(getWeapon(#"hash_25f355b5d35b8488"));
-            self switchToWeapon(getWeapon(#"hash_25f355b5d35b8488"));
-        }
-        else if(WeaponName == "AlistairsFolly")
-        {
-            self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
-            self switchToWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
-        }
-    }
-    else if(Mapname == "Voyage")
-    {
-        if (WeaponName == "Kraken")
-        {
-            self giveWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
-            self switchToWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
-        }
-    }
-    else if(Mapname == "IX")
-    {
-        if(WeaponName == "Death of Orion")
-        {
-            self GiveWeapon(getweapon(#"hash_4ae11871b1233211"));
-            self switchToWeapon(getweapon(#"hash_4ae11871b1233211"));
-        }
-    }
+    self GiveWeapon(getweapon(#"hash_4ae11871b1233211"));
+    self switchToWeapon(getweapon(#"hash_4ae11871b1233211"));
+    self iPrintLnBold("Death of Orion ^2Given");
+}
+GiveKraken()
+{
+    self giveWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
+    self switchToWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
+    self iPrintLnBold("Kraken ^2Given");
+}
+GiveBlundergat()
+{
+    self giveWeapon(getweapon(#"hash_19c157f2230454ad"));
+    self switchToWeapon(getweapon(#"hash_19c157f2230454ad"));
+    self iPrintLnBold("Blundergat ^2Given");
+}
+GiveMagmagat()
+{
+    self giveWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
+    self switchToWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
+    self iPrintLnBold("Magmagat ^2Given");
+}
+GiveAcidgat()
+{
+    self giveWeapon(getweapon(#"hash_25a13b6f6232a985"));
+    self switchToWeapon(getweapon(#"hash_25a13b6f6232a985"));
+    self iPrintLnBold("Acidgat ^2Given");
+}
+GiveSpoon()
+{
+    self giveWeapon(getweapon(#"hash_52b03a79f854eed3"));
+    self switchToWeapon(getweapon(#"hash_52b03a79f854eed3"));
+    self iPrintLnBold("Spoon ^2Given");
+}
+GiveSpork()
+{
+    self giveWeapon(getweapon(#"hash_32a584f5a65c70d1"));
+    self switchToWeapon(getweapon(#"hash_32a584f5a65c70d1"));
+    self iPrintLnBold("Spork ^2Given");
+}
+GiveAlistairsFolly()
+{
+    self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
+    self switchToWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
+    self iPrintLnBold("Alistairs Folly ^2Given");
+}
+GiveImpaler()
+{
+    self GiveWeapon(getWeapon(#"hash_25f355b5d35b8488"));
+    self switchToWeapon(getWeapon(#"hash_25f355b5d35b8488"));
+    self iPrintLnBold("Impaler ^2Given");
+}
+
+GetWeaponName()
+{
+    Weap = self GetCurrentWeapon().Name;
+    wait .1;
+    self iPrintLnBold("Weapon Hash: "+Weap);
 }
 //freezegun? hash_2605a6745df58840
 
@@ -1130,11 +1130,11 @@ ClientHandler(func, player)
     }else if(func == "Plasma"){
         player thread PlasmaLoop();
     }else if(func == "BG"){
-        player thread GiveMapSpecific("Blood", "Blundergat", "undefined");
+        player thread GiveBlundergat();
     }else if(func == "MG"){
-        player thread GiveMapSpecific("Blood", "Magmagat", "undefined");
+        player thread GiveMagmagat();
     }else if(func == "AG"){
-        player thread GiveMapSpecific("Blood", "Acidgat", "undefined");
+        player thread GiveAcidgat();
     }else if(func == "Perks"){
         player thread GiveAllPerks();
     }else if(func == "Score"){

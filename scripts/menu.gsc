@@ -281,6 +281,7 @@ MenuOptionsPlayer(menu, player)
 
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
+            self addOpt("Print Weapon Name", &GetWeaponName);
             self addOpt("Weapon Selector", &newMenu, "Weapon Selector");
             self addOpt("Map Specific Weapons", &newMenu, "Map Specific Weapons");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
@@ -293,24 +294,24 @@ MenuOptionsPlayer(menu, player)
         case "Map Specific Weapons":
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
-                self addOpt("Kraken", &GiveMapSpecific, "Voyage", "Kraken", "Undefined");
+                self addOpt("Kraken", &GiveKraken);
             }
             else if(BO4GetMap() == "IX"){
-                self addOpt("Death of Orion", &GiveMapSpecific, "IX", "Death of Orion", "Undefined");
+                self addOpt("Death of Orion", &GiveDeathOfOrion);
             }
             else if(BO4GetMap() == "Blood"){
-                self addOpt("Blundergat", &GiveMapSpecific, "Blood", "Blundergat", "hash_19c157f2230454ad");
+                self addOpt("Blundergat", &GiveBlundergat);
                 self addOpt("Monkey Bombs", &BO4GiveWeapon, "cymbal_monkey");
                 self addOpt("Hells Retriever", &BO4GiveWeapon, "tomahawk_t8");
                 self addOpt("Hells Redeemer", &BO4GiveWeapon, "tomahawk_t8_upgraded");
-                self addOpt("Magmagat", &GiveMapSpecific, "Blood", "Magmagat", "hash_1b5092cccdb3d65b");
-                self addOpt("AcidGat", &GiveMapSpecific, "Blood", "Acidgat", "hash_25a13b6f6232a985");
-                self addOpt("Spoon", &GiveMapSpecific, "Blood", "Spoon", "hash_52b03a79f854eed3");
-                self addOpt("Golden Spork", &GiveMapSpecific, "Blood", "Spork", "hash_32a584f5a65c70d1");
+                self addOpt("Magmagat", &GiveMagmagat);
+                self addOpt("AcidGat", &GiveAcidgat);
+                self addOpt("Spoon", &GiveSpoon);
+                self addOpt("Golden Spork", &GiveSpork);
             }
             else if(BO4GetMap() == "Dead"){
-                self addOpt("Give Savage Impaler", &GiveMapSpecific, "DOTN", "Impaler", "Undefined");
-                self addOpt("Give Alistairs Folly", &GiveMapSpecific, "DOTN", "AlistairsFolly", "Undefined");
+                self addOpt("Give Savage Impaler", &GiveImpaler);
+                self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
             }else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
                 self addOpt("Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
