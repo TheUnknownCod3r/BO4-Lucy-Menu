@@ -322,6 +322,16 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Upgraded Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
                 self addOpt("Upgraded Hand of Gaia", &BO4GiveWeapon, "ww_hand_g_upgraded");
                 self addOpt("Upgraded Hand of Charon", &BO4GiveWeapon, "ww_hand_c_upgraded");
+            }else if(BO4GetMap() == "Tag"){
+                self addOpt("Wunderwaffe DG", &BO4GiveWeapon, "ww_teslasniper_t8");
+                self addOpt("ThunderGun", &BO4GiveWeapon, "thundergun");
+                self addOpt("Tundragun", &BO4GiveWeapon, "tundragun");
+            }
+            else if(BO4GetMap() == "AO"){
+                self addOpt("Ray Gun II-V", &BO4GiveWeapon, "ray_gun_mk2v");
+                self addOpt("Ray Gun II-X", &BO4GiveWeapon, "ray_gun_mk2x");
+                self addOpt("Ray Gun II-Y", &BO4GiveWeapon, "ray_gun_mk2y");
+                self addOpt("Ray Gun II-Z", &BO4GiveWeapon, "ray_gun_mk2z");
             }
         break;
         case "Pack a Punch Effects":
