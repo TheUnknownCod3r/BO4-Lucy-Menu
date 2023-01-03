@@ -560,7 +560,7 @@ KillAllZombies(player)
         for(z=0;z<zombies.size;z++)
         {
             if(isDefined(zombies[z]) && IsAlive(zombies[z]))
-            zombies[b] DoDamage(zombies[z].health + 99, zombies[z].origin);
+            zombies[z] DoDamage(zombies[z].health + 99, zombies[z].origin);
         }
     }
     self iPrintLnBold("All Zombies ^1Eliminated");

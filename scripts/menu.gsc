@@ -303,7 +303,6 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
-                self addOpt("Serkits Kiss", &BO4GiveWeapon, "ww_scorpion_t8_upgraded");
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &BO4GiveWeapon, "ww_blundergat_t8");
