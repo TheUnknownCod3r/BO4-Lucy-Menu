@@ -281,8 +281,8 @@ MenuOptionsPlayer(menu, player)
 
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
-            self addOpt("Print Weapon Name", &GetWeaponName);
-            self addOpt("Weapon Selector", &newMenu, "Weapon Selector");
+            self addOpt("Print Weapon Hash", &GetWeaponName);
+            self addOpt("Weapon Selection", &newMenu, "Weapon Submenu");
             self addOpt("Map Specific Weapons", &newMenu, "Map Specific Weapons");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
             self addOpt("Upgrade Weapon", &UpgradeWeapon);
@@ -294,18 +294,24 @@ MenuOptionsPlayer(menu, player)
         case "Map Specific Weapons":
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
-                self addOpt("Kraken", &GiveKraken);
+                self addOpt("Kraken", &BO4GiveWeapon, "ww_tricannon_t8");
+                self addOpt("Decayed Kraken", &BO4GiveWeapon, "ww_tricannon_earth_t8");
+                self addOpt("Plasmatic Kraken", &BO4GiveWeapon, "ww_tricannon_fire_t8");
+                self addOpt("Purified Kraken", &BO4GiveWeapon, "ww_tricannon_water_t8");
+                self addOpt("Radiant Kraken", &BO4GiveWeapon, "ww_tricannon_air_t8");
+                self addOpt("Upgraded Kraken", &BO4GiveWeapon, "ww_tricannon_t8_upgraded");
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
+                self addOpt("Serkits Kiss", &BO4GiveWeapon, "ww_scorpion_t8_upgraded");
             }
             else if(BO4GetMap() == "Blood"){
-                self addOpt("Blundergat", &GiveBlundergat);
+                self addOpt("Blundergat", &BO4GiveWeapon, "ww_blundergat_t8");
                 self addOpt("Monkey Bombs", &BO4GiveWeapon, "cymbal_monkey");
                 self addOpt("Hells Retriever", &BO4GiveWeapon, "tomahawk_t8");
                 self addOpt("Hells Redeemer", &BO4GiveWeapon, "tomahawk_t8_upgraded");
-                self addOpt("Magmagat", &GiveMagmagat);
-                self addOpt("AcidGat", &GiveAcidgat);
+                self addOpt("Magmagat", &BO4GiveWeapon, "ww_blundergat_fire_t8");
+                self addOpt("AcidGat", &BO4GiveWeapon, "ww_blundergat_acid_t8");
                 self addOpt("Spoon", &GiveSpoon);
                 self addOpt("Golden Spork", &GiveSpork);
             }
@@ -313,10 +319,10 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Give Savage Impaler", &GiveImpaler);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
             }else if(BO4GetMap() == "AE"){
-                self addOpt("Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
-                self addOpt("Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
-                self addOpt("Hand of Gaia", &BO4GiveWeapon, "ww_hand_g_upgraded");
-                self addOpt("Hand of Charon", &BO4GiveWeapon, "ww_hand_c_upgraded");
+                self addOpt("Upgraded Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
+                self addOpt("Upgraded Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
+                self addOpt("Upgraded Hand of Gaia", &BO4GiveWeapon, "ww_hand_g_upgraded");
+                self addOpt("Upgraded Hand of Charon", &BO4GiveWeapon, "ww_hand_c_upgraded");
             }
         break;
         case "Pack a Punch Effects":
@@ -332,55 +338,75 @@ MenuOptionsPlayer(menu, player)
             for(a=0;a<96;a++)
                     self addOpt("Camo: " + (a + 1), &bo4_CamoGiver, a);
         break;
-
-        case "Weapon Selector":
-            self addMenu(menu, "Weapon Selector");
-            self addOpt("^0 == Assault Rifles ==");
+        case "Weapon Submenu":
+            self addMenu(menu, "Weapon Submenus");
+            self addOpt("Assault Rifles", &newMenu, "Assault Rifles");
+            self addOpt("Submachine Guns", &newMenu, "SMG");
+            self addOpt("Tactical Rifles", &newMenu, "Tactical Rifles");
+            self addOpt("Light Machine Guns", &newMenu, "LMG");
+            self addOpt("Sniper Rifles", &newMenu, "Sniper Rifles");
+            self addOpt("Pistols", &newMenu, "Pistols");
+            self addOpt("Shotguns", &newMenu, "Shotguns");
+            self addOpt("Special Weapons", &newMenu, "Special Weapons");
+        break;
+        case "Assault Rifles":
+            self addMenu(menu, "Assault Rifles");
             self addOpt("Give ICR-7", &BO4GiveWeapon, "ar_accurate_t8");
             self addOpt("Give Maddox RFB", &BO4GiveWeapon, "ar_fastfire_t8");
             self addOpt("Give Rampart 17", &BO4GiveWeapon, "ar_damage_t8");
             self addOpt("Give Vapr-XKG", &BO4GiveWeapon, "ar_stealth_t8");
             self addOpt("Give KN-57", &BO4GiveWeapon, "ar_modular_t8");
             self addOpt("Give Hitchcock M9", &BO4GiveWeapon, "ar_mg1909_t8");
-
-            self addOpt("^0 == Submachine Guns ==");
+        break;
+        case "SMG":
+            self addMenu(menu, "Submachine Guns");
             self addOpt("Give MX9", &BO4GiveWeapon, "smg_standard_t8");
             self addOpt("Give Saug 9mm", &BO4GiveWeapon, "smg_handling_t8");
             self addOpt("Give Spitfire", &BO4GiveWeapon, "smg_fastfire_t8");
             self addOpt("Give Cordite", &BO4GiveWeapon, "smg_capacity_t8");
             self addOpt("Give GKS", &BO4GiveWeapon, "smg_accurate_t8");
             self addOpt("Give Escargot", &BO4GiveWeapon, "smg_drum_pistol_t8");
-
-            self addOpt("^0 == Tactical Rifles ==");
+        break;
+        case "Tactical Rifles":
+            self addMenu(menu, "Tactical Rifles");
             self addOpt("Give Auger DMR", &BO4GiveWeapon, "tr_powersemi_t8");
             self addOpt("Give Swordfish", &BO4GiveWeapon, "tr_longburst_t8");
             self addOpt("Give ABR 223", &BO4GiveWeapon, "tr_midburst_t8");
-
-            self addOpt("^0 == Lightmachine Guns ==");
+        break;
+        case "LMG":
+            self addMenu(menu, "Light Machine Guns");
             self addOpt("Give VKM 750", &BO4GiveWeapon, "lmg_heavy_t8");
             self addOpt("Give Hades", &BO4GiveWeapon, "lmg_spray_t8");
             self addOpt("Give Titan", &BO4GiveWeapon, "lmg_standard_t8");
-
-            self addOpt("^0 == Sniper Rifles ==");
+        break;
+        case "Sniper Rifles":
+            self addMenu(menu, "Sniper Rifles");
             self addOpt("Give Outlaw", &BO4GiveWeapon, "sniper_fastrechamber_t8");
             self addOpt("Give Paladin HB50", &BO4GiveWeapon, "sniper_powerbolt_t8");
             self addOpt("Give SDM", &BO4GiveWeapon, "sniper_powersemi_t8");
             self addOpt("Give Koshka", &BO4GiveWeapon, "sniper_quickscope_t8");
-
-            self addOpt("^0 == Pistols ==");
+        break;
+        case "Pistols":
+            self addMenu(menu, "Pistols");
             self addOpt("Give RK 7 Garrison", &BO4GiveWeapon, "pistol_burst_t8");
             self addOpt("Give Mozu", &BO4GiveWeapon, "pistol_revolver_t8");
             self addOpt("Give Strife", &BO4GiveWeapon, "pistol_standard_t8");
             self addOpt("Give Welling", &BO4GiveWeapon, "pistol_topbreak_t8");
-
-            self addOpt("^0 == Shotguns ==");
+        break;
+        case "Shotguns":
+            self addMenu(menu, "Shotguns");
             self addOpt("Give Mog 12", &BO4GiveWeapon, "shotgun_pump_t8");
             self addOpt("Give SG12", &BO4GiveWeapon, "shotgun_pump_t8");
             self addOpt("Give Trenchgun", &BO4GiveWeapon, "shotgun_pump_t8");
-
-            self addOpt("^0 == Specials ==");
+        break;
+        case "Special Weapons":
+            self addMenu(menu, "Special Weapons");
             self addOpt("Give Hellion Salvo", &BO4GiveWeapon, "launcher_standard_t8");
             self addOpt("Give Minigun", &BO4GiveWeapon, "minigun");
+            if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+                self addOpt("Give Ray Gun", &BO4GiveWeapon, "ray_gun");
+                self addOpt("Give Ray Gun Mk2", &BO4GiveWeapon, "ray_gun_mk2");
+            }
         break; 
 
         case "Powerups Menu":

@@ -63,9 +63,9 @@ notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
     if (isDefined(self.NoTarg))
-        self.ignoreme++;
+        self.ignoreme=true;
     else
-        self.ignoreme--;
+        self.ignoreme=false;
 }
 
 ProMod()
@@ -455,9 +455,10 @@ GiveImpaler()
 
 GetWeaponName()
 {
+
     Weap = self GetCurrentWeapon().Name;
     wait .1;
-    self iPrintLnBold("Weapon Hash: "+Weap);
+    self iPrintLnBold("Weapon Hash: hash_"+Weap);
 }
 //freezegun? hash_2605a6745df58840
 
@@ -552,10 +553,17 @@ Zombies Modifications
 */
 KillAllZombies(player) 
 {
-    foreach(zombie in GetAITeamArray(level.zombie_team)) 
+    level.zombie_total = 0;
+    for(a=0;a<3;a++) //Gotta get those zombies killed :D
     {
-        if (isDefined(zombie)) zombie dodamage(zombie.maxhealth + 999, zombie.origin, player);
+        zombies = GetAISpeciesArray(level.zombie_team, "all");
+        for(z=0;z<zombies.size;z++)
+        {
+            if(isDefined(zombies[z]) && IsAlive(zombies[z]))
+            zombies[b] DoDamage(zombies[z].health + 99, zombies[z].origin);
+        }
     }
+    self iPrintLnBold("All Zombies ^1Eliminated");
 }
 
 TeleportZombies() 
@@ -1080,8 +1088,6 @@ ModelSpawnTest()
         wait 2;
         Jugg SetScale(100);
 }
-
-//Start Changes
 test()
 {
     self iPrintLnBold("Test");
@@ -1193,7 +1199,7 @@ GameModeHandler(gameModeSelected)
     }
 }
 
-doGunGame()
+doGunGame()//Haha, thats kinda funny Criptic, Guess what I did here, before you :D
 {
         self thread KillAllZombies();
         self thread RoundEdit(15);
