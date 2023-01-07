@@ -19,7 +19,6 @@ runMenuIndex(menu)
                 self addOpt("Zombie Menu", &newMenu, "Zombie Menu");
                 self addOpt("Mystery Box Menu", &newMenu, "Mystery Box Menu");
                 self addOpt("Account Menu", &newMenu, "Account Menu");
-                self addOpt("Map Selection", &newMenu, "Map Selection");
                 self addOpt("Teleport Menu", &newMenu, "Teleport Menu");
                 if(self getVerification() > 1)
                 {
@@ -57,11 +56,11 @@ runMenuIndex(menu)
                 self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
                 self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed);
                 self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
-                self addOpt("Print Prestige", &BO4GetPrestige);
-                self addOpt("Print Current Level", &BO4GetLevel);
-                self addOpt("Anti Join", &AntiJoin);
-                self addOpt("Play EE Song", &PlayEESong);
+                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
                 self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
+                self addOpt("Anti Join", &AntiJoin);
+                self addOpt("Map Selection", &newMenu, "Map Selection");
+                self addOpt("Play EE Song", &PlayEESong);
                 self addOpt("Exit Level", &PlayerExitLevel);
                 self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Restart Map", &RestartMap);
@@ -282,57 +281,14 @@ MenuOptionsPlayer(menu, player)
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
             self addOpt("Print Weapon Hash", &GetWeaponName);
-            self addOpt("Weapon Selection", &newMenu, "Weapon Submenu");
-            self addOpt("Map Specific Weapons", &newMenu, "Map Specific Weapons");
+            self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
+            self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
             self addOpt("Upgrade Weapon", &UpgradeWeapon);
             self addOpt("Pack a Punch Effects", &newMenu, "Pack a Punch Effects");
             self addOpt("Drop Weapon", &DropWeapon);
             self addOpt("Take All Weapons", &TakeWeapons);
             self addOpt("Take Current Weapon", &TakeCurrentWeapon);
-        break;
-        case "Map Specific Weapons":
-            self addMenu(menu, "Map Specific Weapons");
-            if(BO4GetMap() == "Voyage"){
-                self addOpt("Kraken", &BO4GiveWeapon, "ww_tricannon_t8");
-                self addOpt("Decayed Kraken", &BO4GiveWeapon, "ww_tricannon_earth_t8");
-                self addOpt("Plasmatic Kraken", &BO4GiveWeapon, "ww_tricannon_fire_t8");
-                self addOpt("Purified Kraken", &BO4GiveWeapon, "ww_tricannon_water_t8");
-                self addOpt("Radiant Kraken", &BO4GiveWeapon, "ww_tricannon_air_t8");
-                self addOpt("Upgraded Kraken", &BO4GiveWeapon, "ww_tricannon_t8_upgraded");
-            }
-            else if(BO4GetMap() == "IX"){
-                self addOpt("Death of Orion", &GiveDeathOfOrion);
-            }
-            else if(BO4GetMap() == "Blood"){
-                self addOpt("Blundergat", &BO4GiveWeapon, "ww_blundergat_t8");
-                self addOpt("Monkey Bombs", &BO4GiveWeapon, "cymbal_monkey");
-                self addOpt("Hells Retriever", &BO4GiveWeapon, "tomahawk_t8");
-                self addOpt("Hells Redeemer", &BO4GiveWeapon, "tomahawk_t8_upgraded");
-                self addOpt("Magmagat", &BO4GiveWeapon, "ww_blundergat_fire_t8");
-                self addOpt("AcidGat", &BO4GiveWeapon, "ww_blundergat_acid_t8");
-                self addOpt("Spoon", &GiveSpoon);
-                self addOpt("Golden Spork", &GiveSpork);
-            }
-            else if(BO4GetMap() == "Dead"){
-                self addOpt("Give Savage Impaler", &GiveImpaler);
-                self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
-            }else if(BO4GetMap() == "AE"){
-                self addOpt("Upgraded Hand of Ouranous", &BO4GiveWeapon, "ww_hand_o_upgraded");
-                self addOpt("Upgraded Hand of Hemera", &BO4GiveWeapon, "ww_hand_h_upgraded");
-                self addOpt("Upgraded Hand of Gaia", &BO4GiveWeapon, "ww_hand_g_upgraded");
-                self addOpt("Upgraded Hand of Charon", &BO4GiveWeapon, "ww_hand_c_upgraded");
-            }else if(BO4GetMap() == "Tag"){
-                self addOpt("Wunderwaffe DG", &BO4GiveWeapon, "ww_teslasniper_t8");
-                self addOpt("ThunderGun", &BO4GiveWeapon, "thundergun");
-                self addOpt("Tundragun", &BO4GiveWeapon, "tundragun");
-            }
-            else if(BO4GetMap() == "AO"){
-                self addOpt("Ray Gun II-V", &BO4GiveWeapon, "ray_gun_mk2v");
-                self addOpt("Ray Gun II-X", &BO4GiveWeapon, "ray_gun_mk2x");
-                self addOpt("Ray Gun II-Y", &BO4GiveWeapon, "ray_gun_mk2y");
-                self addOpt("Ray Gun II-Z", &BO4GiveWeapon, "ray_gun_mk2z");
-            }
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
@@ -347,8 +303,8 @@ MenuOptionsPlayer(menu, player)
             for(a=0;a<96;a++)
                     self addOpt("Camo: " + (a + 1), &bo4_CamoGiver, a);
         break;
-        case "Weapon Submenu":
-            self addMenu(menu, "Weapon Submenus");
+        case "Normal Weapons":
+            self addMenu(menu, "Normal Weapons");
             self addOpt("Assault Rifles", &newMenu, "Assault Rifles");
             self addOpt("Submachine Guns", &newMenu, "SMG");
             self addOpt("Tactical Rifles", &newMenu, "Tactical Rifles");
@@ -357,67 +313,185 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Pistols", &newMenu, "Pistols");
             self addOpt("Shotguns", &newMenu, "Shotguns");
             self addOpt("Special Weapons", &newMenu, "Special Weapons");
+            self addOpt("Map Specific Weapons", &newMenu, "Map Specific Weapons");
         break;
         case "Assault Rifles":
             self addMenu(menu, "Assault Rifles");
-            self addOpt("Give ICR-7", &BO4GiveWeapon, "ar_accurate_t8");
-            self addOpt("Give Maddox RFB", &BO4GiveWeapon, "ar_fastfire_t8");
-            self addOpt("Give Rampart 17", &BO4GiveWeapon, "ar_damage_t8");
-            self addOpt("Give Vapr-XKG", &BO4GiveWeapon, "ar_stealth_t8");
-            self addOpt("Give KN-57", &BO4GiveWeapon, "ar_modular_t8");
-            self addOpt("Give Hitchcock M9", &BO4GiveWeapon, "ar_mg1909_t8");
+            self addOpt("Give ICR-7", &GiveClientWeapon, "ar_accurate_t8", self);
+            self addOpt("Give Maddox RFB", &GiveClientWeapon, "ar_fastfire_t8", self);
+            self addOpt("Give Rampart 17", &GiveClientWeapon, "ar_damage_t8", self);
+            self addOpt("Give Vapr-XKG", &GiveClientWeapon, "ar_stealth_t8", self);
+            self addOpt("Give KN-57", &GiveClientWeapon, "ar_modular_t8", self);
+            self addOpt("Give Hitchcock M9", &GiveClientWeapon, "ar_mg1909_t8", self);
         break;
         case "SMG":
             self addMenu(menu, "Submachine Guns");
-            self addOpt("Give MX9", &BO4GiveWeapon, "smg_standard_t8");
-            self addOpt("Give Saug 9mm", &BO4GiveWeapon, "smg_handling_t8");
-            self addOpt("Give Spitfire", &BO4GiveWeapon, "smg_fastfire_t8");
-            self addOpt("Give Cordite", &BO4GiveWeapon, "smg_capacity_t8");
-            self addOpt("Give GKS", &BO4GiveWeapon, "smg_accurate_t8");
-            self addOpt("Give Escargot", &BO4GiveWeapon, "smg_drum_pistol_t8");
+            self addOpt("Give MX9", &GiveClientWeapon, "smg_standard_t8", self);
+            self addOpt("Give Saug 9mm", &GiveClientWeapon, "smg_handling_t8", self);
+            self addOpt("Give Spitfire", &GiveClientWeapon, "smg_fastfire_t8", self);
+            self addOpt("Give Cordite", &GiveClientWeapon, "smg_capacity_t8", self);
+            self addOpt("Give GKS", &GiveClientWeapon, "smg_accurate_t8", self);
+            self addOpt("Give Escargot", &GiveClientWeapon, "smg_drum_pistol_t8", self);
         break;
         case "Tactical Rifles":
             self addMenu(menu, "Tactical Rifles");
-            self addOpt("Give Auger DMR", &BO4GiveWeapon, "tr_powersemi_t8");
-            self addOpt("Give Swordfish", &BO4GiveWeapon, "tr_longburst_t8");
-            self addOpt("Give ABR 223", &BO4GiveWeapon, "tr_midburst_t8");
+            self addOpt("Give Auger DMR", &GiveClientWeapon, "tr_powersemi_t8", self);
+            self addOpt("Give Swordfish", &GiveClientWeapon, "tr_longburst_t8", self);
+            self addOpt("Give ABR 223", &GiveClientWeapon, "tr_midburst_t8", self);
         break;
         case "LMG":
             self addMenu(menu, "Light Machine Guns");
-            self addOpt("Give VKM 750", &BO4GiveWeapon, "lmg_heavy_t8");
-            self addOpt("Give Hades", &BO4GiveWeapon, "lmg_spray_t8");
-            self addOpt("Give Titan", &BO4GiveWeapon, "lmg_standard_t8");
+            self addOpt("Give VKM 750", &GiveClientWeapon, "lmg_heavy_t8", self);
+            self addOpt("Give Hades", &GiveClientWeapon, "lmg_spray_t8", self);
+            self addOpt("Give Titan", &GiveClientWeapon, "lmg_standard_t8", self);
         break;
         case "Sniper Rifles":
             self addMenu(menu, "Sniper Rifles");
-            self addOpt("Give Outlaw", &BO4GiveWeapon, "sniper_fastrechamber_t8");
-            self addOpt("Give Paladin HB50", &BO4GiveWeapon, "sniper_powerbolt_t8");
-            self addOpt("Give SDM", &BO4GiveWeapon, "sniper_powersemi_t8");
-            self addOpt("Give Koshka", &BO4GiveWeapon, "sniper_quickscope_t8");
+            self addOpt("Give Outlaw", &GiveClientWeapon, "sniper_fastrechamber_t8", self);
+            self addOpt("Give Paladin HB50", &GiveClientWeapon, "sniper_powerbolt_t8", self);
+            self addOpt("Give SDM", &GiveClientWeapon, "sniper_powersemi_t8", self);
+            self addOpt("Give Koshka", &GiveClientWeapon, "sniper_quickscope_t8", self);
         break;
         case "Pistols":
             self addMenu(menu, "Pistols");
-            self addOpt("Give RK 7 Garrison", &BO4GiveWeapon, "pistol_burst_t8");
-            self addOpt("Give Mozu", &BO4GiveWeapon, "pistol_revolver_t8");
-            self addOpt("Give Strife", &BO4GiveWeapon, "pistol_standard_t8");
-            self addOpt("Give Welling", &BO4GiveWeapon, "pistol_topbreak_t8");
+            self addOpt("Give RK 7 Garrison", &GiveClientWeapon, "pistol_burst_t8", self);
+            self addOpt("Give Mozu", &GiveClientWeapon, "pistol_revolver_t8", self);
+            self addOpt("Give Strife", &GiveClientWeapon, "pistol_standard_t8", self);
+            self addOpt("Give Welling", &GiveClientWeapon, "pistol_topbreak_t8", self);
         break;
         case "Shotguns":
             self addMenu(menu, "Shotguns");
-            self addOpt("Give Mog 12", &BO4GiveWeapon, "shotgun_pump_t8");
-            self addOpt("Give SG12", &BO4GiveWeapon, "shotgun_pump_t8");
-            self addOpt("Give Trenchgun", &BO4GiveWeapon, "shotgun_pump_t8");
+            self addOpt("Give Mog 12", &GiveClientWeapon, "shotgun_pump_t8", self);
+            self addOpt("Give SG12", &GiveClientWeapon, "shotgun_pump_t8", self);
+            self addOpt("Give Trenchgun", &GiveClientWeapon, "shotgun_pump_t8", self);
         break;
         case "Special Weapons":
             self addMenu(menu, "Special Weapons");
-            self addOpt("Give Hellion Salvo", &BO4GiveWeapon, "launcher_standard_t8");
-            self addOpt("Give Minigun", &BO4GiveWeapon, "minigun");
+            self addOpt("Give Hellion Salvo", &GiveClientWeapon, "launcher_standard_t8", self);
+            self addOpt("Give Minigun", &GiveClientWeapon, "minigun", self);
+            self addOpt("Ballistic Knife", &GiveClientWeapon, "special_ballisticknife_t8_dw", self);
+            self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Give Ray Gun", &BO4GiveWeapon, "ray_gun");
-                self addOpt("Give Ray Gun Mk2", &BO4GiveWeapon, "ray_gun_mk2");
+                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
+                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
             }
-        break; 
-
+        break;
+        case "Map Specific Weapons":
+            self addMenu(menu, "Map Specific Weapons");
+            if(BO4GetMap() == "Voyage"){
+                self addOpt("Kraken", &GiveClientWeapon, "ww_tricannon_t8", self);
+                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8", self);
+                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
+                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
+                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
+            }
+            else if(BO4GetMap() == "IX"){
+                self addOpt("Death of Orion", &GiveDeathOfOrion);
+            }
+            else if(BO4GetMap() == "Blood"){
+                self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
+                self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
+                self addOpt("Hells Retriever", &GiveClientWeapon, "tomahawk_t8", self);
+                self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
+                self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
+                self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
+                self addOpt("Spoon", &GiveSpoon);
+                self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
+                self addOpt("Golden Spork", &GiveSpork);
+            }
+            else if(BO4GetMap() == "Dead"){
+                self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
+                self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
+            }else if(BO4GetMap() == "AE"){
+                self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
+                self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h_upgraded", self);
+                self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
+                self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
+            }else if(BO4GetMap() == "Tag"){
+                self addOpt("Wunderwaffe DG", &GiveClientWeapon, "ww_teslasniper_t8", self);
+                self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
+                self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
+                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
+            }
+            else if(BO4GetMap() == "AO"){
+                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
+                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
+                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
+                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
+            }
+        break;
+        case "Upgraded Weapons":
+            self addMenu(menu, "Upgraded Weapons");
+            self addOpt("Assault Rifles", &newMenu, "Upgraded AR");
+            self addOpt("Submachine Guns", &newMenu, "Upgraded SMG");
+            self addOpt("Tactical Rifles", &newMenu, "Upgraded TR");
+            self addOpt("Light Machine Guns", &newMenu, "Upgraded LMG");
+            self addOpt("Sniper Rifles", &newMenu, "Upgraded SR");
+            self addOpt("Pistols", &newMenu, "Upgraded Pistols");
+            self addOpt("Shotguns", &newMenu, "Upgraded Shotguns");
+            self addOpt("Special Weapons", &newMenu, "Upgraded Specials");
+        break;
+        case "Upgraded AR":
+            self addMenu(menu, "Upgraded Assault Rifles");
+            self addOpt("Impertinent Deanimator", &GiveClientWeapon, "ar_accurate_t8_upgraded", self);
+            self addOpt("Red Fiend Bull", &GiveClientWeapon, "ar_fastfire_t8_upgraded", self);
+            self addOpt("Parapetrifrier", &GiveClientWeapon, "ar_damage_t8_upgraded", self);
+            self addOpt("Creeping Haze", &GiveClientWeapon, "ar_stealth_t8_upgraded", self);
+            self addOpt("Ruined Revenger", &GiveClientWeapon, "ar_modular_t8_upgraded", self);
+            self addOpt("Waking Nightmare", &GiveClientWeapon, "ar_mg1909_t8_upgraded", self);
+        break;
+        case "Upgraded SMG":
+            self addMenu(menu, "Upgraded SMGs");
+            self addOpt("Nuevemuertes xx", &GiveClientWeapon, "smg_standard_t8_upgraded", self);
+            self addOpt("Stellar 92", &GiveClientWeapon, "smg_handling_t8_upgraded", self);
+            self addOpt("Sky Scorcher", &GiveClientWeapon, "smg_fastfire_t8_upgraded", self);
+            self addOpt("Corpsemaker", &GiveClientWeapon, "smg_capacity_t8_upgraded", self);
+            self addOpt("Ghoul Keepers Subjugator", &GiveClientWeapon, "smg_accurate_t8_upgraded", self);
+            self addOpt("PieceDerResistance", &GiveClientWeapon, "smg_drum_pistol_t8_upgraded", self);
+            self addOpt("Excisenin3fold", &GiveClientWeapon, "smg_folding_t8_upgraded", self);
+        break;
+        case "Upgraded TR":
+            self addMenu(menu, "Upgraded Tactical Rifles");
+            self addOpt("Dead Mans ReefRacker", &GiveClientWeapon, "tr_powersemi_t8_upgraded", self);
+            self addOpt("Astralo-Packy-Cormus", &GiveClientWeapon, "tr_longburst_t8_upgraded", self);
+            self addOpt("Br-r-rah", &GiveClientWeapon, "tr_midburst_t8_upgraded", self);
+        break;
+        case "Upgraded LMG":
+            self addMenu(menu, "Upgraded LMGs");
+            self addOpt("Cackling Kaftar", &GiveClientWeapon, "lmg_heavy_t8_upgraded", self);
+            self addOpt("Acheron Alliterator", &GiveClientWeapon, "lmg_spray_t8_upgraded", self);
+            self addOpt("Tartarus Veil", &GiveClientWeapon, "lmg_standard_t8_upgraded", self);
+        break;
+        case "Upgraded SR":
+            self addMenu(menu, "Upgraded Snipers");
+            self addOpt("D3SOL8 Regulator", &GiveClientWeapon, "sniper_fastrechamber_t8_upgraded", self);
+            self addOpt("Righteous Fury", &GiveClientWeapon, "sniper_powerbolt_t8_upgraded", self);
+            self addOpt("IT-5 LYT", &GiveClientWeapon, "sniper_powersemi_t8_upgraded", self);
+            self addOpt("Bakeneko", &GiveClientWeapon, "sniper_quickscope_t8_upgraded", self);
+        break;
+        case "Upgraded Pistols":
+            self addMenu(menu, "Upgraded Pistols");
+            self addOpt("Rapskallion 3D", &GiveClientWeapon, "pistol_burst_t8_upgraded", self);
+            self addOpt("Belle Of The Ball", &GiveClientWeapon, "pistol_revolver_t8_upgraded", self);
+            self addOpt("Z-Harmony", &GiveClientWeapon, "pistol_standard_t8_upgraded", self);
+            self addOpt("King & Country", &GiveClientWeapon, "pistol_topbreak_t8_upgraded", self);
+        break;
+        case "Upgraded Shotguns":
+            self addMenu(menu, "Upgraded Shotguns");
+            self addOpt("OMG Right Hook", &GiveClientWeapon, "shotgun_pump_t8_upgraded", self);
+            self addOpt("Breccius Rebornus", &GiveClientWeapon, "shotgun_semiauto_t8_upgraded", self);
+            self addOpt("M9-TKG Home Wrecker", &GiveClientWeapon, "shotgun_trenchgun_t8_upgraded", self);
+        break;
+        case "Upgraded Specials":
+            self addMenu(menu, "Upgraded Specials");
+            self addOpt("Zitros Orbital Arbalest", &GiveClientWeapon, "launcher_standard_t8_upgraded", self);
+            self addOpt("Thekrauss Refibrillator++", &GiveClientWeapon, "special_ballisticknife_t8_dw_upgraded", self);
+            if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+                self addOpt("Porters X2 Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
+                self addOpt("Porters Mark II Ray Gun", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
+            }
+            self addOpt("Minos's Zeal", &GiveClientWeapon, "special_crossbow_t8_upgraded", self);
+        break;
         case "Powerups Menu":
             self addMenu(menu, "Powerups");
             if(BO4GetMap() == "Blood"){self addOpt("Zombie Blood", &GivePowerup, "zombie_blood");}
@@ -462,7 +536,6 @@ MenuOptionsPlayer(menu, player)
         case "Account Menu":
             self addMenu(menu,"Account Menu");
             self addOpt("Max Level", &BO4Level55, player);
-            self addOpt("Prestige Selector", &newMenu, "Prestige");
             self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
             self addOpt("Unlock All", &bo4_UnlockAll, player);
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
@@ -470,11 +543,6 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Level 1000", &BO4SetPrestigeMax);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
-        break;
-        case "Prestige":
-            self addMenu(menu, "Prestige Selector");
-            for(i=0;i<12;i++)
-                self addOpt("Prestige "+i, &BO4SetPrestige, i);
         break;
         case "Stats Menu":
             self addMenu(menu,"Stats Menu");
@@ -484,7 +552,6 @@ MenuOptionsPlayer(menu, player)
             self addOptIncSlider("Most Headshots", &Stats_MostHeadshots, 0, 0, 10000, 100);
             self addOptIncSlider("Round", &Stats_Round, 0, 0, 10000, 100);
         break;
-
         case "Options":       
             self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
                 self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
@@ -506,21 +573,14 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Teleport To Player", &TeleTo, "them",player);
                 self addOpt("Tele Player To Me", &TeleTo, "me",player);
                 self addOpt("Max Out Player Score", &ClientHandler, "Score", player);
-                if (BO4GetMap() == "Blood"){self addOpt("Give Player Blundergat", &ClientHandler, "BG", player); self addOpt("Give Player Magmagat", &ClientHandler, "MG", player); self addOpt("Give AcidGat", &ClientHandler, "AG", player);}
+                if (BO4GetMap() == "Blood"){self addOpt("Give Player Blundergat", &GiveClientWeapon, "ww_blundergat_t8", player); self addOpt("Give Player Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", player); self addOpt("Give AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", player);}
         break;
         case "ClientStats":
             self addMenu(menu, "Stat Manipulation");
                 self addOpt("Give Max Level", &ClientHandler, "MaxLevel", player);
-                self addOpt("Prestige Selector", &newMenu, "CPrestige " + player getEntityNumber());
                 self addOptBool(player.PlasmaLoop2, "Plasma Loop 100k", &ClientHandler, "Plasma", player);
                 self addOpt("Max Weapon Levels", &ClientHandler, "WeaponLevels", player);
                 self addOpt("Unlock All", &ClientHandler, "UnlockAll", player);
-                self addOpt("Set Prestige Master 1000", &ClientHandler, "1000", player);
-        break;
-        case "CPrestige":
-            self addMenu(menu, "Client Prestige Selector");
-                for(i=0;i<12;i++)
-                    self addOpt("Prestige: "+i, &ClientPrestige, i, player);
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
@@ -529,7 +589,6 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Send To Jail", &sendToJail, player);
                 self addOpt("Kill Player", &KillPlayer, player);
                 self addOpt("Down Player", &DownPlayer, player);
-                self addOpt("Derank Player");
                 self addOptIncSlider("Send Message", &PlayerMessage, 0,0,4,1, player);
             break;
         default:

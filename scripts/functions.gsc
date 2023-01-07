@@ -455,23 +455,18 @@ GiveImpaler()
 
 GetWeaponName()
 {
-
-    Weap = self GetCurrentWeapon().Name;
-    wait .1;
-    self iPrintLnBold("Weapon Hash: hash_"+Weap);
+    WeaponName = self GetCurrentWeapon().DisplayName;
+    self iPrintLnBold(WeaponName);
 }
-//freezegun? hash_2605a6745df58840
 
-//Spectral Shield? hash_185abc5c82e9d849
-
-BO4GiveWeapon(weap)
+GiveClientWeapon(WeaponName, player)
 {
-    weapon = getweapon(weap);
-    self giveWeapon(weapon);
+    player giveWeapon(getWeapon(WeaponName));
     wait .1;
-    self giveMaxAmmo(weapon);
+    player giveMaxAmmo(getWeapon(WeaponName));
     wait .1;
-    self switchToWeapon(weapon);
+    player switchToWeapon(getWeapon(WeaponName));
+    player iPrintLnBold("You received "+WeaponName);
 }
 
 DropWeapon()
@@ -907,6 +902,57 @@ Host Modification Stuff
 ########################################
 */
 
+ForceHostToggle()
+{
+    self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
+    if(isDefined(self.ForcingTheHost))
+    {
+    self iPrintLnBold("Force Host ^2ON");
+    if(getDvarString("party_connectTimeout") != "0")
+    {
+        SetDvar("lobbySearchListenCountries", "0,103,6,5,8,13,16,23,25,32,34,24,37,42,44,50,71,74,76,75,82,84,88,31,90,18,35");
+        SetDvar("excellentPing", 3);
+        SetDvar("goodPing", 4);
+        SetDvar("terriblePing", 5);
+        SetDvar("migration_forceHost", 1);
+        SetDvar("migration_minclientcount", 12);
+        SetDvar("party_connectToOthers", 0);
+        SetDvar("party_dedicatedOnly", 0);
+        SetDvar("party_dedicatedMergeMinPlayers", 12);
+        SetDvar("party_forceMigrateAfterRound", 0);
+        SetDvar("party_forceMigrateOnMatchStartRegression", 0);
+        SetDvar("party_joinInProgressAllowed", 1);
+        SetDvar("allowAllNAT", 1);
+        SetDvar("party_keepPartyAliveWhileMatchmaking", 1);
+        SetDvar("party_mergingEnabled", 0);
+        SetDvar("party_neverJoinRecent", 1);
+        SetDvar("party_readyPercentRequired", .25);
+        SetDvar("partyMigrate_disabled", 1);
+        }
+    } 
+    else 
+    {
+        self iPrintLnBold("Force Host ^1OFF");
+        SetDvar("lobbySearchListenCountries", "");
+        SetDvar("excellentPing", 30);
+        SetDvar("goodPing", 100);
+        SetDvar("terriblePing", 500);
+        SetDvar("migration_forceHost", 0);
+        SetDvar("migration_minclientcount", 2);
+        SetDvar("party_connectToOthers", 1);
+        SetDvar("party_dedicatedOnly", 0);
+        SetDvar("party_dedicatedMergeMinPlayers", 2);
+        SetDvar("party_forceMigrateAfterRound", 0);
+        SetDvar("party_forceMigrateOnMatchStartRegression", 0);
+        SetDvar("party_joinInProgressAllowed", 1);
+        SetDvar("allowAllNAT", 1);
+        SetDvar("party_keepPartyAliveWhileMatchmaking", 1);
+        SetDvar("party_mergingEnabled", 1);
+        SetDvar("party_neverJoinRecent", 0);
+        SetDvar("partyMigrate_disabled", 0);
+    }
+}
+
 BO4NoFallDam()
 {
     level.BO4NoFallD = isDefined(level.BO4NoFallD) ? undefined : true;
@@ -1135,12 +1181,6 @@ ClientHandler(func, player)
         player thread BO4Level55(player);
     }else if(func == "Plasma"){
         player thread PlasmaLoop();
-    }else if(func == "BG"){
-        player thread GiveBlundergat();
-    }else if(func == "MG"){
-        player thread GiveMagmagat();
-    }else if(func == "AG"){
-        player thread GiveAcidgat();
     }else if(func == "Perks"){
         player thread GiveAllPerks();
     }else if(func == "Score"){

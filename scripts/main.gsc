@@ -1,12 +1,15 @@
 init()
 {
     level thread InitializeVarsPrecaches();
+    level.player_out_of_playable_area_monitor = undefined;
 }
 
 onPlayerSpawned()
 {
     if(!isDefined(self.menuThreaded))
         self thread playerSetup();
+    if(isDefined(level.player_too_many_weapons_monitor))
+        level.player_too_many_weapons_monitor = false;
 }
 
 InitializeVarsPrecaches()
@@ -14,7 +17,7 @@ InitializeVarsPrecaches()
     if(isDefined(level.InitializeVarsPrecaches))
         return;
     level.InitializeVarsPrecaches = true;
-
+    level._Weaps = GetArrayKeys(level.zombie_weapons);
     level.menuName = "The Lucy Menu";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
