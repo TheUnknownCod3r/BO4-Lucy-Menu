@@ -147,6 +147,8 @@ This wouldn't be possible without the following people
 
 * [TheUnknownCod3r](https://www.github.com/TheUnknownCod3r/)
 	Taking over updates, and Porting new features.
+	
+* several community members supplied the unhashed weapon names. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
