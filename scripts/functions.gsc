@@ -678,25 +678,6 @@ BO4Level55(player)
     uploadStats(player);
     player iPrintLnBold("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
 }
-BO4SetPrestige(val)
-{
-    self stats::set_stat("playerstatslist","plevel", "statValue", val);
-    self rank::updaterank();
-    uploadStats(self);
-    self S("Your Prestige Was Set To: "+val);
-}
-
-BO4GetPrestige()
-{
-	prestigeVal = self stats::get_stat("playerstatslist", "plevel", "statvalue");
-	self iPrintLnBold("Your Prestige is: "+prestigeVal);
-}
-
-BO4GetLevel()
-{
-    levelVal = self stats::get_stat("playerstatslist", "rank", "statvalue");
-    self iPrintLnBold(levelVal);
-}
 
 PlasmaLoopplayer(player)
 {
@@ -852,7 +833,7 @@ BO4SetPrestigeMax()
     currentPrestige = self stats::get_stat("playerstatslist", "plevel", "statvalue");
     if(currentPrestige == 11){
     self stats::set_stat("playerstatslist", "plevel", "statvalue", 11);
-    self stats::set_stat("playerstatslist", "paragon_rank", "statvalue", 999);
+    self stats::set_stat("playerstatslist", "paragon_rank", "statvalue", 954);
     self stats::set_stat("playerstatslist", "paragon_rankxp", "statvalue", 251600000);
     self addRankXpValue("kill", 251600000);
     self rank::updaterank();
