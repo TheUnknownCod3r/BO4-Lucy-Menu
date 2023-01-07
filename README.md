@@ -11,10 +11,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="300" height="300">
   </a>
 
-  <h3 align="center">BO4 Lucy Menu</h3>
+  <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
 	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.
