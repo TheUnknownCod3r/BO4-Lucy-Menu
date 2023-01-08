@@ -384,6 +384,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
+                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
@@ -397,7 +398,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
                 self addOpt("Spoon", &GiveSpoon);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
-                self addOpt("Golden Spork", &GiveSpork);
+                self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
+                self addOpt("Golden Spork", &GiveClientWeapon, "spknifeork", self);
             }
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
