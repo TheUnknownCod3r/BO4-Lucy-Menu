@@ -746,7 +746,7 @@ drawText()
             text = self.menu["items"][menu].name;
             str = text[(a + start)];
             if(isDefined(self.menu["items"][menu].bool[(a + start)]))
-                str += (isDefined(self.menu_B[menu][(a + start)]) && self.menu_B[menu][(a + start)]) ? " [ON]" : " [OFF]";
+                str += (isDefined(self.menu_B[menu][(a + start)]) && self.menu_B[menu][(a + start)]) ? " ^2[ON]" : " ^1[OFF]";
             else if(isDefined(self.menu["items"][menu].incslider[(a + start)]))
                 str += "^1 < " + self.menu_SS[menu][(a + start)] + " >";
             else if(isDefined(self.menu["items"][menu].slider[(a + start)]))
@@ -799,7 +799,7 @@ MonitorMenuRefresh()
         self drawText();
         while(self isInMenu())
         {
-            if(self.lastRefresh < GetTime() - 7000)
+            if(self.lastRefresh < GetTime() - 6000)
                 self drawText();
             wait 1;
         }
