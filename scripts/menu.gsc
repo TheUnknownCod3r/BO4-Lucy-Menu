@@ -39,10 +39,10 @@ runMenuIndex(menu)
             break;
         case "AllClient":
             self addMenu(menu, "All Client Options");
-                self addOpt("All God Mode", &ClientFuncs, "GodMode", undefined);
-                self addOpt("All Unlimited Ammo", &ClientFuncs, "Ammo", undefined);
-                self addOpt("All Max Points", &ClientFuncs, "Points", undefined);
-                self addOpt("Give Everyone All Perks", &ClientFuncs, "Perks", undefined);
+                self addOpt("All God Mode", &ClientFuncs, 0, undefined);
+                self addOpt("All Unlimited Ammo", &ClientFuncs, 1, undefined);
+                self addOpt("All Max Points", &ClientFuncs, 2, undefined);
+                self addOpt("Give Everyone All Perks", &ClientFuncs, 3, undefined);
                 self addOptIncSlider("Self Revives", &SetSelfRevives, 0, 0, 125, 5);
         break;
         case "GameModes":
@@ -542,7 +542,6 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Unlock All", &bo4_UnlockAll, player);
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
             self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
-            self addOpt("Give Level 1000", &BO4SetPrestigeMax);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
         break;
@@ -568,26 +567,26 @@ MenuOptionsPlayer(menu, player)
             break;
         case "ClientPMods":
             self addMenu(menu, "Personal Modifications");
-                self addOptBool(player.godmode, "God Mode", &ClientHandler, "GodMode", player);
-                self addOptBool(player.UnlimitedAmmo, "Unlimited Ammo", &ClientHandler, "Ammo", player);
-                self addOpt("Give All Perks", &ClientHandler, "Perks", player);
-                self addOpt("Give Self Revive", &ClientHandler, "SelfRev", player);
-                self addOpt("Teleport To Player", &TeleTo, "them",player);
-                self addOpt("Tele Player To Me", &TeleTo, "me",player);
-                self addOpt("Max Out Player Score", &ClientHandler, "Score", player);
+                self addOptBool(player.godmode, "God Mode", &ClientHandler, 0, player);
+                self addOptBool(player.UnlimitedAmmo, "Unlimited Ammo", &ClientHandler, 1, player);
+                self addOpt("Give All Perks", &ClientHandler, 4, player);
+                self addOpt("Give Self Revive", &ClientHandler, 5, player);
+                self addOpt("Teleport To Player", &TeleTo, 1,player);
+                self addOpt("Tele Player To Me", &TeleTo, 0,player);
+                self addOpt("Max Out Player Score", &ClientHandler, 8, player);
                 if (BO4GetMap() == "Blood"){self addOpt("Give Player Blundergat", &GiveClientWeapon, "ww_blundergat_t8", player); self addOpt("Give Player Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", player); self addOpt("Give AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", player);}
         break;
         case "ClientStats":
             self addMenu(menu, "Stat Manipulation");
-                self addOpt("Give Max Level", &ClientHandler, "MaxLevel", player);
-                self addOptBool(player.PlasmaLoop2, "Plasma Loop 100k", &ClientHandler, "Plasma", player);
-                self addOpt("Max Weapon Levels", &ClientHandler, "WeaponLevels", player);
-                self addOpt("Unlock All", &ClientHandler, "UnlockAll", player);
+                self addOpt("Give Max Level", &ClientHandler, 2, player);
+                self addOptBool(player.PlasmaLoop2, "Plasma Loop 100k", &ClientHandler, 3, player);
+                self addOpt("Max Weapon Levels", &ClientHandler, 7, player);
+                self addOpt("Unlock All", &ClientHandler, 6, player);
         break;
         case "Trolling":
             self addMenu(menu, "Trolling Options");
                 self addOpt("Take all Weapons", &TakeAllPlayerWeaps, player);
-                self addOpt("Take All Player Score", &ClientHandler, "TakePoints", player);
+                self addOpt("Take All Player Score", &ClientHandler, 9, player);
                 self addOpt("Send To Jail", &sendToJail, player);
                 self addOpt("Kill Player", &KillPlayer, player);
                 self addOpt("Down Player", &DownPlayer, player);

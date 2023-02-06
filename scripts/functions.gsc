@@ -1077,11 +1077,6 @@ sendToJail(player)
 }
 
 
-ClientPrestige(Val, player)
-{
-    player thread BO4SetPrestige(Val);
-}
-
 
 PlayerMessage(val, player)
 {
@@ -1122,10 +1117,10 @@ test()
 
 TeleTo(arg, player)
 {
-    if(arg == "them"){
-        self setOrigin(player.origin + (+30, 0, 0));
-    }else if(arg == "me"){
-        player setOrigin(self.origin + (30, 0, 0));
+    switch(arg)
+    {
+        case 0: self setOrigin(player.origin + (+30,0,0)); break;
+        case 1: player setOrigin(self.origin+(+30,0,0)); break;
     }
 }
 
@@ -1133,49 +1128,30 @@ ClientFuncs(args, val1)
 {
     foreach(player in level.players)
     {
-        if (args == "GodMode")
+        switch(args)
         {
-            player thread Godmode();
-        }
-        else if(args == "Ammo")
-        {
-            player thread UnlimitedAmmo();
-        }
-        else if (args == "Points")
-        {
-            player thread zm_score::add_to_player_score(40000000);
-        }
-        else if(args == "Perks")
-        {
-            player thread GiveAllPerks();
+            case 0: player thread Godmode(); break;
+            case 1: player thread UnlimitedAmmo(); break;
+            case 2: player thread zm_score::add_to_player_score(40000000); break;
+            case 3: player thread GiveAllPerks(); break;
         }
     }
 }
 
 ClientHandler(func, player)
 {
-    if(func == "GodMode"){
-        player thread Godmode();
-    }else if(func == "Ammo"){
-        player thread UnlimitedAmmo();
-    }else if(func == "MaxLevel"){
-        player thread BO4Level55(player);
-    }else if(func == "Plasma"){
-        player thread PlasmaLoop();
-    }else if(func == "Perks"){
-        player thread GiveAllPerks();
-    }else if(func == "Score"){
-        player thread zm_score::add_to_player_score(40000000);
-    }else if(func == "SelfRev"){
-        player thread GetSelfRes();
-    }else if(func == "UnlockAll"){
-        player thread BO4_UnlockAll(player);
-    }else if(func == "WeaponLevels"){
-        player thread BO4_MaxLevels(player);
-    }else if(func == "1000"){
-        player thread BO4SetPrestigeMax();
-    }else if(func == "TakePoints"){
-        player zm_score::minus_to_player_score(40000000);
+    switch(func)
+    {
+        case 0: player thread Godmode(); break;
+        case 1: player thread UnlimitedAmmo(); break;
+        case 2: player thread BO4Level55(player); break;
+        case 3: player thread PlasmaLoop(); break;
+        case 4: player thread GiveAllPerks(); break;
+        case 5: player thread GetSelfRes(); break;
+        case 6: player thread BO4_UnlockAll(player); break;
+        case 7: player thread BO4_MaxLevels(player); break;
+        case 8: player thread zm_score::add_to_player_score(40000000); break;
+        case 9: player thread zm_score::minus_to_player_score(40000000); break;
     }
 }
 S(Message)
