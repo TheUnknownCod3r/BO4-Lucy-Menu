@@ -642,7 +642,7 @@ menuMonitor()
                         wait .13;
                     }
                 }
-                else if(self UseButtonPressed() & 1)
+                else if(self UseButtonPressed() & 1)//Just noticed this, why is there & 1 when theres no actual function question except if user presses :/
                 {
                     menu = self getCurrent();
                     curs = self getCursor();
