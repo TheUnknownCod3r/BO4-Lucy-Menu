@@ -12,7 +12,7 @@
 <div align="center">
   <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu">
     <img src="images/logo.png" alt="Logo" width="300" height="300">
-  </a>
+  </a><br>
 <b align="center">Please note The Menu is currently Broken due to a Black ops 4 Update. We are waiting for T7 Compiler.</b>
   <h3 align="center">The Lucy Menu</h3>
 
