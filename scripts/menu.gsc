@@ -373,8 +373,11 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
                 self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
+                self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
                 self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
             }
+            else if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE")
+                self addOpt("Homunculus", &GiveClientWeapon, "homunculus", self);//Credit SirCryptic / Abomination Unofficial
         break;
         case "Map Specific Weapons":
             self addMenu(menu, "Map Specific Weapons");
@@ -391,7 +394,6 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
-                self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
                 self addOpt("Hells Retriever", &GiveClientWeapon, "tomahawk_t8", self);
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
@@ -410,7 +412,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
             }else if(BO4GetMap() == "Tag"){
-                self addOpt("Wunderwaffe DG", &GiveClientWeapon, "ww_teslasniper_t8", self);
+                self addOpt("Wunderwaffe DG", &GiveClientWeapon, "tesla_gun", self);// think this is the correct Stringname, credit SirCryptic / Abomination Menu
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);

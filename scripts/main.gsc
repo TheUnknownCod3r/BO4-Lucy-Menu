@@ -17,7 +17,7 @@ InitializeVarsPrecaches()
     if(isDefined(level.InitializeVarsPrecaches))
         return;
     level.InitializeVarsPrecaches = true;
-    level._Weaps = GetArrayKeys(level.zombie_weapons);
+    level._Weaps = GetArrayKeys(level.zombie_weapons);//Currently Unused, but once I map out the StringTables I plan to use this in the Weapons Menu
     level.menuName = "The Lucy Menu";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
