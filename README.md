@@ -148,7 +148,7 @@ This wouldn't be possible without the following people
 	Taking over updates, and Porting new features.
 	
 * [SirCryptic](https://www.github.com/SirCryptic)
-	Homunculus and Wunderwaffle stringnames
+	Homunculus stringname
 
 * several community members supplied the unhashed weapon names. 
 
