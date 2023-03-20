@@ -420,7 +420,6 @@ MenuOptionsPlayer(menu, player)
             }else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
                 self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
-                self addOpt("Give Matryoshka Dolls", &GiveBombDolls, self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
             }
