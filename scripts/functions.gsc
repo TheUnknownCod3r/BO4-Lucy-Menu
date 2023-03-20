@@ -453,10 +453,17 @@ GiveImpaler()
     self iPrintLnBold("Impaler ^2Given");
 }
 
-GetWeaponName()
+GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
     self iPrintLnBold(WeaponName);
+}
+
+GetWeaponHash()
+{
+    Weap = self GetCurrentWeapon().Name;
+    wait .1;
+    self iPrintLnBold("Weapon Hash: "+Weap);
 }
 
 GiveClientWeapon(WeaponName, player)
@@ -569,7 +576,6 @@ TeleportZombies()
     }
     self iPrintLnBold("Zombies Teleported!");
 }
-
 StartZombiePosistion() 
 {
     self.ZombiePos = isDefined(self.ZombiePos) ? undefined : true;
@@ -591,7 +597,7 @@ SetZombiePosition()
     {
         foreach(zombo in GetAITeamArray(level.zombie_team)) 
         {
-            zombo ForceTeleport(self.origin + (self getPlayerAngles() + 0, 0, 40));
+            zombo ForceTeleport(self.origin + (+70, 0, 0));
         }
         wait .1;
     }
@@ -1140,6 +1146,8 @@ ClientFuncs(args, val1)
 
 ClientHandler(func, player)
 {
+    player endon("disconnect");
+    level endon("game_ended");
     switch(func)
     {
         case 0: player thread Godmode(); break;

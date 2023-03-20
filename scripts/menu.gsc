@@ -215,7 +215,12 @@ MenuOptionsPlayer(menu, player)
         case "Teleport Menu": //Coords, Loc name for iprint
             self addMenu(menu, "Teleport Menu");
                 if(BO4GetMap() == "IX"){
-                    self addOpt("IX", &test);
+                    self addOpt("Zeus", &BO4NewOrigin, (1993.89, -479.343, 212.125), "Zeus Perk Machine");
+                    self addOpt("Odin", &BO4NewOrigin, (2020.7, 341.974, 215.125), "Odin Perk Machine");
+                    self addOpt("Ra", &BO4NewOrigin, (-1809.33, 423.894, 212.125), "Ra Perk Machine");
+                    self addOpt("Danu", &BO4NewOrigin, (-1922.34, -443, 216.313), "Danu Perk Machine");
+                    self addOpt("Challenge Podium", &BO4NewOrigin, (58.3157, -24.4512, 80.125), "Challenge Podium");
+                    self addOpt("The Pit", &BO4NewOrigin, (151.776, 1802.6, -365.875), "The Pit");
                 }
                 else if(BO4GetMap() == "Blood"){
                     self addOpt("Richtofen's Lab", &BO4NewOrigin, (9953.67, 11261.1, 256.125), "Richtofen's Lab");
@@ -280,7 +285,8 @@ MenuOptionsPlayer(menu, player)
 
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
-            self addOpt("Print Weapon Hash", &GetWeaponName);
+            self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);
+            self addOpt("Print Weapon Hash", &GetWeaponHash);
             self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
             self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
@@ -412,8 +418,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
             }else if(BO4GetMap() == "Tag"){
-                self addOpt("Wunderwaffe DG", &GiveClientWeapon, "tesla_gun", self);// think this is the correct Stringname, credit SirCryptic / Abomination Menu
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
+                self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
+                self addOpt("Give Matryoshka Dolls", &GiveBombDolls, self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
             }
