@@ -215,10 +215,10 @@ MenuOptionsPlayer(menu, player)
         case "Teleport Menu": //Coords, Loc name for iprint
             self addMenu(menu, "Teleport Menu");
                 if(BO4GetMap() == "IX"){
-                    self addOpt("Zeus", &BO4NewOrigin, (1993.89, -479.343, 212.125), "Zeus Perk Machine");
-                    self addOpt("Odin", &BO4NewOrigin, (2020.7, 341.974, 215.125), "Odin Perk Machine");
-                    self addOpt("Ra", &BO4NewOrigin, (-1809.33, 423.894, 212.125), "Ra Perk Machine");
-                    self addOpt("Danu", &BO4NewOrigin, (-1922.34, -443, 216.313), "Danu Perk Machine");
+                    self addOpt("Zeus Perk Machine", &BO4NewOrigin, (1993.89, -479.343, 212.125), "Zeus Perk Machine");
+                    self addOpt("Odin Perk Machine", &BO4NewOrigin, (2020.7, 341.974, 215.125), "Odin Perk Machine");
+                    self addOpt("Ra Perk Machine", &BO4NewOrigin, (-1809.33, 423.894, 212.125), "Ra Perk Machine");
+                    self addOpt("Danu Perk Machine", &BO4NewOrigin, (-1922.34, -443, 216.313), "Danu Perk Machine");
                     self addOpt("Challenge Podium", &BO4NewOrigin, (58.3157, -24.4512, 80.125), "Challenge Podium");
                     self addOpt("The Pit", &BO4NewOrigin, (151.776, 1802.6, -365.875), "The Pit");
                 }
@@ -238,7 +238,11 @@ MenuOptionsPlayer(menu, player)
                     self addOpt("Prison Roof", &BO4NewOrigin, (3467.25, 9740.63, 1704.13), "Prison Roof");
                 }
                 else if(BO4GetMap() == "Voyage"){
-                    self addOpt("Voyage", &test);
+                    self addOpt("Poop Deck", &BO4NewOrigin, (6.67061, 4843.74, 1216.12), "Poop Deck");
+                    self addOpt("Boiler Room", &BO4NewOrigin, (8.88611, 622.069, 320.125), "Boiler Room");  
+                    self addOpt("Dining Hall", &BO4NewOrigin, (-457.054, -775.388, 1056.13), "Dining Hall");
+                    self addOpt("1st Class Lounge", &BO4NewOrigin, (-160.682, -612.253, 1216.13), "1st Class Lounge");
+                    self addOpt("Forecastle", &BO4NewOrigin, (118.374, -4506.12, 928.125), "Forecastle");
                 }
                 else if(BO4GetMap() == "Classified"){
                     self addOpt("Conference Room", &BO4newOrigin, (-911.255, 2531.01, 16.125), "Conference Room");
