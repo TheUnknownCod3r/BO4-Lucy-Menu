@@ -149,7 +149,9 @@ This wouldn't be possible without the following people
 	
 * [SirCryptic](https://www.github.com/SirCryptic)
 	Homunculus stringname
-
+* [TubBuddy](https://www.github.com/TubBuddy/)
+	IX and Voyage Teleports
+	
 * several community members supplied the unhashed weapon names. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
