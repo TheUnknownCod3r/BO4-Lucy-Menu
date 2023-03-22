@@ -95,6 +95,19 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.3.3
+<details>
+	<summary>
+		Version 1.3.3
+	</summary>
+
+	- Added Teleports for Voyage, IX, Dead of the Night, and Ancient Evil, Thanks @TubBuddy
+	- Fixed Tag Der Toten Map Weapons, Wonderwaffe is now correct, as is the Wonderwaffe Sniper
+	- Added Homonculus, and Monkey bombs to All supported Maps
+	- Fix a crash caused by Teleport Zombies to You, my Mistake.
+	- No Clip, Finally. This will be changed, when I figure out why my script crashes XD.
+</details>
+
 Version 1.3
 <details>
 	<summary>
@@ -150,7 +163,7 @@ This wouldn't be possible without the following people
 * [SirCryptic](https://www.github.com/SirCryptic)
 	Homunculus stringname, NoClip Function
 * [TubBuddy](https://www.github.com/TubBuddy/)
-	IX and Voyage Teleports
+	Several Map Teleport Options
 	
 * several community members supplied the unhashed weapon names. 
 
