@@ -148,7 +148,7 @@ This wouldn't be possible without the following people
 	Taking over updates, and Porting new features.
 	
 * [SirCryptic](https://www.github.com/SirCryptic)
-	Homunculus stringname
+	Homunculus stringname, NoClip Function
 * [TubBuddy](https://www.github.com/TubBuddy/)
 	IX and Voyage Teleports
 	
