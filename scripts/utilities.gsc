@@ -86,3 +86,13 @@ PlayerExitLevel()
 {
     ExitLevel(false);
 }
+
+spawnSM(origin, model, angles)
+{
+    ent = Spawn("script_model", origin);
+    ent SetModel(model);
+    if(isDefined(angles))
+        ent.angles = angles;
+    
+    return ent;
+}

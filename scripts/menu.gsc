@@ -115,6 +115,7 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
+                self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.thirdperson, "Third Person", &thirdperson);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
@@ -215,34 +216,34 @@ MenuOptionsPlayer(menu, player)
         case "Teleport Menu": //Coords, Loc name for iprint
             self addMenu(menu, "Teleport Menu");
                 if(BO4GetMap() == "IX"){
-                    self addOpt("Zeus Perk Machine", &BO4NewOrigin, (1993.89, -479.343, 212.125), "Zeus Perk Machine");
-                    self addOpt("Odin Perk Machine", &BO4NewOrigin, (2020.7, 341.974, 215.125), "Odin Perk Machine");
-                    self addOpt("Ra Perk Machine", &BO4NewOrigin, (-1809.33, 423.894, 212.125), "Ra Perk Machine");
-                    self addOpt("Danu Perk Machine", &BO4NewOrigin, (-1922.34, -443, 216.313), "Danu Perk Machine");
-                    self addOpt("Challenge Podium", &BO4NewOrigin, (58.3157, -24.4512, 80.125), "Challenge Podium");
-                    self addOpt("The Pit", &BO4NewOrigin, (151.776, 1802.6, -365.875), "The Pit");
+                    self addOpt("Zeus Perk Machine", &BO4newOrigin, (1993.89, -479.343, 212.125), "Zeus Perk Machine");
+                    self addOpt("Odin Perk Machine", &BO4newOrigin, (2020.7, 341.974, 215.125), "Odin Perk Machine");
+                    self addOpt("Ra Perk Machine", &BO4newOrigin, (-1809.33, 423.894, 212.125), "Ra Perk Machine");
+                    self addOpt("Danu Perk Machine", &BO4newOrigin, (-1922.34, -443, 216.313), "Danu Perk Machine");
+                    self addOpt("Challenge Podium", &BO4newOrigin, (58.3157, -24.4512, 80.125), "Challenge Podium");
+                    self addOpt("The Pit", &BO4newOrigin, (151.776, 1802.6, -365.875), "The Pit");
                 }
                 else if(BO4GetMap() == "Blood"){
-                    self addOpt("Richtofen's Lab", &BO4NewOrigin, (9953.67, 11261.1, 256.125), "Richtofen's Lab");
-                    self addOpt("West Grounds", &BO4NewOrigin, (8661.22, 10287.5, 513.077), "West Grounds");
-                    self addOpt("Power Switch One", &BO4NewOrigin, (8892.1, 8851.01, 423.469), "Power Switch One");
-                    self addOpt("New Industries", &BO4NewOrigin, (7083.19, 11134.6, 311.625), "New Industries");
-                    self addOpt("Recreation Yard", &BO4NewOrigin, (4836.18, 10932.7, 1016.13), "Recreation Yard");
-                    self addOpt("Cafeteria", &BO4NewOrigin, (2589.46, 9645.69, 1336.13), "Cafeteria");
-                    self addOpt("2nd Floor Cell Block", &BO4NewOrigin, (869.781, 9690.19, 1443.13), "2nd Floor Cell Block");
-                    self addOpt("Wardens Office", &BO4NewOrigin, (-588.591, 8613.38, 1336.13), "Wardens Office");
-                    self addOpt("Wardens House", &BO4NewOrigin, (-2382.56, 7745.07, 1304.13), "Wardens House");
-                    self addOpt("Citadel Tunnels", &BO4NewOrigin, (420.385,9506.33,1104.13), "Citadel Tunnels");
-                    self addOpt("Building 64 Powerhouse", &BO4NewOrigin, (-1037.37, 6576.8, 70.1152), "Building 64 Powerhouse");
-                    self addOpt("Docks", &BO4NewOrigin, (-543.102, 5451.18, -71.875), "Docks");
-                    self addOpt("Prison Roof", &BO4NewOrigin, (3467.25, 9740.63, 1704.13), "Prison Roof");
+                    self addOpt("Richtofen's Lab", &BO4newOrigin, (9953.67, 11261.1, 256.125), "Richtofen's Lab");
+                    self addOpt("West Grounds", &BO4newOrigin, (8661.22, 10287.5, 513.077), "West Grounds");
+                    self addOpt("Power Switch One", &BO4newOrigin, (8892.1, 8851.01, 423.469), "Power Switch One");
+                    self addOpt("New Industries", &BO4newOrigin, (7083.19, 11134.6, 311.625), "New Industries");
+                    self addOpt("Recreation Yard", &BO4newOrigin, (4836.18, 10932.7, 1016.13), "Recreation Yard");
+                    self addOpt("Cafeteria", &BO4newOrigin, (2589.46, 9645.69, 1336.13), "Cafeteria");
+                    self addOpt("2nd Floor Cell Block", &BO4newOrigin, (869.781, 9690.19, 1443.13), "2nd Floor Cell Block");
+                    self addOpt("Wardens Office", &BO4newOrigin, (-588.591, 8613.38, 1336.13), "Wardens Office");
+                    self addOpt("Wardens House", &BO4newOrigin, (-2382.56, 7745.07, 1304.13), "Wardens House");
+                    self addOpt("Citadel Tunnels", &BO4newOrigin, (420.385,9506.33,1104.13), "Citadel Tunnels");
+                    self addOpt("Building 64 Powerhouse", &BO4newOrigin, (-1037.37, 6576.8, 70.1152), "Building 64 Powerhouse");
+                    self addOpt("Docks", &BO4newOrigin, (-543.102, 5451.18, -71.875), "Docks");
+                    self addOpt("Prison Roof", &BO4newOrigin, (3467.25, 9740.63, 1704.13), "Prison Roof");
                 }
                 else if(BO4GetMap() == "Voyage"){
-                    self addOpt("Poop Deck", &BO4NewOrigin, (6.67061, 4843.74, 1216.12), "Poop Deck");
-                    self addOpt("Boiler Room", &BO4NewOrigin, (8.88611, 622.069, 320.125), "Boiler Room");  
-                    self addOpt("Dining Hall", &BO4NewOrigin, (-457.054, -775.388, 1056.13), "Dining Hall");
-                    self addOpt("1st Class Lounge", &BO4NewOrigin, (-160.682, -612.253, 1216.13), "1st Class Lounge");
-                    self addOpt("Forecastle", &BO4NewOrigin, (118.374, -4506.12, 928.125), "Forecastle");
+                    self addOpt("Poop Deck", &BO4newOrigin, (6.67061, 4843.74, 1216.12), "Poop Deck");
+                    self addOpt("Boiler Room", &BO4newOrigin, (8.88611, 622.069, 320.125), "Boiler Room");  
+                    self addOpt("Dining Hall", &BO4newOrigin, (-457.054, -775.388, 1056.13), "Dining Hall");
+                    self addOpt("1st Class Lounge", &BO4newOrigin, (-160.682, -612.253, 1216.13), "1st Class Lounge");
+                    self addOpt("Forecastle", &BO4newOrigin, (118.374, -4506.12, 928.125), "Forecastle");
                 }
                 else if(BO4GetMap() == "Classified"){
                     self addOpt("Conference Room", &BO4newOrigin, (-911.255, 2531.01, 16.125), "Conference Room");
@@ -252,10 +253,22 @@ MenuOptionsPlayer(menu, player)
                     self addOpt("Laboratories", &BO4newOrigin, (333.581, 2069.82, 16.125), "Laboratories");
                 }
                 else if(BO4GetMap() == "Dead"){
-                    self addOpt("Dead of The Night", &test);
+                    self addOpt("Sentinal Artifact", &BO4newOrigin, (-2.56008, -928.784, -7.875), "Sentinal Artifact");
+                    self addOpt("North Atrium Bridge", &BO4newOrigin, (11.2006, 956.359, 25.7624), "North Atrium Bridge");
+                    self addOpt("Bedroom", &BO4newOrigin, (1727.24, 1165.29, -7.875), "Bedroom");
+                    self addOpt("Wine Cellar", &BO4newOrigin, (-249.745, -1334.12, -415.875), "Wine Cellar");
+                    self addOpt("Mausoleum", &BO4newOrigin, (-4474.56, 524.39, 272.125), "Mausoleum");
+                    self addOpt("Library", &BO4newOrigin, (-1512.27, 485.992, -209.684), "Library");
+                    self addOpt("Greenhouse Laboratories", &BO4newOrigin, (4356.48, -73.3307, -439.875), "Greenhouse Laboratories");
+                    self addOpt("Forest", &BO4newOrigin, (-13.9522, 5562.84, -783.936), "Forest");
                 }
                 else if(BO4GetMap() == "AE"){
-                    self addOpt("Ancient Evil", &test);
+                    self addOpt("Temple of Apollo", &BO4newOrigin, (-786.167, -867.222, 64.125), "Temple of Apollo");
+                    self addOpt("Amphitheater", &BO4newOrigin, (-1990.29, 1212.24, 252.125), "Amphitheater");
+                    self addOpt("Spartan Monument", &BO4newOrigin, (803.154, -4110.64, -815.908), "Spartan Monument");
+                    self addOpt("River of Sorrow", &BO4newOrigin, (-1220.23, 6305.58, 946.825), "River of Sorrow");
+                    self addOpt("Cliff Ruins", &BO4newOrigin, (-2715.52, 7363.74, 527.862), "Cliff Ruins");
+                    self addOpt("Python Pass", &BO4newOrigin, (202.279, 8547.08, 434.117), "Python Pass");
                 }
                 else if(BO4GetMap() == "AO"){
                     self addOpt("Alpha Omega", &test);

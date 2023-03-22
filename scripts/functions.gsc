@@ -21,6 +21,46 @@ Godmode()
         self DisableInvulnerability();
 }
 
+NoclipToggle1(player)
+{
+    player.Noclip = isDefined(player.Noclip) ? undefined : true;
+    
+    if(isDefined(player.Noclip))
+    {
+        player endon("disconnect");
+        self S("Noclip ^2Enabled");
+        if(player hasMenu() && player isInMenu())
+            player closeMenu1();
+        player DisableWeapons();
+        player DisableOffHandWeapons();
+        player.nocliplinker = spawnSM(player.origin, "tag_origin");
+        player PlayerLinkTo(player.nocliplinker, "tag_origin");
+        
+        while(isDefined(player.Noclip) && isAlive(player))
+        {
+            if(player AttackButtonPressed())
+                player.nocliplinker.origin = (player.nocliplinker.origin + (AnglesToForward(player GetPlayerAngles()) * 60));
+            else if(player AdsButtonPressed())
+                player.nocliplinker.origin = (player.nocliplinker.origin - (AnglesToForward(player GetPlayerAngles()) * 60));
+            if(player MeleeButtonPressed())
+                break;
+            
+            wait 0.01;
+        }
+
+        if(isDefined(player.Noclip))
+            player NoclipToggle1(player);
+    }
+    else
+    {
+        player Unlink();
+        player.nocliplinker delete();
+        player EnableWeapons();
+        player EnableOffHandWeapons();
+        self S("Noclip ^1Disabled");
+    }
+}
+
 UnlimitedAmmo()
 {
     self.UnlimitedAmmo = isDefined(self.UnlimitedAmmo) ? undefined : true;
@@ -458,7 +498,6 @@ GetWeaponDisplayName()
     WeaponName = self GetCurrentWeapon().DisplayName;
     self iPrintLnBold(WeaponName);
 }
-
 GetWeaponHash()
 {
     Weap = self GetCurrentWeapon().Name;
@@ -1062,8 +1101,6 @@ bo4_GivePerk(Perk_Name, string)
     self iPrintLnBold(Perk_Name + " ^2Given!");
 }
 
-
-
 KillPlayer(player)
 {
     player notify("player_suicide");
@@ -1071,7 +1108,6 @@ KillPlayer(player)
     self iPrintLnBold("Killed "+player.name);
     player iPrintLnBold("You Just got murdered By: "+self.name);
 }
-
 
 sendToJail(player)
 {
@@ -1081,8 +1117,6 @@ sendToJail(player)
     player setOrigin(level.JailCoords);
     player S("You were sent to JAIL!");
 }
-
-
 
 PlayerMessage(val, player)
 {
@@ -1095,6 +1129,7 @@ PlayerMessage(val, player)
         else if(val == 4){ client S(player.name+" Has a Tiny Pee Pee");}
     }
 }
+
 PlasmaLoop()
 {
     self.PlasmaLoop2 = isDefined(self.PlasmaLoop2) ? undefined : true;
@@ -1116,6 +1151,7 @@ ModelSpawnTest()
         wait 2;
         Jugg SetScale(100);
 }
+
 test()
 {
     self iPrintLnBold("Test");
@@ -1162,6 +1198,7 @@ ClientHandler(func, player)
         case 9: player thread zm_score::minus_to_player_score(40000000); break;
     }
 }
+
 S(Message)
 {
     self iPrintLnBold(Message);
