@@ -95,6 +95,16 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.3.4
+<details>
+	<summary>
+		Version 1.3.4
+	</summary>
+
+	- Full Map Teleports, Credit @TubBuddy
+	- Changed several Weapon stringnames, to the upgraded Variants instead. Will separate in future
+</details>
+
 Version 1.3.3
 <details>
 	<summary>
@@ -163,7 +173,7 @@ This wouldn't be possible without the following people
 * [SirCryptic](https://www.github.com/SirCryptic)
 	Homunculus stringname, NoClip Function
 * [TubBuddy](https://www.github.com/TubBuddy/)
-	Several Map Teleport Options
+	Most of the Map Teleport Options
 	
 * several community members supplied the unhashed weapon names. 
 
