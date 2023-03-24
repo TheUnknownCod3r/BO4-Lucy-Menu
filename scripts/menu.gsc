@@ -445,17 +445,20 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
-            }else if(BO4GetMap() == "AE"){
+            }
+            else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
                 self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h_upgraded", self);
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
-            }else if(BO4GetMap() == "Tag"){
+            }
+            else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
                 self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
+                self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
@@ -463,6 +466,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
             }
+             else if(BO4GetMap() == "Classified"){
+                self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
+            }    
         break;
         case "Upgraded Weapons":
             self addMenu(menu, "Upgraded Weapons");
