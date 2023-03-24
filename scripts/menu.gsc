@@ -271,10 +271,26 @@ MenuOptionsPlayer(menu, player)
                     self addOpt("Python Pass", &BO4newOrigin, (202.279, 8547.08, 434.117), "Python Pass");
                 }
                 else if(BO4GetMap() == "AO"){
-                    self addOpt("Alpha Omega", &test);
+                    self addOpt("Security Checkpoint", &BO4newOrigin, (68.2689, -3217.63, 65.625), "Security Checkpoint");
+                    self addOpt("Rushmore", &BO4newOrigin, (1024.37, -2085.02, -39.875), "Rushmore");
+                    self addOpt("APD Interrogation", &BO4newOrigin, (-924.275, -1822.22, -50.875), "APD Interrogation");
+                    self addOpt("Cul-De-Sac", &BO4newOrigin, (-92.3641, 648.275, -61.125), "Cul-De-Sac");
+                    self addOpt("Greenhouse", &BO4newOrigin, (-1178.23, 737.475, 78.125), "Greenhouse");
+                    self addOpt("Yelowhouse", &BO4newOrigin, (1201.23, 309.127, 77.125), "Yelowhouse");
+                    self addOpt("Beds", &BO4newOrigin, (-40.4824, 1132.1, -415.875), "Beds");
+                    self addOpt("APD Control", &BO4newOrigin, (-160.155, -2061.96, -231.875), "APD Control");
                 }
                 else if(BO4GetMap() == "Tag"){
-                    self addOpt("Tag Der Toten", &test);
+                    self addOpt("Docks", &BO4newOrigin, (1382.79, 3483.08, 26.625), "Docks");
+                    self addOpt("Lagoon", &BO4newOrigin, (1838.13, 618.756, 7.74777), "Lagoon");
+                    self addOpt("Lighthouse Cove", &BO4newOrigin, (36.2677, 646.928, 134.026), "Lighthouse Cove");
+                    self addOpt("Lighthouse Top", &BO4newOrigin, (133.577, 1406.61, 864.125), "Lighthouse Top");
+                    self addOpt("Cave", &BO4newOrigin, (-2008.52, 1986.8, 167.866), "Cave");
+                    self addOpt("Sun Deck", &BO4newOrigin, (-626.267, -1333.58, 637.176), "Sun Deck");
+                    self addOpt("Forecastle", &BO4newOrigin, (2274.94, -2836.93, 315.773), "Forecastle");
+                    self addOpt("Campfire", &BO4newOrigin, (2299.56, -690.696, 5.1327), "Campfire");
+                    self addOpt("Human Infusion", &BO4newOrigin, (-3298.49, 4215.59, 1176.13), "Human Infusion");
+                    self addOpt("Secret :D", &BO4newOrigin, (-7432.51, -24841.3, 13.5001), "Secret :D");
                 }
         break;
         case "Score Menu":
@@ -395,9 +411,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Ballistic Knife", &GiveClientWeapon, "special_ballisticknife_t8_dw", self);
             self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
+                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
                 self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
-                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
+                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
             }
             else if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE")
                 self addOpt("Homunculus", &GiveClientWeapon, "homunculus", self);//Credit SirCryptic / Abomination Unofficial
@@ -406,10 +422,10 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
                 self addOpt("Kraken", &GiveClientWeapon, "ww_tricannon_t8", self);
-                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8", self);
-                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
-                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
-                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
+                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8_upgraded", self);
+                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
+                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
+                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
                 self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
             }
             else if(BO4GetMap() == "IX"){
@@ -442,10 +458,10 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
             }
             else if(BO4GetMap() == "AO"){
-                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
+                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
-                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
-                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
+                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
+                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
             }
         break;
         case "Upgraded Weapons":
