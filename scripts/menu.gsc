@@ -411,9 +411,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Ballistic Knife", &GiveClientWeapon, "special_ballisticknife_t8_dw", self);
             self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
+                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
                 self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
-                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
+                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
             }
             else if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE")
                 self addOpt("Homunculus", &GiveClientWeapon, "homunculus", self);//Credit SirCryptic / Abomination Unofficial
@@ -536,8 +536,11 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Upgraded Specials");
             self addOpt("Zitros Orbital Arbalest", &GiveClientWeapon, "launcher_standard_t8_upgraded", self);
             self addOpt("Thekrauss Refibrillator++", &GiveClientWeapon, "special_ballisticknife_t8_dw_upgraded", self);
+            self addOpt("Minos's Zeal", &GiveClientWeapon, "special_crossbow_t8_upgraded", self);
+            if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
             self addOpt("Porters X2 Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
             self addOpt("Porters Mark II Ray Gun", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
+           }
             if(BO4GetMap() == "Voyage"){
                 self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8_upgraded", self);
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
@@ -568,8 +571,7 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
-            }    
-            self addOpt("Minos's Zeal", &GiveClientWeapon, "special_crossbow_t8_upgraded", self);
+            }
         break;
         case "Powerups Menu":
             self addMenu(menu, "Powerups");
