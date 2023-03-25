@@ -422,11 +422,10 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Map Specific Weapons");
             if(BO4GetMap() == "Voyage"){
                 self addOpt("Kraken", &GiveClientWeapon, "ww_tricannon_t8", self);
-                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8_upgraded", self);
-                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
-                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
-                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
-                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8", self);
+                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
+                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
+                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
@@ -445,17 +444,20 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
-            }else if(BO4GetMap() == "AE"){
-                self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
-                self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h_upgraded", self);
-                self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
-                self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
-            }else if(BO4GetMap() == "Tag"){
+            }
+            else if(BO4GetMap() == "AE"){
+                self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o", self);
+                self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h", self);
+                self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
+                self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
+            }
+            else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
                 self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
+                self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
@@ -463,6 +465,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
             }
+             else if(BO4GetMap() == "Classified"){
+                self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
+            }    
         break;
         case "Upgraded Weapons":
             self addMenu(menu, "Upgraded Weapons");
@@ -530,11 +535,42 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Upgraded Specials");
             self addOpt("Zitros Orbital Arbalest", &GiveClientWeapon, "launcher_standard_t8_upgraded", self);
             self addOpt("Thekrauss Refibrillator++", &GiveClientWeapon, "special_ballisticknife_t8_dw_upgraded", self);
-            if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Porters X2 Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
-                self addOpt("Porters Mark II Ray Gun", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
-            }
             self addOpt("Minos's Zeal", &GiveClientWeapon, "special_crossbow_t8_upgraded", self);
+            if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+            self addOpt("Porters X2 Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
+            self addOpt("Porters Mark II Ray Gun", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
+           }
+            if(BO4GetMap() == "Voyage"){
+                self addOpt("Decayed Kraken", &GiveClientWeapon, "ww_tricannon_earth_t8_upgraded", self);
+                self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
+                self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
+                self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
+                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+            }
+            else if(BO4GetMap() == "Blood"){
+                self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
+                self addOpt("Vitriolic Withering", &GiveClientWeapon, "ww_blundergat_acid_t8_upgraded", self);
+                self addOpt("The Sweeper", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
+            }
+            else if(BO4GetMap() == "AE"){
+                self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
+                self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h_upgraded", self);
+                self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g_upgraded", self);
+                self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
+            }
+            else if(BO4GetMap() == "Tag"){
+                self addOpt("ZeusCannon", &GiveClientWeapon, "thundergun_upgraded", self);
+                self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
+                self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
+            }
+            else if(BO4GetMap() == "AO"){
+                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
+                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
+                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
+            }
+            else if(BO4GetMap() == "Classified"){
+                self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
+            }
         break;
         case "Powerups Menu":
             self addMenu(menu, "Powerups");
