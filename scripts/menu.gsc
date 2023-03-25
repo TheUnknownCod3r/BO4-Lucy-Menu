@@ -549,9 +549,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
             }
             else if(BO4GetMap() == "Blood"){
-                self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
-                self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8_upgraded", self);
-                self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
+                self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
+                self addOpt("Vitriolic Withering", &GiveClientWeapon, "ww_blundergat_acid_t8_upgraded", self);
+                self addOpt("The Sweeper", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
@@ -560,9 +560,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c_upgraded", self);
             }
             else if(BO4GetMap() == "Tag"){
-                self addOpt("ThunderGun", &GiveClientWeapon, "thundergun_upgraded", self);
+                self addOpt("ZeusCannon", &GiveClientWeapon, "thundergun_upgraded", self);
                 self addOpt("test", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
-                self addOpt("Tundragun", &GiveClientWeapon, "tundragun_upgraded", self);
+                self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
