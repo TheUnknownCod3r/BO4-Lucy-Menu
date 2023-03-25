@@ -460,10 +460,10 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
             }
             else if(BO4GetMap() == "AO"){
-                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
+                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
-                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
-                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
+                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
+                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
