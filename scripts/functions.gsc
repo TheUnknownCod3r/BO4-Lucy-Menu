@@ -61,6 +61,7 @@ NoclipToggle1(player)
     }
 }
 
+
 UnlimitedAmmo()
 {
     self.UnlimitedAmmo = isDefined(self.UnlimitedAmmo) ? undefined : true;

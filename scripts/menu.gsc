@@ -411,9 +411,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Ballistic Knife", &GiveClientWeapon, "special_ballisticknife_t8_dw", self);
             self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
+                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
                 self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
-                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
+                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
             }
             else if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE")
                 self addOpt("Homunculus", &GiveClientWeapon, "homunculus", self);//Credit SirCryptic / Abomination Unofficial
