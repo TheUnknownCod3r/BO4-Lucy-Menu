@@ -492,7 +492,36 @@ GiveImpaler()
     self switchToWeapon(getWeapon(#"hash_25f355b5d35b8488"));
     self iPrintLnBold("Impaler ^2Given");
 }
-
+GiveSerketKiss()
+{
+    self GiveWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
+    self switchToWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
+    self iPrintLnBold("SerketKiss ^2Given");
+}
+GiveRayGunIIX()
+{
+    self GiveWeapon(getWeapon(#"hash_132b1b9ca78dc1fb"));
+    self switchToWeapon(getWeapon(#"hash_132b1b9ca78dc1fb"));
+    self iPrintLnBold("Ray Gun II-X ^2Given");
+}
+GiveWunderwaffeDGFunkenschutze()
+{
+    self GiveWeapon(getWeapon(#"hash_39826c972a454fb9"));
+    self switchToWeapon(getWeapon(#"hash_39826c972a454fb9"));
+    self iPrintLnBold("Wunderwaffe DG-Funkenschutze ^2Given");
+}
+GiveChaosTheory()
+{
+    self GiveWeapon(getWeapon(#"hash_138f012bb30beb55"));
+    self switchToWeapon(getWeapon(#"hash_138f012bb30beb55"));
+    self iPrintLnBold("Chaos Theory ^2Given");
+}
+GiveAlistairsAnnihilator()
+{
+    self GiveWeapon(getWeapon(#"hash_138f002bb30be9a2"));
+    self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
+    self iPrintLnBold("Alistairs Annihilator ^2Given");
+}
 GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
