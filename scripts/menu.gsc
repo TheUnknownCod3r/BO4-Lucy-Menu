@@ -411,9 +411,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Ballistic Knife", &GiveClientWeapon, "special_ballisticknife_t8_dw", self);
             self addOpt("Crossbow", &GiveClientWeapon, "special_crossbow_t8", self);
             if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun", self);
+                self addOpt("Give Ray Gun", &GiveClientWeapon, "ray_gun_upgraded", self);
                 self addOpt("Monkey Bombs", &GiveClientWeapon, "cymbal_monkey", self);
-                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2", self);
+                self addOpt("Give Ray Gun Mk2", &GiveClientWeapon, "ray_gun_mk2_upgraded", self);
             }
             else if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE")
                 self addOpt("Homunculus", &GiveClientWeapon, "homunculus", self);//Credit SirCryptic / Abomination Unofficial
@@ -426,7 +426,6 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
-                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8", self);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
@@ -461,10 +460,10 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
             }
             else if(BO4GetMap() == "AO"){
-                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
+                self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
-                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
-                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
+                self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
+                self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
@@ -561,7 +560,7 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ZeusCannon", &GiveClientWeapon, "thundergun_upgraded", self);
-                self addOpt("test", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
+                self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
                 self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
             }
             else if(BO4GetMap() == "AO"){
