@@ -624,13 +624,13 @@ MenuOptionsPlayer(menu, player)
 
         case "Account Menu":
             self addMenu(menu,"Account Menu");
-            self addOpt("Max Level", &BO4Level55, player);
+            self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
             self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
             self addOpt("Unlock All", &bo4_UnlockAll, player);
-            self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
             self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
+            self addOpt("Max Level", &BO4Level55, player);
         break;
         case "Stats Menu":
             self addMenu(menu,"Stats Menu");
