@@ -742,7 +742,7 @@ menuMonitor()
                             self thread ExecuteFunction(self.menu["items"][menu].func[curs], self.menu["items"][menu].input1[curs], self.menu["items"][menu].input2[curs], self.menu["items"][menu].input3[curs], self.menu["items"][menu].input4[curs]);
                         if(isDefined(isDefined(self.menu["items"][menu].bool[curs])))
                             self RefreshMenu();
-                        wait .15;
+                        wait .25;
                     }
                 }
                 else if(self SecondaryOffhandButtonPressed() || self FragButtonPressed())
