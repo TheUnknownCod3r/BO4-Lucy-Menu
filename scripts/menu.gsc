@@ -562,15 +562,24 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("ZeusCannon", &GiveClientWeapon, "thundergun_upgraded", self);
                 self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
                 self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
+                self addOpt("Wunderwaffe DG-Funkenschutze", &GiveWunderwaffeDGFunkenschutze);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
+                self addOpt("Ray Gun II-X", &GiveRayGunIIX);
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
             }
+            else if(BO4GetMap() == "IX"){
+                self addOpt("SerketKiss", &GiveSerketKiss);
+            }   
+            else if(BO4GetMap() == "Dead"){
+                self addOpt("Chaos Theory", &GiveChaosTheory);
+                self addOpt("Alistairs Annihilator", &GiveAlistairsAnnihilator);
+            }   
         break;
         case "Powerups Menu":
             self addMenu(menu, "Powerups");
@@ -615,13 +624,13 @@ MenuOptionsPlayer(menu, player)
 
         case "Account Menu":
             self addMenu(menu,"Account Menu");
-            self addOpt("Max Level", &BO4Level55, player);
+            self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
             self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
             self addOpt("Unlock All", &bo4_UnlockAll, player);
-            self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
             self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
+            self addOpt("Max Level", &BO4Level55, player);
         break;
         case "Stats Menu":
             self addMenu(menu,"Stats Menu");
