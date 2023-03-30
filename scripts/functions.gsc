@@ -561,6 +561,14 @@ GiveAlistairsAnnihilator()
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
+
+//This is a test I havent done yet, So Don't think it's correct but I can try. 
+GiveMatryoshkaDolls()
+{
+    self GiveWeapon(getWeapon(#"hash_603fdd2e4ae5b2b0"));
+    self iPrintLnBold("You Should Have Matryoshka Dolls");
+}
+//Again, that was a test I havent done yet, I dont know if its correct.
 GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
