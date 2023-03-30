@@ -116,6 +116,7 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
+                self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.thirdperson, "Third Person", &thirdperson);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
@@ -436,7 +437,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
-                self addOpt("Spoon", &GiveSpoon);
+                self addOpt("Spoon 2", &GiveClientWeapon, "spoon_alcatraz", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
                 self addOpt("Golden Spork", &GiveClientWeapon, "spknifeork", self);

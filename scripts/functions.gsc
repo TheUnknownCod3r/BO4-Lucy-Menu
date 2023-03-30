@@ -76,6 +76,44 @@ UnlimitedAmmo()
     }
 }
 
+ToggleRecoil()
+{
+    self.recoil = isDefined(self.recoil) ? undefined : true;
+    
+    if(isDefined(self.recoil))
+    {
+        self endon("disconnect");
+
+        self S("No Recoil ^2Enabled");
+        self.linked=false;
+        while(isDefined(self.recoil))
+        {
+            if(self AttackButtonPressed()){
+                
+                self.recoilentity = spawnSM(self.origin, "tag_origin");
+                self PlayerLinkTo(self.recoilentity, "tag_origin");
+                self.recoilentity.angles = (self.recoilentity.angles + self.angles);
+                self.linked=true;
+            }
+            else if(self.linked == true && !(self AttackButtonPressed()))
+            {
+                self unlink();
+                self.linked=false;
+                self.recoilentity delete();
+            }
+            wait .001;
+        }
+        if(isDefined(self.recoil))
+            self ToggleRecoil();
+    }
+    else
+    {
+        self unlink();
+        self iPrintLnBold("No Recoil ^1Off");
+        self.recoilentity delete();
+    }
+ }
+
 thirdperson()
 {
     self.thirdperson = isDefined(self.thirdperson) ? undefined : true;
