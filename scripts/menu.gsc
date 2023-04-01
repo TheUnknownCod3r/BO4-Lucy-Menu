@@ -570,7 +570,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
-                self addOpt("Ray Gun II-X", &GiveRayGunIIX);
+                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
