@@ -83,23 +83,21 @@ ToggleRecoil()
     if(isDefined(self.recoil))
     {
         self endon("disconnect");
-
         self S("No Recoil ^2Enabled");
         self.linked=false;
+        self.recoilentity = spawnSM(self.origin, "tag_origin");
         while(isDefined(self.recoil))
         {
             if(self AttackButtonPressed()){
-                
-                self.recoilentity = spawnSM(self.origin, "tag_origin");
-                self PlayerLinkTo(self.recoilentity, "tag_origin");
+                self.recoilentity.origin = self.origin;
                 self.recoilentity.angles = (self.recoilentity.angles + self.angles);
+                self PlayerLinkTo(self.recoilentity, "tag_origin");
                 self.linked=true;
             }
             else if(self.linked == true && !(self AttackButtonPressed()))
             {
                 self unlink();
                 self.linked=false;
-                self.recoilentity delete();
             }
             wait .001;
         }
@@ -561,7 +559,6 @@ GiveAlistairsAnnihilator()
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
-
 
 GiveRiotShield()
 {
