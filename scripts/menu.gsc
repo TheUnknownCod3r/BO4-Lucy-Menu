@@ -454,12 +454,12 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
-                self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
+                self addOpt("Wunderwaffe DG2", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
-                self addOpt("Give Matryoshka Dolls", &GiveMatryoshkaDolls);//Unknown if it works
+                self addOpt("Riot Shield", &GiveRiotShield);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
@@ -627,12 +627,12 @@ MenuOptionsPlayer(menu, player)
         case "Account Menu":
             self addMenu(menu,"Account Menu");
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
+            self addOpt("Max Level", &BO4Level55, player);
             self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
             self addOpt("Unlock All", &bo4_UnlockAll, player);
             self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
-            self addOpt("Max Level", &BO4Level55, player);
         break;
         case "Stats Menu":
             self addMenu(menu,"Stats Menu");
