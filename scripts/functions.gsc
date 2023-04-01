@@ -566,7 +566,7 @@ GiveAlistairsAnnihilator()
 GiveRiotShield()
 {
     self GiveWeapon(getWeapon(#"hash_603fdd2e4ae5b2b0"));//Hash is Riot Shield, Tag Der Toten
-    self iPrintLnBold("You Should Have Matryoshka Dolls");
+    self iPrintLnBold("Riot Shield ^2Given");
 }
 GetWeaponDisplayName()
 {
