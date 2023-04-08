@@ -76,6 +76,41 @@ UnlimitedAmmo()
     }
 }
 
+ToggleRecoil()
+{
+    self.recoil = isDefined(self.recoil) ? undefined : true;
+    if(isDefined(self.recoil))
+    {
+        self endon("disconnect");
+        self S("No Recoil ^2Enabled");
+        self.linked=false;
+        self.recoilentity = spawnSM(self.origin, "tag_origin");
+        while(isDefined(self.recoil))
+        {
+            if(self AttackButtonPressed()){
+                self.recoilentity.origin = self.origin;
+                self.recoilentity.angles = (self.recoilentity.angles + self.angles);
+                self PlayerLinkTo(self.recoilentity, "tag_origin");
+                self.linked=true;
+            }
+            else if(self.linked == true && !(self AttackButtonPressed()))
+            {
+                self unlink();
+                self.linked=false;
+            }
+            wait .001;
+        }
+        if(isDefined(self.recoil))
+            self ToggleRecoil();
+    }
+    else
+    {
+        self unlink();
+        self iPrintLnBold("No Recoil ^1Off");
+        self.recoilentity delete();
+    }
+}
+
 thirdperson()
 {
     self.thirdperson = isDefined(self.thirdperson) ? undefined : true;
@@ -99,7 +134,29 @@ UnlimitedSprint()
         self iPrintLnBold("Unlimited Sprint ^1Disabled");
     }
 }    
-        
+
+magicbullets(bullettype)
+{
+    if(!isDefined(self.gamevars["magicbullet"]) || self.gamevars["magicbullet"] == false)
+    {
+        self.gamevars["magicbullet"] = true;
+        self iprintlnBold("Magic Bullets ^2Enabled");
+        while(self.gamevars["magicbullet"])
+        {
+            self waittill( "weapon_fired" );
+            if(self.gamevars["magicbullet"] == false)
+                continue;
+            MagicBullet( GetWeapon( bullettype ), self GetEye(), BulletTrace(self GetEye(), self GetEye() + AnglesToForward(self GetPlayerAngles()) * 100000, false, self)["position"], self);
+            wait .025;
+        }
+    }
+    else
+    {
+        self.gamevars["magicbullet"] = false;
+        self iprintlnBold("Magic Bullets ^1Disabled");
+    }
+}
+
 notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
@@ -107,15 +164,6 @@ notarget()
         self.ignoreme=true;
     else
         self.ignoreme=false;
-}
-
-ProMod()
-{
-    self.promod = isDefined(self.promod) ? undefined : true;
-    if (isDefined(self.promod))
-        setdvar("cg_fov", 120);
-    else
-        setdvar("cg_fov", 80);
 }
 
 PSpeed()
@@ -522,6 +570,12 @@ GiveAlistairsAnnihilator()
     self GiveWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
+}
+
+GiveRiotShield()
+{
+    self GiveWeapon(getWeapon(#"hash_603fdd2e4ae5b2b0"));//Hash is Riot Shield, Tag Der Toten
+    self iPrintLnBold("Riot Shield ^2Given");
 }
 GetWeaponDisplayName()
 {
@@ -958,6 +1012,22 @@ Host Modification Stuff
 ########################################
 */
 
+
+ModvarTest()
+{
+    level.Modvars = isDefined(level.Modvars) ? undefined : true;
+    if(isDefined(level.Modvars))
+    {
+        setDvar("g_speed", 300);
+        setDvar("cg_fov", 300);
+    }
+    else 
+    {
+        self S("ModVars ^1Disabled");
+        setDvar("g_speed", 100);
+        setDvar("cg_fov", 100);
+    }
+}
 ForceHostToggle()
 {
     self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
