@@ -55,12 +55,11 @@ runMenuIndex(menu)
                 self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
                 self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
                 self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed);
-                self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
                 self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
                 self addOpt("Anti Join", &AntiJoin);
+                self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
                 self addOpt("Map Selection", &newMenu, "Map Selection");
-                self addOpt("Play EE Song", &PlayEESong);
                 self addOpt("Exit Level", &PlayerExitLevel);
                 self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Restart Map", &RestartMap);
@@ -116,16 +115,15 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
-                self addOptBool(self.thirdperson, "Third Person", &thirdperson);
+                self addOpt("Open All Doors", &BO4_OpenAllDoors);
+                self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
-                self addOptBool(self.promod, "Promod", &ProMod);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
                 self addOpt("Award Self Res", &GetSelfRes);
                 self addOpt("Revive Yourself", &BO4Rev);
                 self addOpt("All Perks", &GiveAllPerks);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
-                self addOpt("Clone", &Clone);
         break;
         case "Elixir Menu":
             self addMenu(menu, "Elixir Menu");//Should be complete
@@ -303,31 +301,41 @@ MenuOptionsPlayer(menu, player)
 
         case "Fun Menu":
             self addMenu(menu, "Fun Menu");
+            self addOpt("Clone", &Clone);
+            self addOptBool(self.thirdperson, "Third Person", &thirdperson);
+            self addOpt("Play EE Song", &PlayEESong);
+            self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
             self addOptBool(self.aimbot, "Aimbot", &bo4_toggleaimbot);
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
             self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
+            self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
             self addOpt("Spawn Luna Wolf", &LunaWolf);
-            self addOpt("Add Bot", &bo4_AddBotsToGame);
-            self addOpt("Open All Doors", &BO4_OpenAllDoors);
-            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 300, 1);   
+            self addOpt("Add Bot", &bo4_AddBotsToGame);   
             self addOpt("Save Location", &SaveLocation, 0);
             self addOpt("Load Location", &SaveLocation, 1);
         break;
 
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
-            self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);
-            self addOpt("Print Weapon Hash", &GetWeaponHash);
             self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
             self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
+            self addOpt("Bullets Menu", &newMenu,"Bullets Menu");
+            self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);
+            self addOpt("Print Weapon Hash", &GetWeaponHash);
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
             self addOpt("Upgrade Weapon", &UpgradeWeapon);
             self addOpt("Pack a Punch Effects", &newMenu, "Pack a Punch Effects");
             self addOpt("Drop Weapon", &DropWeapon);
             self addOpt("Take All Weapons", &TakeWeapons);
             self addOpt("Take Current Weapon", &TakeCurrentWeapon);
+            break;
+        case "Bullets Menu":
+        self addMenu(menu, "Bullets Menu");
+            self addOpt("Hellion Salvo", &magicbullets, "launcher_standard_t8_upgraded");
+            self addOpt("Minigun", &magicbullets, "minigun");
+            self addOpt("Ballistic Knife", &magicbullets, "special_ballisticknife_t8_dw_upgraded");
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
@@ -436,7 +444,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
-                self addOpt("Spoon", &GiveSpoon);
+                self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
                 self addOpt("Golden Spork", &GiveClientWeapon, "spknifeork", self);
@@ -453,11 +461,12 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
-                self addOpt("Give The Wunderwaffe", &GiveClientWeapon, "ww_tesla_gun_t8", self);
+                self addOpt("Wunderwaffe DG2", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
+                self addOpt("Riot Shield", &GiveRiotShield);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
@@ -562,13 +571,13 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("ZeusCannon", &GiveClientWeapon, "thundergun_upgraded", self);
                 self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
                 self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
-                self addOpt("Wunderwaffe DG-Funkenschutze", &GiveWunderwaffeDGFunkenschutze);
+                self addOpt("Wunderwaffe DG-Funkenschutze", &GiveClientWeapon, "ww_tesla_sniper_upgraded_t8", self);//Correct stringname from Hashed scripts
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
-                self addOpt("Ray Gun II-X", &GiveRayGunIIX);
+                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
@@ -599,7 +608,7 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Zombie Menu");
             self addOpt("Kill All Zombies", &KillAllZombies, player);
             self addOpt("Teleport Zombies", &TeleportZombies);
-            self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
+            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 300, 1);
             self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
         break;
 
@@ -625,12 +634,12 @@ MenuOptionsPlayer(menu, player)
         case "Account Menu":
             self addMenu(menu,"Account Menu");
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
+            self addOpt("Max Level", &BO4Level55, player);
             self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
             self addOpt("Unlock All", &bo4_UnlockAll, player);
             self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
             self addOpt("Give Achievements", &Achievements, player);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
-            self addOpt("Max Level", &BO4Level55, player);
         break;
         case "Stats Menu":
             self addMenu(menu,"Stats Menu");
@@ -742,7 +751,7 @@ menuMonitor()
                             self thread ExecuteFunction(self.menu["items"][menu].func[curs], self.menu["items"][menu].input1[curs], self.menu["items"][menu].input2[curs], self.menu["items"][menu].input3[curs], self.menu["items"][menu].input4[curs]);
                         if(isDefined(isDefined(self.menu["items"][menu].bool[curs])))
                             self RefreshMenu();
-                        wait .15;
+                        wait .25;
                     }
                 }
                 else if(self SecondaryOffhandButtonPressed() || self FragButtonPressed())
