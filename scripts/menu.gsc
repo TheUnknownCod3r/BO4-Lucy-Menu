@@ -59,6 +59,7 @@ runMenuIndex(menu)
                 self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
                 self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
                 self addOpt("Anti Join", &AntiJoin);
+                self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
                 self addOpt("Map Selection", &newMenu, "Map Selection");
                 self addOpt("Play EE Song", &PlayEESong);
                 self addOpt("Exit Level", &PlayerExitLevel);

@@ -79,7 +79,6 @@ UnlimitedAmmo()
 ToggleRecoil()
 {
     self.recoil = isDefined(self.recoil) ? undefined : true;
-    
     if(isDefined(self.recoil))
     {
         self endon("disconnect");
@@ -110,7 +109,7 @@ ToggleRecoil()
         self iPrintLnBold("No Recoil ^1Off");
         self.recoilentity delete();
     }
- }
+}
 
 thirdperson()
 {
@@ -1000,6 +999,22 @@ Host Modification Stuff
 ########################################
 */
 
+
+ModvarTest()
+{
+    level.Modvars = isDefined(level.Modvars) ? undefined : true;
+    if(isDefined(level.Modvars))
+    {
+        setDvar("g_speed", 300);
+        setDvar("cg_fov", 300);
+    }
+    else 
+    {
+        self S("ModVars ^1Disabled");
+        setDvar("g_speed", 100);
+        setDvar("cg_fov", 100);
+    }
+}
 ForceHostToggle()
 {
     self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
