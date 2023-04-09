@@ -157,6 +157,7 @@ magicbullets(bullettype)
     }
 }
 
+
 notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
@@ -598,12 +599,7 @@ GiveClientWeapon(WeaponName, player)
     player switchToWeapon(getWeapon(WeaponName));
     player iPrintLnBold("You received "+WeaponName);
 }
-GiveEquipment(equipment)
-{
-    self zm_equipment::give(equipment);
-    self zm_loadout::set_player_tactical_grenade(equipment);
-    self S("Given "+equipment);
-}
+
 DropWeapon()
 {
     Current_Weapon = self GetCurrentWeapon();
