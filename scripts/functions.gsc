@@ -135,29 +135,6 @@ UnlimitedSprint()
     }
 }    
 
-magicbullets(bullettype)
-{
-    if(!isDefined(self.gamevars["magicbullet"]) || self.gamevars["magicbullet"] == false)
-    {
-        self.gamevars["magicbullet"] = true;
-        self iprintlnBold("Magic Bullets ^2Enabled");
-        while(self.gamevars["magicbullet"])
-        {
-            self waittill( "weapon_fired" );
-            if(self.gamevars["magicbullet"] == false)
-                continue;
-            MagicBullet( GetWeapon( bullettype ), self GetEye(), BulletTrace(self GetEye(), self GetEye() + AnglesToForward(self GetPlayerAngles()) * 100000, false, self)["position"], self);
-            wait .025;
-        }
-    }
-    else
-    {
-        self.gamevars["magicbullet"] = false;
-        self iprintlnBold("Magic Bullets ^1Disabled");
-    }
-}
-
-
 notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
@@ -599,7 +576,43 @@ GiveClientWeapon(WeaponName, player)
     player switchToWeapon(getWeapon(WeaponName));
     player iPrintLnBold("You received "+WeaponName);
 }
+magicbullets(bulletType)
+{
+    self.magicBullet = isDefined(self.magicBullet) ? undefined : true;
+    if(isDefined(self.magicBullet))
+    {
+        if(!isDefined(bulletType)) self.bulletEffectType = "launcher_standard_t8_upgraded"; else self.bulletEffectType=bulletType;
+        self S("Magic Bullets Enabled, Effect: Rocket Launcher");
+        while(isDefined(self.magicBullet))
+        {
+            self waittill(#"weapon_fired");
+            MagicBullet(getWeapon(self.bulletEffectType), self getPlayerCameraPos(), BulletTrace(self getPlayerCameraPos(), self getPlayerCameraPos() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
+            wait .25;
+        }
+    }
+    else 
+    {
+        self S("Bullet Effects ^1Disabled");
+        self.bulletEffectType=undefined;
+    }
+}
 
+changeBulletType(val)
+{
+    if(isDefined(self.bulletEffectType))
+    {
+        switch(val)
+        {
+            case 0: self.bulletEffectType="minigun"; self S("Bullet Effect Set To: Minigun"); break;
+            case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self S("Bullet Effect Set To: Ballistic Knife"); break;
+            case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self S("Bullet Effect Set To: Rocket Launcher"); break;
+        }
+    }
+    else
+    {
+        self S("Custom Bullet Effects are not Enabled");
+    }
+}
 DropWeapon()
 {
     Current_Weapon = self GetCurrentWeapon();

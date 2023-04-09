@@ -336,9 +336,10 @@ MenuOptionsPlayer(menu, player)
             break;
         case "Bullets Menu":
         self addMenu(menu, "Bullets Menu");
-            self addOpt("Hellion Salvo", &magicbullets, "launcher_standard_t8_upgraded");
-            self addOpt("Minigun", &magicbullets, "minigun");
-            self addOpt("Ballistic Knife", &magicbullets, "special_ballisticknife_t8_dw_upgraded");
+            self addOptBool(self.magicBullet, "Toggle Bullet Effects", &magicbullets);
+            self addOpt("Minigun Bullets", &changeBulletType, 0);
+            self addOpt("Ballistic Knife Bullets", &changeBulletType, 1);
+            self addOpt("Hellion Salvo Bullets", &changeBulletype, 2);
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
