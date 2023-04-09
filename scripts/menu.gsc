@@ -117,7 +117,6 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOpt("Open All Doors", &BO4_OpenAllDoors);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
-                self addOptBool(self.thirdperson, "Third Person", &thirdperson);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
