@@ -134,7 +134,29 @@ UnlimitedSprint()
         self iPrintLnBold("Unlimited Sprint ^1Disabled");
     }
 }    
-        
+
+magicbullets(bullettype)
+{
+    if(!isDefined(self.gamevars["magicbullet"]) || self.gamevars["magicbullet"] == false)
+    {
+        self.gamevars["magicbullet"] = true;
+        self iprintlnBold("Magic Bullets ^2Enabled");
+        while(self.gamevars["magicbullet"])
+        {
+            self waittill( "weapon_fired" );
+            if(self.gamevars["magicbullet"] == false)
+                continue;
+            MagicBullet( GetWeapon( bullettype ), self GetEye(), BulletTrace(self GetEye(), self GetEye() + AnglesToForward(self GetPlayerAngles()) * 100000, false, self)["position"], self);
+            wait .025;
+        }
+    }
+    else
+    {
+        self.gamevars["magicbullet"] = false;
+        self iprintlnBold("Magic Bullets ^1Disabled");
+    }
+}
+
 notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
@@ -142,15 +164,6 @@ notarget()
         self.ignoreme=true;
     else
         self.ignoreme=false;
-}
-
-ProMod()
-{
-    self.promod = isDefined(self.promod) ? undefined : true;
-    if (isDefined(self.promod))
-        setdvar("cg_fov", 120);
-    else
-        setdvar("cg_fov", 80);
 }
 
 PSpeed()
