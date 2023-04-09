@@ -576,12 +576,12 @@ GiveClientWeapon(WeaponName, player)
     player switchToWeapon(getWeapon(WeaponName));
     player iPrintLnBold("You received "+WeaponName);
 }
-magicbullets(bulletType)
+magicbullets()
 {
     self.magicBullet = isDefined(self.magicBullet) ? undefined : true;
     if(isDefined(self.magicBullet))
     {
-        if(!isDefined(bulletType)) self.bulletEffectType = "launcher_standard_t8_upgraded"; else self.bulletEffectType=bulletType;
+        self.bulletEffectType = "launcher_standard_t8_upgraded";
         self S("Magic Bullets Enabled, Effect: Rocket Launcher");
         while(isDefined(self.magicBullet))
         {
