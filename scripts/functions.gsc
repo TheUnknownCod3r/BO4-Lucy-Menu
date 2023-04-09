@@ -89,7 +89,7 @@ ToggleRecoil()
         {
             if(self AttackButtonPressed()){
                 self.recoilentity.origin = self.origin;
-                self.recoilentity.angles = (self.recoilentity.angles + self.angles);
+                self.recoilentity.angles = self.angles;
                 self PlayerLinkTo(self.recoilentity, "tag_origin");
                 self.linked=true;
             }
@@ -598,7 +598,12 @@ GiveClientWeapon(WeaponName, player)
     player switchToWeapon(getWeapon(WeaponName));
     player iPrintLnBold("You received "+WeaponName);
 }
-
+GiveEquipment(equipment)
+{
+    self zm_equipment::give(equipment);
+    self zm_loadout::set_player_tactical_grenade(equipment);
+    self S("Given "+equipment);
+}
 DropWeapon()
 {
     Current_Weapon = self GetCurrentWeapon();

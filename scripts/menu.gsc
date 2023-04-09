@@ -17,6 +17,7 @@ runMenuIndex(menu)
                 self addOpt("Weapon Menu", &newMenu, "Weapon Menu");
                 self addOpt("Powerups Menu", &newMenu, "Powerups Menu");
                 self addOpt("Zombie Menu", &newMenu, "Zombie Menu");
+                self addOpt("Lobby Settings", &newMenu, "Lobby Settings");
                 self addOpt("Mystery Box Menu", &newMenu, "Mystery Box Menu");
                 self addOpt("Account Menu", &newMenu, "Account Menu");
                 self addOpt("Teleport Menu", &newMenu, "Teleport Menu");
@@ -52,15 +53,11 @@ runMenuIndex(menu)
         break;
         case "Host Menu":
             self addMenu(menu, "Host Menu");
-                self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
-                self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
-                self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed);
-                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
-                self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
-                self addOpt("Anti Join", &AntiJoin);
                 self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
                 self addOpt("Map Selection", &newMenu, "Map Selection");
                 self addOpt("Exit Level", &PlayerExitLevel);
+                self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
+                self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Restart Map", &RestartMap);
             break;
@@ -115,7 +112,6 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
-                self addOpt("Open All Doors", &BO4_OpenAllDoors);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
@@ -304,26 +300,33 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Clone", &Clone);
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
-            self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
             self addOptBool(self.aimbot, "Aimbot", &bo4_toggleaimbot);
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
             self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
             self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
-            self addOpt("Spawn Luna Wolf", &LunaWolf);
-            self addOpt("Add Bot", &bo4_AddBotsToGame);   
+            self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
+            self addOpt("Spawn Luna Wolf", &LunaWolf);   
             self addOpt("Save Location", &SaveLocation, 0);
             self addOpt("Load Location", &SaveLocation, 1);
         break;
-
+        case "Lobby Settings":
+            self addMenu(menu, "Lobby Settings");
+                self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
+                self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
+                self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed); 
+                self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
+                self addOpt("Add Bot", &bo4_AddBotsToGame);
+                self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
+                self addOpt("Anti Join", &AntiJoin);
+                self addOpt("Open All Doors", &BO4_OpenAllDoors);
+        break;
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
             self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
             self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
-            self addOpt("Bullets Menu", &newMenu,"Bullets Menu");
-            self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);
-            self addOpt("Print Weapon Hash", &GetWeaponHash);
+            self addOpt("Bullet Effects Menu", &newMenu, "Bullets Menu");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
             self addOpt("Upgrade Weapon", &UpgradeWeapon);
             self addOpt("Pack a Punch Effects", &newMenu, "Pack a Punch Effects");
@@ -466,7 +469,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Riot Shield", &GiveClientWeapon, "riotshield", self);
+               //self addOpt("Matryoshka Dolls", &GiveClientWeapon, "ww_nesting_dolls_t8");//maybe correct??
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
@@ -575,9 +579,9 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
+                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
-                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);

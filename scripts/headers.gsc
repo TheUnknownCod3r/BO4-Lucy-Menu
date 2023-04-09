@@ -22,6 +22,7 @@
 #include scripts\zm_common\zm_weapons.gsc;
 #include scripts\core_common\aat_shared.gsc;
 #include scripts\zm_common\zm_utility.gsc;
+#include scripts\zm_common\zm_equipment.gsc;
 #include scripts\zm_common\zm_perks.gsc;
 #include scripts\zm_common\zm_magicbox.gsc;
 #include scripts\core_common\rank_shared.gsc;
@@ -33,6 +34,7 @@
 #include scripts\zm_common\gametypes\globallogic.gsc;
 #include scripts\core_common\contracts_shared.gsc;
 #include script_47fb62300ac0bd60.gsc;
+#include script_14f4a3c583c77d4b.gsc;
 #include scripts\core_common\match_record.gsc;
 #include scripts\zm_common\zm_laststand.gsc;
 #include scripts\core_common\laststand_shared.gsc;
