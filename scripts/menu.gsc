@@ -435,6 +435,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
+                self addOpt("Riot Shield", &GiveRiotShield);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
@@ -453,6 +454,7 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
+                self addOpt("Riot Shield", &GiveRiotShield);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o", self);
@@ -474,9 +476,11 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
+                self addOpt("Riot Shield", &GiveRiotShield);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
+                self addOpt("Riot Shield", &GiveRiotShield);
             }    
         break;
         case "Upgraded Weapons":
