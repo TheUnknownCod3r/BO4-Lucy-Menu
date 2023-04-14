@@ -336,10 +336,10 @@ MenuOptionsPlayer(menu, player)
             break;
         case "Bullets Menu":
         self addMenu(menu, "Bullets Menu");
-            self addOptBool(self.magicBullet, "Toggle Bullet Effects", &magicbullets);
-            self addOpt("Minigun Bullets", &changeBulletType, 0);
-            self addOpt("Ballistic Knife Bullets", &changeBulletType, 1);
-            self addOpt("Hellion Salvo Bullets", &changeBulletype, 2);
+            self addOptBool(self.magicBullets, "Toggle Magic Bullets", &magicbullets);
+            self addOpt("Minigun", &changeBulletType, 0);
+            self addOpt("Ballistic Knife", &changeBulletType, 1);
+            self addOpt("Hellion Salvo", &changeBulletType, 2);
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
@@ -471,7 +471,6 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Riot Shield", &GiveClientWeapon, "riotshield", self);
-               //self addOpt("Matryoshka Dolls", &GiveClientWeapon, "ww_nesting_dolls_t8");//maybe correct??
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
