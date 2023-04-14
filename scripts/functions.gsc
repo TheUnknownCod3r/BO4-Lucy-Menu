@@ -135,44 +135,6 @@ UnlimitedSprint()
     }
 }    
 
-magicbullets()
-{
-    self.magicBullets = isDefined(self.magicBullets) ? undefined : true;
-    if(isDefined(self.magicBullets))
-    {
-        self.bulletEffectType = "launcher_standard_t8_upgraded";
-        self S("Magic Bullets Enabled, Effect: Rocket Launcher");
-        while(isDefined(self.magicBullets))
-        {
-            self waittill(#"weapon_fired");
-            MagicBullet(getWeapon(self.bulletEffectType), self getPlayerCameraPos(), BulletTrace(self getPlayerCameraPos(), self getPlayerCameraPos() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
-            wait .25;
-        }
-    }
-    else 
-    {
-        self S("Magic Bullets ^1Disabled");
-        self.bulletEffectType=undefined;
-    }
-}
-
-changeBulletType(val)
-{
-    if(isDefined(self.bulletEffectType))
-    {
-        switch(val)
-        {
-            case 0: self.bulletEffectType="minigun"; self S("Bullet Effect Set To: Minigun"); break;
-            case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self S("Bullet Effect Set To: Ballistic Knife"); break;
-            case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self S("Bullet Effect Set To: Rocket Launcher"); break;
-        }
-    }
-    else
-    {
-        self S("Custom Bullet Effects are not Enabled");
-    }
-}
-
 notarget()
 {
     self.NoTarg = isDefined(self.NoTarg) ? undefined : true;
@@ -673,6 +635,45 @@ UpgradeWeapon()
     self GiveWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self IPrintLnBold("^2Your current weapon has been upgraded!");
+}
+
+magicbullets()
+{
+    self.magicBullets = isDefined(self.magicBullets) ? undefined : true;
+    if(isDefined(self.magicBullets))
+    {
+        self.bulletEffectType = "launcher_standard_t8_upgraded";
+        self S("Magic Bullets Enabled, Effect: Rocket Launcher");
+        while(isDefined(self.magicBullets))
+        {
+            self waittill(#"weapon_fired");
+            MagicBullet(getWeapon(self.bulletEffectType), self getPlayerCameraPos(), BulletTrace(self getPlayerCameraPos(), self getPlayerCameraPos() + anglesToForward(self getPlayerAngles())  * 100000, false, self)["position"], self);
+            wait .25;
+        }
+    }
+    else 
+    {
+        self S("Magic Bullets ^1Disabled");
+        self.bulletEffectType=undefined;
+    }
+}
+
+changeBulletType(val)
+{
+    if(isDefined(self.bulletEffectType))
+    {
+        switch(val)
+        {
+            case 0: self.bulletEffectType="minigun"; self S("Bullet Effect Set To: Minigun"); break;
+            case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self S("Bullet Effect Set To: Ballistic Knife"); break;
+            case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self S("Bullet Effect Set To: Rocket Launcher"); break;
+            case 3: self.bulletEffectType = "ray_gun_upgraded"; self S("Bullet Effect Set To: Ray Gun"); break;
+        }
+    }
+    else
+    {
+        self S("Custom Bullet Effects are not Enabled");
+    }
 }
 
 /*

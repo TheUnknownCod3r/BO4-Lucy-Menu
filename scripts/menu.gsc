@@ -340,6 +340,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Minigun", &changeBulletType, 0);
             self addOpt("Ballistic Knife", &changeBulletType, 1);
             self addOpt("Hellion Salvo", &changeBulletType, 2);
+            self addOpt("Ray Gun", &ChangeBulletType, 3);
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
