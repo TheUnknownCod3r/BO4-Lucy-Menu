@@ -17,6 +17,7 @@ runMenuIndex(menu)
                 self addOpt("Weapon Menu", &newMenu, "Weapon Menu");
                 self addOpt("Powerups Menu", &newMenu, "Powerups Menu");
                 self addOpt("Zombie Menu", &newMenu, "Zombie Menu");
+                self addOpt("Lobby Settings", &newMenu, "Lobby Settings");
                 self addOpt("Mystery Box Menu", &newMenu, "Mystery Box Menu");
                 self addOpt("Account Menu", &newMenu, "Account Menu");
                 self addOpt("Teleport Menu", &newMenu, "Teleport Menu");
@@ -52,15 +53,11 @@ runMenuIndex(menu)
         break;
         case "Host Menu":
             self addMenu(menu, "Host Menu");
-                self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
-                self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
-                self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed);
-                self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle);
-                self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
-                self addOpt("Anti Join", &AntiJoin);
                 self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
                 self addOpt("Map Selection", &newMenu, "Map Selection");
                 self addOpt("Exit Level", &PlayerExitLevel);
+                self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
+                self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Restart Map", &RestartMap);
             break;
@@ -115,9 +112,7 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
-                self addOpt("Open All Doors", &BO4_OpenAllDoors);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
-                self addOptBool(self.thirdperson, "Third Person", &thirdperson);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.NoTarg, "No Target", &notarget);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
@@ -125,6 +120,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Revive Yourself", &BO4Rev);
                 self addOpt("All Perks", &GiveAllPerks);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
+                self addOpt("Open All Doors", &BO4_OpenAllDoors);
         break;
         case "Elixir Menu":
             self addMenu(menu, "Elixir Menu");//Should be complete
@@ -305,26 +301,32 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Clone", &Clone);
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
-            self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
             self addOptBool(self.aimbot, "Aimbot", &bo4_toggleaimbot);
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
             self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
             self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
-            self addOpt("Spawn Luna Wolf", &LunaWolf);
-            self addOpt("Add Bot", &bo4_AddBotsToGame);   
+            self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
+            self addOpt("Spawn Luna Wolf", &LunaWolf);   
             self addOpt("Save Location", &SaveLocation, 0);
             self addOpt("Load Location", &SaveLocation, 1);
         break;
-
+        case "Lobby Settings":
+            self addMenu(menu, "Lobby Settings");
+                self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
+                self addOptBool(level.SuperJump, "Super Jump", &SuperJump);
+                self addOptBool(level.SuperSpeed, "Super Speed", &SuperSpeed); 
+                self addoptBool(level.B4Gravity, "Low Gravity", &B4Gravity);
+                self addOpt("Add Bot", &bo4_AddBotsToGame);
+                self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
+                self addOpt("Anti Join", &AntiJoin);
+        break;
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
             self addOpt("Normal Weapons", &newMenu, "Normal Weapons");
             self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
-            self addOpt("Bullets Menu", &newMenu,"Bullets Menu");
-            self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);
-            self addOpt("Print Weapon Hash", &GetWeaponHash);
+            self addOpt("Bullet Effects Menu", &newMenu, "Bullets Menu");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
             self addOpt("Upgrade Weapon", &UpgradeWeapon);
             self addOpt("Pack a Punch Effects", &newMenu, "Pack a Punch Effects");
@@ -334,9 +336,10 @@ MenuOptionsPlayer(menu, player)
             break;
         case "Bullets Menu":
         self addMenu(menu, "Bullets Menu");
-            self addOpt("Hellion Salvo", &magicbullets, "launcher_standard_t8_upgraded");
-            self addOpt("Minigun", &magicbullets, "minigun");
-            self addOpt("Ballistic Knife", &magicbullets, "special_ballisticknife_t8_dw_upgraded");
+            self addOptBool(self.magicBullets, "Toggle Magic Bullets", &magicbullets);
+            self addOpt("Minigun", &changeBulletType, 0);
+            self addOpt("Ballistic Knife", &changeBulletType, 1);
+            self addOpt("Hellion Salvo", &changeBulletType, 2);
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
@@ -435,10 +438,11 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
+                self addOpt("Brazen Bull", &GiveBrazenBull);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
@@ -454,13 +458,14 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o", self);
                 self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h", self);
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
+                self addOpt("Apollo Will", &GiveApolloWill);
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
@@ -469,18 +474,18 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
-                self addOpt("Riot Shield", &GiveRiotShield);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }    
         break;
         case "Upgraded Weapons":
@@ -559,7 +564,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
-                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self); 
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
@@ -580,9 +585,9 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
+                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y_upgraded", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z_upgraded", self);
-                self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x_dw", self);
             }
             else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
