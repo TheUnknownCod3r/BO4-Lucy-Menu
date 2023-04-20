@@ -340,6 +340,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Minigun", &changeBulletType, 0);
             self addOpt("Ballistic Knife", &changeBulletType, 1);
             self addOpt("Hellion Salvo", &changeBulletType, 2);
+         if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+            self addOpt("Ray Gun", &changeBulletType, 3);
+         }
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
