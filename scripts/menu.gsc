@@ -462,6 +462,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
                 self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Stake Knife (will go back to knife when swapping weapons)", &GiveClientWeapon, "stake_knife", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o", self);
