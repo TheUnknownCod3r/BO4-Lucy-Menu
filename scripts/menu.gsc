@@ -114,7 +114,6 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
-                self addOptBool(self.NoTarg, "No Target", &notarget);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
                 self addOpt("Award Self Res", &GetSelfRes);
                 self addOpt("Revive Yourself", &BO4Rev);
@@ -305,13 +304,13 @@ MenuOptionsPlayer(menu, player)
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
-            self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
             self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
             self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
-            self addOpt("Spawn Luna Wolf", &LunaWolf);   
+            self addOpt("Spawn Luna Wolf", &LunaWolf);
             self addOpt("Save Location", &SaveLocation, 0);
             self addOpt("Load Location", &SaveLocation, 1);
         break;
+
         case "Lobby Settings":
             self addMenu(menu, "Lobby Settings");
                 self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
@@ -622,8 +621,10 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Zombie Menu");
             self addOpt("Kill All Zombies", &KillAllZombies, player);
             self addOpt("Teleport Zombies", &TeleportZombies);
-            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 300, 1);
+            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 9999, 1);
             self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
+            self addOptBool(self.NoTarg, "No Target", &notarget);
+            self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
         break;
 
         case "Mystery Box Menu":
