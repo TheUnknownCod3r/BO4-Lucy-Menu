@@ -441,6 +441,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
                 self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Svalinn Guard (add cryofreeze when holding out shield)", &GiveSvalinnGuard);
+                self addOpt("Cryofreeze", &acquireaat, "zm_aat_frostbite");
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
