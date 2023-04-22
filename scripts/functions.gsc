@@ -567,6 +567,13 @@ GiveApolloWill()
    self GiveWeapon(getWeapon(#"hash_134c05846f7c5c98"));
    self iPrintLnBold("Apollo Will ^2Given"); 
 }
+
+GiveSvalinnGuard()
+{
+   self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
+   self iPrintLnBold("Svalinn Guard ^2Given"); 
+}
+
 GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
