@@ -306,11 +306,10 @@ MenuOptionsPlayer(menu, player)
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
             self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
             self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
-            self addOpt("Spawn Luna Wolf", &LunaWolf);
+            self addOpt("Spawn Luna Wolf", &LunaWolf);   
             self addOpt("Save Location", &SaveLocation, 0);
             self addOpt("Load Location", &SaveLocation, 1);
         break;
-
         case "Lobby Settings":
             self addMenu(menu, "Lobby Settings");
                 self addOptBool(level.BO4NoFallD, "No Fall", &BO4NoFallDam);
@@ -320,6 +319,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Add Bot", &bo4_AddBotsToGame);
                 self addOptBool(self.AntiQuit, "Anti Quit", &AntiQuit);
                 self addOpt("Anti Join", &AntiJoin);
+                self addOpt("Open All Doors", &BO4_OpenAllDoors);
         break;
         case "Weapon Menu":
             self addMenu(menu, "Weapon Menu");
@@ -480,6 +480,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Riot Shield", &GiveClientWeapon, "riotshield", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
