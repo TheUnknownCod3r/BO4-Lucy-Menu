@@ -114,12 +114,12 @@ MenuOptionsPlayer(menu, player)
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
-                self addOptBool(self.NoTarg, "No Target", &notarget);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
                 self addOpt("Award Self Res", &GetSelfRes);
                 self addOpt("Revive Yourself", &BO4Rev);
                 self addOpt("All Perks", &GiveAllPerks);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
+                self addOpt("Open All Doors", &BO4_OpenAllDoors);
         break;
         case "Elixir Menu":
             self addMenu(menu, "Elixir Menu");//Should be complete
@@ -304,7 +304,6 @@ MenuOptionsPlayer(menu, player)
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
             self addOptBool(self.Multijump, "Multi Jump", &Multijump);
-            self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
             self addOptBool(self.FloatingZombies, "Floating Zombies", &FloatingZombies);
             self addOptBool(self.ForcingTheHost, "Force Host", &ForceHostToggle); 
             self addOpt("Spawn Luna Wolf", &LunaWolf);   
@@ -340,7 +339,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Minigun", &changeBulletType, 0);
             self addOpt("Ballistic Knife", &changeBulletType, 1);
             self addOpt("Hellion Salvo", &changeBulletType, 2);
-            self addOpt("Ray Gun", &ChangeBulletType, 3);
+         if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+            self addOpt("Ray Gun", &changeBulletType, 3);
+         }
         break;
         case "Pack a Punch Effects":
             self addMenu(menu, "Pack a Punch Effects");
@@ -439,9 +440,13 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Svalinn Guard (add cryofreeze when holding out shield)", &GiveSvalinnGuard);
+                self addOpt("Cryofreeze", &acquireaat, "zm_aat_frostbite");
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
+                self addOpt("Brazen Bull", &GiveBrazenBull);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
@@ -457,12 +462,15 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Give Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Give Alistairs Folly", &GiveAlistairsFolly);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Stake Knife (will go back to knife when swapping weapons)", &GiveClientWeapon, "stake_knife", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o", self);
                 self addOpt("Hand of Hemera", &GiveClientWeapon, "ww_hand_h", self);
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
+                self addOpt("Apollo Will", &GiveApolloWill);
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
@@ -471,6 +479,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
                 self addOpt("Riot Shield", &GiveClientWeapon, "riotshield", self);
             }
             else if(BO4GetMap() == "AO"){
@@ -478,9 +487,11 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
+                self addOpt("Ballistic Shield", &GiveBallisticShield);
             }    
         break;
         case "Upgraded Weapons":
@@ -559,7 +570,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8_upgraded", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
-                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+                self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self); 
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
@@ -613,8 +624,10 @@ MenuOptionsPlayer(menu, player)
             self addMenu(menu, "Zombie Menu");
             self addOpt("Kill All Zombies", &KillAllZombies, player);
             self addOpt("Teleport Zombies", &TeleportZombies);
-            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 300, 1);
+            self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 9999, 1);
             self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
+            self addOptBool(self.NoTarg, "No Target", &notarget);
+            self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
         break;
 
         case "Mystery Box Menu":

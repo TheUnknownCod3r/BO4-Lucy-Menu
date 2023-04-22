@@ -550,11 +550,30 @@ GiveAlistairsAnnihilator()
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
 
-GiveRiotShield()
+GiveBallisticShield()
 {
-    self GiveWeapon(getWeapon(#"hash_603fdd2e4ae5b2b0"));//Hash is Riot Shield, Tag Der Toten
-    self iPrintLnBold("Riot Shield ^2Given");
+    self GiveWeapon(getWeapon(#"hash_3a1959bb039f2be3"));
+    self iPrintLnBold("Ballistic Shield ^2Given");
 }
+
+GiveBrazenBull()
+{
+    self GiveWeapon(getWeapon(#"hash_243cd42eb1bd6e10"));
+    self iPrintLnBold("Brazen Bull ^2Given");
+}
+
+GiveApolloWill()
+{
+   self GiveWeapon(getWeapon(#"hash_134c05846f7c5c98"));
+   self iPrintLnBold("Apollo Will ^2Given"); 
+}
+
+GiveSvalinnGuard()
+{
+   self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
+   self iPrintLnBold("Svalinn Guard ^2Given"); 
+}
+
 GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
