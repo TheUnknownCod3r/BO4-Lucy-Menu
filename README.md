@@ -75,6 +75,8 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 - [] Map Switch with character support
 - [] More Game Modes, Model changer, More features
 - [] Fix Menu Options Disappearing randomly.
+- [] Add Pegasus Strike and Matryoshka Dolls
+- [] Add Spawning Catalysts, Blightfathers, Stokers etc.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -94,6 +96,20 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Changelog
+
+Version 1.4
+<details>
+	<summary>
+		Version 1.4
+	</summary>
+
+	- Winters Howl, Death Of Orion, Wunderwaffe DG-Scharfschütze, Elemental Rayguns and Alistars Folly upgrades all added, Credit @TubBuddy
+	- Upgraded Weapon Varients seperated , Credit @TubBuddy
+	- All Shields added , Credit @TubBuddy
+	- Bullet Menu Added
+	- No Recoil Added
+	- Samantha Box and Stake Knife added , Credit @TubBuddy
+</details>
 
 Version 1.3.4
 <details>
@@ -168,12 +184,12 @@ This wouldn't be possible without the following people
 	Original Menu creator
 
 * [TheUnknownCod3r](https://www.github.com/TheUnknownCod3r/)
-	Taking over updates, and Porting new features.
+	Taking over updates, Fixing/Maintaining and Porting new features.
 	
 * [SirCryptic](https://www.github.com/SirCryptic)
-	Homunculus stringname, NoClip Function
+	Homunculus stringname, NoClip Function and Bullet Menu.
 * [TubBuddy](https://www.github.com/TubBuddy/)
-	Most of the Map Teleport Options
+	Most of the Map Teleport Options, Wonder Weapons, Equipments And All Shields.
 	
 * several community members supplied the unhashed weapon names. 
 
