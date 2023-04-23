@@ -415,8 +415,8 @@ MenuOptionsPlayer(menu, player)
         case "Shotguns":
             self addMenu(menu, "Shotguns");
             self addOpt("Give Mog 12", &GiveClientWeapon, "shotgun_pump_t8", self);
-            self addOpt("Give SG12", &GiveClientWeapon, "shotgun_pump_t8", self);
-            self addOpt("Give Trenchgun", &GiveClientWeapon, "shotgun_pump_t8", self);
+            self addOpt("Give SG12", &GiveClientWeapon, "shotgun_semiauto_t8", self);
+            self addOpt("Give Trenchgun", &GiveClientWeapon, "shotgun_trenchgun_t8", self);
         break;
         case "Special Weapons":
             self addMenu(menu, "Special Weapons");
