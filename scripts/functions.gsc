@@ -508,12 +508,6 @@ GiveAlistairsAnnihilator()
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
 
-GiveBallisticShield()
-{
-    self GiveWeapon(getWeapon(#"hash_3a1959bb039f2be3"));
-    self iPrintLnBold("Ballistic Shield ^2Given");
-}
-
 GiveSvalinnGuard()
 {
    self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
