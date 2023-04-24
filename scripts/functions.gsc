@@ -465,107 +465,47 @@ Weapon Modifications
 ####################################
 
 */
+
 GiveDeathOfOrion()
 {
     self GiveWeapon(getweapon(#"hash_4ae11871b1233211"));
     self switchToWeapon(getweapon(#"hash_4ae11871b1233211"));
     self iPrintLnBold("Death of Orion ^2Given");
 }
-GiveKraken()
-{
-    self giveWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
-    self switchToWeapon(getWeapon(#"hash_5b8d1ff4b772bd85"));
-    self iPrintLnBold("Kraken ^2Given");
-}
-GiveBlundergat()
-{
-    self giveWeapon(getweapon(#"hash_19c157f2230454ad"));
-    self switchToWeapon(getweapon(#"hash_19c157f2230454ad"));
-    self iPrintLnBold("Blundergat ^2Given");
-}
-GiveMagmagat()
-{
-    self giveWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
-    self switchToWeapon(getweapon(#"hash_1b5092cccdb3d65b"));
-    self iPrintLnBold("Magmagat ^2Given");
-}
-GiveAcidgat()
-{
-    self giveWeapon(getweapon(#"hash_25a13b6f6232a985"));
-    self switchToWeapon(getweapon(#"hash_25a13b6f6232a985"));
-    self iPrintLnBold("Acidgat ^2Given");
-}
-GiveSpoon()
-{
-    self giveWeapon(getweapon(#"hash_52b03a79f854eed3"));
-    self switchToWeapon(getweapon(#"hash_52b03a79f854eed3"));
-    self iPrintLnBold("Spoon ^2Given");
-}
+
 GiveSpork()
 {
     self giveWeapon(getweapon(#"hash_32a584f5a65c70d1"));
     self switchToWeapon(getweapon(#"hash_32a584f5a65c70d1"));
     self iPrintLnBold("Spork ^2Given");
 }
+
 GiveAlistairsFolly()
 {
     self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
     self switchToWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
     self iPrintLnBold("Alistairs Folly ^2Given");
 }
-GiveImpaler()
-{
-    self GiveWeapon(getWeapon(#"hash_25f355b5d35b8488"));
-    self switchToWeapon(getWeapon(#"hash_25f355b5d35b8488"));
-    self iPrintLnBold("Impaler ^2Given");
-}
+
 GiveSerketKiss()
 {
     self GiveWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
     self switchToWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
     self iPrintLnBold("SerketKiss ^2Given");
 }
-GiveRayGunIIX()
-{
-    self GiveWeapon(getWeapon(#"hash_132b1b9ca78dc1fb"));
-    self switchToWeapon(getWeapon(#"hash_132b1b9ca78dc1fb"));
-    self iPrintLnBold("Ray Gun II-X ^2Given");
-}
-GiveWunderwaffeDGFunkenschutze()
-{
-    self GiveWeapon(getWeapon(#"hash_39826c972a454fb9"));
-    self switchToWeapon(getWeapon(#"hash_39826c972a454fb9"));
-    self iPrintLnBold("Wunderwaffe DG-Funkenschutze ^2Given");
-}
+
 GiveChaosTheory()
 {
     self GiveWeapon(getWeapon(#"hash_138f012bb30beb55"));
     self switchToWeapon(getWeapon(#"hash_138f012bb30beb55"));
     self iPrintLnBold("Chaos Theory ^2Given");
 }
+
 GiveAlistairsAnnihilator()
 {
     self GiveWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
-}
-
-GiveBallisticShield()
-{
-    self GiveWeapon(getWeapon(#"hash_3a1959bb039f2be3"));
-    self iPrintLnBold("Ballistic Shield ^2Given");
-}
-
-GiveBrazenBull()
-{
-    self GiveWeapon(getWeapon(#"hash_243cd42eb1bd6e10"));
-    self iPrintLnBold("Brazen Bull ^2Given");
-}
-
-GiveApolloWill()
-{
-   self GiveWeapon(getWeapon(#"hash_134c05846f7c5c98"));
-   self iPrintLnBold("Apollo Will ^2Given"); 
 }
 
 GiveSvalinnGuard()
@@ -579,6 +519,7 @@ GetWeaponDisplayName()
     WeaponName = self GetCurrentWeapon().DisplayName;
     self iPrintLnBold(WeaponName);
 }
+
 GetWeaponHash()
 {
     Weap = self GetCurrentWeapon().Name;
@@ -683,10 +624,10 @@ changeBulletType(val)
     {
         switch(val)
         {
-            case 0: self.bulletEffectType="minigun"; self S("Bullet Effect Set To: Minigun"); break;
+            case 0: self.bulletEffectType=  "minigun"; self S("Bullet Effect Set To: Minigun"); break;
             case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self S("Bullet Effect Set To: Ballistic Knife"); break;
             case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self S("Bullet Effect Set To: Rocket Launcher"); break;
-            case 3: self.bulletEffectType = "ray_gun_upgraded"; self S("Bullet Effect Set To: Ray Gun"); break;
+            case 3: self.bulletEffectType = "ray_gun"; self S("Bullet Effect Set To: Ray Gun"); break;
         }
     }
     else
