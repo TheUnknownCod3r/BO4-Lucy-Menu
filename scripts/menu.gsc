@@ -439,7 +439,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Plasmatic Kraken", &GiveClientWeapon, "ww_tricannon_fire_t8", self);
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
-                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Svalinn Guard (add cryofreeze when holding out shield)", &GiveSvalinnGuard);
                 self addOpt("Cryofreeze", &acquireaat, "zm_aat_frostbite");
             }
@@ -462,7 +462,7 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
                 self addOpt("Alistairs Folly", &GiveAlistairsFolly);
-                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Stake Knife (will go back to knife when swapping weapons)", &GiveClientWeapon, "stake_knife", self);
             }
             else if(BO4GetMap() == "AE"){
@@ -479,18 +479,18 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
-                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
                 self addOpt("Ray Gun II-X", &GiveClientWeapon, "ray_gun_mk2x", self);
                 self addOpt("Ray Gun II-Y", &GiveClientWeapon, "ray_gun_mk2y", self);
                 self addOpt("Ray Gun II-Z", &GiveClientWeapon, "ray_gun_mk2z", self);
-                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
             }
              else if(BO4GetMap() == "Classified"){
                 self addOpt("Winter's Howl", &GiveClientWeapon, "ww_freezegun_t8", self);
-                self addOpt("Ballistic Shield", &GiveBallisticShield);
+                self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
             }    
         break;
         case "Upgraded Weapons":
