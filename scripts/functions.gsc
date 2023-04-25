@@ -515,6 +515,13 @@ GivePegasusStrike()
     self iPrintLnBold("Pegasus Strike ^2Given");
 }
 
+GiveMatryoskaDolls()
+{
+    self GiveWeapon(getWeapon(#"hash_7a42b57be462143f"));
+    self switchToWeapon(getWeapon(#"hash_7a42b57be462143f"));
+    self iPrintLnBold("Matryoska Dolls ^2Given");
+}
+
 GiveSvalinnGuard()
 {
    self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
