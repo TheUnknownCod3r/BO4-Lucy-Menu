@@ -508,6 +508,13 @@ GiveAlistairsAnnihilator()
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
 
+GivePegasusStrike()
+{
+    self GiveWeapon(getWeapon(#"hash_27e4878539bc7f72"));
+    self switchToWeapon(getWeapon(#"hash_27e4878539bc7f72"));
+    self iPrintLnBold("Pegasus Strike ^2Given");
+}
+
 GiveSvalinnGuard()
 {
    self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
