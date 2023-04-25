@@ -483,6 +483,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
                 self addOpt("Apollo Will", &GiveClientWeapon, "zhield_zpear_dw", self);
+                self addOpt("Pegasus Strike", &GivePegasusStrike);
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
