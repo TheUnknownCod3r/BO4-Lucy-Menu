@@ -375,6 +375,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Vapr-XKG", &GiveClientWeapon, "ar_stealth_t8", self);
             self addOpt("Give KN-57", &GiveClientWeapon, "ar_modular_t8", self);
             self addOpt("Give Hitchcock M9", &GiveClientWeapon, "ar_mg1909_t8", self);
+            self addOpt("Give Swat RFT", &GiveClientWeapon, "ar_standard_t8", self);
+            self addOpt("Give Grav", &GiveClientWeapon, "ar_galil_t8", self);
         break;
         case "SMG":
             self addMenu(menu, "Submachine Guns");
@@ -384,18 +386,26 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Cordite", &GiveClientWeapon, "smg_capacity_t8", self);
             self addOpt("Give GKS", &GiveClientWeapon, "smg_accurate_t8", self);
             self addOpt("Give Escargot", &GiveClientWeapon, "smg_drum_pistol_t8", self);
+            self addOpt("Give Daemon 3XB", &GiveClientWeapon, "smg_fastburst_t8", self);
+            self addOpt("Give Switchblade X9", &GiveClientWeapon, "smg_folding_t8", self);
+            self addOpt("Give MP40", &GiveClientWeapon, "smg_mp40_t8", self);
+            self addOpt("Give M1927", &GiveClientWeapon, "smg_thompson_t8", self);
         break;
         case "Tactical Rifles":
             self addMenu(menu, "Tactical Rifles");
             self addOpt("Give Auger DMR", &GiveClientWeapon, "tr_powersemi_t8", self);
             self addOpt("Give Swordfish", &GiveClientWeapon, "tr_longburst_t8", self);
             self addOpt("Give ABR 223", &GiveClientWeapon, "tr_midburst_t8", self);
+            self addOpt("Give S6 Stingray", &GiveClientWeapon, "tr_flechette_t8", self);
+            self addOpt("Give Essex Model 07", &GiveClientWeapon, "tr_leveraction_t8", self);
         break;
         case "LMG":
             self addMenu(menu, "Light Machine Guns");
             self addOpt("Give VKM 750", &GiveClientWeapon, "lmg_heavy_t8", self);
             self addOpt("Give Hades", &GiveClientWeapon, "lmg_spray_t8", self);
             self addOpt("Give Titan", &GiveClientWeapon, "lmg_standard_t8", self);
+            self addOpt("Give Zweihander", &GiveClientWeapon, "lmg_double_t8", self);
+            self addOpt("Give Tigershark", &GiveClientWeapon, "lmg_stealth_t8", self);
         break;
         case "Sniper Rifles":
             self addMenu(menu, "Sniper Rifles");
@@ -403,6 +413,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Paladin HB50", &GiveClientWeapon, "sniper_powerbolt_t8", self);
             self addOpt("Give SDM", &GiveClientWeapon, "sniper_powersemi_t8", self);
             self addOpt("Give Koshka", &GiveClientWeapon, "sniper_quickscope_t8", self);
+            self addOpt("Give Vendetta", &GiveClientWeapon, "sniper_mini14_t8", self);
+            self addOpt("Give Locus", &GiveClientWeapon, "sniper_locus_t8", self);
         break;
         case "Pistols":
             self addMenu(menu, "Pistols");
@@ -416,6 +428,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Mog 12", &GiveClientWeapon, "shotgun_pump_t8", self);
             self addOpt("Give SG12", &GiveClientWeapon, "shotgun_semiauto_t8", self);
             self addOpt("Give Trenchgun", &GiveClientWeapon, "shotgun_trenchgun_t8", self);
+            self addOpt("Give Rampage", &GiveClientWeapon, "shotgun_fullauto_t8", self);
         break;
         case "Special Weapons and items":
             self addMenu(menu, "Special Weapons and items");
@@ -446,7 +459,6 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
                 self addOpt("Brazen Bull", &GiveClientWeapon, "zhield_zword_dw", self);
-                
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
@@ -471,6 +483,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
                 self addOpt("Apollo Will", &GiveClientWeapon, "zhield_zpear_dw", self);
+                self addOpt("Pegasus Strike", &GivePegasusStrike);
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
@@ -480,6 +493,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
+                self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
@@ -512,6 +526,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Creeping Haze", &GiveClientWeapon, "ar_stealth_t8_upgraded", self);
             self addOpt("Ruined Revenger", &GiveClientWeapon, "ar_modular_t8_upgraded", self);
             self addOpt("Waking Nightmare", &GiveClientWeapon, "ar_mg1909_t8_upgraded", self);
+            self addOpt("Rift Breacher", &GiveClientWeapon, "ar_standard_t8_upgraded", self);
+            self addOpt("Gravstone", &GiveClientWeapon, "ar_galil_t8_upgraded", self);
         break;
         case "Upgraded SMG":
             self addMenu(menu, "Upgraded SMGs");
@@ -522,18 +538,25 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Ghoul Keepers Subjugator", &GiveClientWeapon, "smg_accurate_t8_upgraded", self);
             self addOpt("PieceDerResistance", &GiveClientWeapon, "smg_drum_pistol_t8_upgraded", self);
             self addOpt("Excisenin3fold", &GiveClientWeapon, "smg_folding_t8_upgraded", self);
+            self addOpt("Unseen Vhand", &GiveClientWeapon, "smg_fastburst_t8_upgraded", self);
+            self addOpt("The Afterburner", &GiveClientWeapon, "smg_mp40_t8_upgraded", self);
+            self addOpt("Speakeasy", &GiveClientWeapon, "smg_thompson_t8_upgraded", self);
         break;
         case "Upgraded TR":
             self addMenu(menu, "Upgraded Tactical Rifles");
             self addOpt("Dead Mans ReefRacker", &GiveClientWeapon, "tr_powersemi_t8_upgraded", self);
             self addOpt("Astralo-Packy-Cormus", &GiveClientWeapon, "tr_longburst_t8_upgraded", self);
             self addOpt("Br-r-rah", &GiveClientWeapon, "tr_midburst_t8_upgraded", self);
+            self addOpt("Macho Manta VI", &GiveClientWeapon, "tr_flechette_t8_upgraded", self);
+            self addOpt("Quatermaster's Reapeater", &GiveClientWeapon, "tr_leveraction_t8_upgraded", self);
         break;
         case "Upgraded LMG":
             self addMenu(menu, "Upgraded LMGs");
             self addOpt("Cackling Kaftar", &GiveClientWeapon, "lmg_heavy_t8_upgraded", self);
             self addOpt("Acheron Alliterator", &GiveClientWeapon, "lmg_spray_t8_upgraded", self);
             self addOpt("Tartarus Veil", &GiveClientWeapon, "lmg_standard_t8_upgraded", self);
+            self addOpt("Sumarbrander", &GiveClientWeapon, "lmg_double_t8_upgraded", self);
+            self addOpt("Smilomegladon", &GiveClientWeapon, "lmg_stealth_t8", self);
         break;
         case "Upgraded SR":
             self addMenu(menu, "Upgraded Snipers");
@@ -541,6 +564,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Righteous Fury", &GiveClientWeapon, "sniper_powerbolt_t8_upgraded", self);
             self addOpt("IT-5 LYT", &GiveClientWeapon, "sniper_powersemi_t8_upgraded", self);
             self addOpt("Bakeneko", &GiveClientWeapon, "sniper_quickscope_t8_upgraded", self);
+            self addOpt("Cnemias Ablation", &GiveClientWeapon, "sniper_mini14_t8", self);
+            self addOpt("Arrythmic Dirge", &GiveClientWeapon, "sniper_locus_t8_upgraded", self);
         break;
         case "Upgraded Pistols":
             self addMenu(menu, "Upgraded Pistols");
@@ -554,6 +579,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("OMG Right Hook", &GiveClientWeapon, "shotgun_pump_t8_upgraded", self);
             self addOpt("Breccius Rebornus", &GiveClientWeapon, "shotgun_semiauto_t8_upgraded", self);
             self addOpt("M9-TKG Home Wrecker", &GiveClientWeapon, "shotgun_trenchgun_t8_upgraded", self);
+            self addOpt("Surgical Havoc", &GiveClientWeapon, "shotgun_fullauto_t8_upgraded", self);
         break;
         case "Upgraded Specials":
             self addMenu(menu, "Upgraded Specials");

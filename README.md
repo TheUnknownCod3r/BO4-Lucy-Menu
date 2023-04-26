@@ -75,7 +75,6 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 - [] Map Switch with character support
 - [] More Game Modes, Model changer, More features
 - [] Fix Menu Options Disappearing randomly.
-- [] Add Pegasus Strike and Matryoshka Dolls
 - [] Add Spawning Catalysts, Blightfathers, Stokers etc.
 
 
@@ -96,6 +95,17 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Changelog
+
+Version 1.4.1
+<details>
+	<summary>
+		Version 1.4.1
+	</summary>
+
+	- Matryoshka Dolls added, Credit @TubBuddy
+	- Pegasus Strike added
+	- More guns added, Credit @TubBuddy
+</details>
 
 Version 1.4
 <details>
