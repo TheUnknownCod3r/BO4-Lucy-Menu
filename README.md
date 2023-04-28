@@ -96,6 +96,8 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+<details>
+
 Version 1.4.2
 <details>
 	<summary>
