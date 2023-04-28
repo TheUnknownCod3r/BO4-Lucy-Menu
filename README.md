@@ -106,7 +106,7 @@ Version 1.4.2
 <details>
 
 Version 1.4.1
-<details>
+</details>
 	<summary>
 		Version 1.4.1
 	</summary>
