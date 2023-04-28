@@ -97,7 +97,7 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 ## Changelog
 
 Version 1.4.2
-</details>
+<details>
 	<summary>
 		Version 1.4.2
 	</summary>
@@ -106,7 +106,7 @@ Version 1.4.2
 <details>
 
 Version 1.4.1
-</details>
+<details>
 	<summary>
 		Version 1.4.1
 	</summary>
