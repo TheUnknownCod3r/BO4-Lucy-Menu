@@ -103,6 +103,7 @@ Version 1.4.2
 	</summary>
 
 	- All Guns Added, Credit @ate47
+<details>
 
 Version 1.4.1
 <details>
