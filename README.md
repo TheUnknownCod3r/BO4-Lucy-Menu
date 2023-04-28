@@ -97,16 +97,16 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 ## Changelog
 
 Version 1.4.2
-</details>
+<details>
 	<summary>
 		Version 1.4.2
 	</summary>
 
 	- All Guns Added, Credit @ate47
-<details>
+</details>
 
 Version 1.4.1
-</details>
+<details>
 	<summary>
 		Version 1.4.1
 	</summary>
@@ -117,7 +117,7 @@ Version 1.4.1
 </details>
 
 Version 1.4
-</details>
+<details>
 	<summary>
 		Version 1.4
 	</summary>
@@ -131,7 +131,7 @@ Version 1.4
 </details>
 
 Version 1.3.4
-</details>
+<details>
 	<summary>
 		Version 1.3.4
 	</summary>
@@ -141,7 +141,7 @@ Version 1.3.4
 </details>
 
 Version 1.3.3
-</details>
+<details>
 	<summary>
 		Version 1.3.3
 	</summary>
@@ -154,7 +154,7 @@ Version 1.3.3
 </details>
 
 Version 1.3
-</details>
+<details>
 	<summary>
 		Version 1.3
 	</summary>
@@ -168,7 +168,7 @@ Version 1.3
 </details>
 
 Version 1.2.3
-</details>
+<details>
 	<summary>
 		Version 1.2.3 Changes
 	</summary>
@@ -179,7 +179,7 @@ Version 1.2.3
 </details>
 
 Version 1.2.2
-</details>
+<details>
 	<summary>
 		Version 1.2.2 Changes
 	</summary>
