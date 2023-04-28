@@ -95,9 +95,6 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Changelog
-
-<details>
-
 Version 1.4.2
 <details>
 	<summary>
