@@ -377,6 +377,9 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Hitchcock M9", &GiveClientWeapon, "ar_mg1909_t8", self);
             self addOpt("Give Swat RFT", &GiveClientWeapon, "ar_standard_t8", self);
             self addOpt("Give Grav", &GiveClientWeapon, "ar_galil_t8", self);
+            self addOpt("Give Peacekeeper", &GiveClientWeapon, "ar_peacekeeper_t8", self);
+            self addOpt("Give Echohawk", &GiveClientWeapon, "ar_doublebarrel_t8", self);
+            self addOpt("Give AN94", &GiveClientWeapon, "ar_an94_t8", self);
         break;
         case "SMG":
             self addMenu(menu, "Submachine Guns");
@@ -398,6 +401,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give ABR 223", &GiveClientWeapon, "tr_midburst_t8", self);
             self addOpt("Give S6 Stingray", &GiveClientWeapon, "tr_flechette_t8", self);
             self addOpt("Give Essex Model 07", &GiveClientWeapon, "tr_leveraction_t8", self);
+            self addOpt("Give M16", &GiveClientWeapon, "tr_damageburst_t8", self);
         break;
         case "LMG":
             self addMenu(menu, "Light Machine Guns");
@@ -415,6 +419,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Koshka", &GiveClientWeapon, "sniper_quickscope_t8", self);
             self addOpt("Give Vendetta", &GiveClientWeapon, "sniper_mini14_t8", self);
             self addOpt("Give Locus", &GiveClientWeapon, "sniper_locus_t8", self);
+            self addOpt("Give Havelina AA50", &GiveClientWeapon, "sniper_damagesemi_t8", self);
         break;
         case "Pistols":
             self addMenu(menu, "Pistols");
@@ -422,6 +427,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Mozu", &GiveClientWeapon, "pistol_revolver_t8", self);
             self addOpt("Give Strife", &GiveClientWeapon, "pistol_standard_t8", self);
             self addOpt("Give Welling", &GiveClientWeapon, "pistol_topbreak_t8", self);
+            self addOpt("Give Kap45", &GiveClientWeapon, "pistol_fullauto_t8", self);
         break;
         case "Shotguns":
             self addMenu(menu, "Shotguns");
@@ -528,6 +534,10 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Waking Nightmare", &GiveClientWeapon, "ar_mg1909_t8_upgraded", self);
             self addOpt("Rift Breacher", &GiveClientWeapon, "ar_standard_t8_upgraded", self);
             self addOpt("Gravstone", &GiveClientWeapon, "ar_galil_t8_upgraded", self);
+            self addOpt("Writ of Shamash", &GiveClientWeapon, "ar_peacekeeper_t8_upgraded", self);
+            self addOpt("Fanged Doom", &GiveClientWeapon, "ar_doublebarrel_upgraded", self);
+            self addOpt("Nightmare Awakened 49", &GiveClientWeapon, "ar_an94_t8_upgraded", self);
+        break;
         break;
         case "Upgraded SMG":
             self addMenu(menu, "Upgraded SMGs");
@@ -549,6 +559,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Br-r-rah", &GiveClientWeapon, "tr_midburst_t8_upgraded", self);
             self addOpt("Macho Manta VI", &GiveClientWeapon, "tr_flechette_t8_upgraded", self);
             self addOpt("Quatermaster's Reapeater", &GiveClientWeapon, "tr_leveraction_t8_upgraded", self);
+            self addOpt("Skullpiercer", &GiveClientWeapon, "tr_damageburst_t8_upgraded", self);
         break;
         case "Upgraded LMG":
             self addMenu(menu, "Upgraded LMGs");
@@ -566,6 +577,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Bakeneko", &GiveClientWeapon, "sniper_quickscope_t8_upgraded", self);
             self addOpt("Cnemias Ablation", &GiveClientWeapon, "sniper_mini14_t8", self);
             self addOpt("Arrythmic Dirge", &GiveClientWeapon, "sniper_locus_t8_upgraded", self);
+            self addOpt("Savage Razorback", &GiveClientWeapon, "sniper_damagesemi_t8_upgraded", self);
         break;
         case "Upgraded Pistols":
             self addMenu(menu, "Upgraded Pistols");
@@ -573,6 +585,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Belle Of The Ball", &GiveClientWeapon, "pistol_revolver_t8_upgraded", self);
             self addOpt("Z-Harmony", &GiveClientWeapon, "pistol_standard_t8_upgraded", self);
             self addOpt("King & Country", &GiveClientWeapon, "pistol_topbreak_t8_upgraded", self);
+            self addOpt("IM-PAK-ED", &GiveClientWeapon, "pistol_fullauto_t8_upgraded", self);
         break;
         case "Upgraded Shotguns":
             self addMenu(menu, "Upgraded Shotguns");
