@@ -96,6 +96,15 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.4.2
+<details>
+	<summary>
+		Version 1.4.2
+	</summary>
+
+	- All Guns Added, Credit @ate47
+</details>
+
 Version 1.4.1
 <details>
 	<summary>
