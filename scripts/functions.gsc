@@ -525,6 +525,9 @@ GiveMatryoskaDolls()
 GiveSvalinnGuard()
 {
    self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
+   self aat::acquire(getweapon(#"hash_62d7f56331878d18"), "zm_aat_frostbite");
+   self zm_pap_util::repack_weapon(getweapon(#"hash_62d7f56331878d18"), 4);
+   self.var_5ba94c1e = 1;
    self iPrintLnBold("Svalinn Guard ^2Given"); 
 }
 
