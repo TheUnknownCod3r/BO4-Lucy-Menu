@@ -459,8 +459,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
-                self addOpt("Svalinn Guard (add cryofreeze when holding out shield)", &GiveSvalinnGuard);
-                self addOpt("Cryofreeze", &acquireaat, "zm_aat_frostbite");
+                self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
@@ -742,7 +741,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Send To Jail", &sendToJail, player);
                 self addOpt("Kill Player", &KillPlayer, player);
                 self addOpt("Down Player", &DownPlayer, player);
-                self addOptIncSlider("Send Message", &PlayerMessage, 0,0,4,1, player);
+                self addOptIncSlider("Send Message", &PlayerMessage, 0,0,21,1, player);
             break;
         default:
             self addMenu(menu, "404 ERROR");
