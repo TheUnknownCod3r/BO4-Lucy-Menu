@@ -96,6 +96,15 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.4.3
+<details>
+	<summary>
+		Version 1.4.3
+	</summary>
+
+	- All Specialists added, Credit @tubBuddy
+</details>
+
 Version 1.4.2
 <details>
 	<summary>

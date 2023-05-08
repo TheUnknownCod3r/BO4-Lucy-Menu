@@ -15,6 +15,7 @@ runMenuIndex(menu)
                 self addOpt("Fun Menu", &newMenu, "Fun Menu");
                 self addOpt("Elixir Menu", &newMenu, "Elixir Menu");
                 self addOpt("Weapons and items Menu", &newMenu, "Weapons and items Menu");
+                self addOpt("Specialist Menu", &newMenu, "Specialist Menu");
                 self addOpt("Powerups Menu", &newMenu, "Powerups Menu");
                 self addOpt("Zombie Menu", &newMenu, "Zombie Menu");
                 self addOpt("Lobby Settings", &newMenu, "Lobby Settings");
@@ -332,6 +333,21 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Take All Weapons", &TakeWeapons);
             self addOpt("Take Current Weapon", &TakeCurrentWeapon);
             break;
+        case "Specialist Menu":
+        self addMenu(menu, "Specialist Menu");
+        if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
+            self addOpt("RagnarokDG5", &GiveRagnarokDG5);
+            self addOpt("PathOfSorrows", &GivePathOfSorrows);
+            self addOpt("OverKill", &GiveOverKill);
+            self addOpt("HellFire", &GiveHellFire);
+        }
+        if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE"){    
+            self addOpt("Chakrams", &GiveClientWeapon, "hero_chakram_lv3", self);
+            self addOpt("Hammer", &GiveClientWeapon, "hero_hammer_lv3", self);
+            self addOpt("Scepter", &GiveClientWeapon, "hero_scepter_lv3", self);
+            self addOpt("Viper and Dragon", &GiveClientWeapon, "hero_sword_pistol_lv3", self);
+        }    
+        break;    
         case "Bullets Menu":
         self addMenu(menu, "Bullets Menu");
             self addOptBool(self.magicBullets, "Toggle Magic Bullets", &magicbullets);
@@ -741,7 +757,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Send To Jail", &sendToJail, player);
                 self addOpt("Kill Player", &KillPlayer, player);
                 self addOpt("Down Player", &DownPlayer, player);
-                self addOptIncSlider("Send Message", &PlayerMessage, 0,0,4,1, player);
+                self addOptIncSlider("Send Message", &PlayerMessage, 0,0,21,1, player);
             break;
         default:
             self addMenu(menu, "404 ERROR");

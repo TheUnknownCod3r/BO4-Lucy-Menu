@@ -466,6 +466,35 @@ Weapon Modifications
 
 */
 
+GiveHellFire()
+{
+    self GiveWeapon(getweapon(#"hash_18829f56b3fbdac1"));
+    self switchToWeapon(getweapon(#"hash_18829f56b3fbdac1"));
+    self iPrintLnBold("HellFire ^2Given");
+}
+
+
+GiveRagnarokDG5()
+{
+    self GiveWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
+    self switchToWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
+    self iPrintLnBold("RagnarokDG5 ^2Given");
+}
+
+GiveOverKill()
+{
+    self GiveWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
+    self switchToWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
+    self iPrintLnBold("OverKill ^2Given");
+}
+
+GivePathOfSorrows()
+{
+    self GiveWeapon(getweapon(#"hash_6627899099b8a69d"));
+    self switchToWeapon(getweapon(#"hash_6627899099b8a69d"));
+    self iPrintLnBold("PathOfSorrows ^2Given");
+}
+
 GiveDeathOfOrion()
 {
     self GiveWeapon(getweapon(#"hash_4ae11871b1233211"));
@@ -1220,6 +1249,23 @@ PlayerMessage(val, player)
         else if(val == 2){ client S(player.name+" is a Hacking Bitch!");}
         else if(val == 3){ client S(player.name+" Is a terrible Zombies Player!");}
         else if(val == 4){ client S(player.name+" Has a Tiny Pee Pee");}
+        else if(val == 5){ client S("I put the new forgis on the jeep I trap until the bloody bottoms is underneath Cause all my niggas got it out the streets");}
+        else if(val == 6){ client S("I keep a hunna racks inside my jeans I remember hittin the mall with the whole team Now a nigga cant answer calls cause im ballin");}
+        else if(val == 7){ client S("I was wakin up gettin racks in the morning I was broke now Im rich these niggas salty");}
+        else if(val == 8){ client S("All this designer on my body got me dripdrip ayy Straight up out the Yajects Im a big Crip If I got a pint of lean Imma sipsip");}
+        else if(val == 9){ client S("I run the racks up with my queen like London and Nip But I got rich on all these niggas I didnt forget that");} 
+        else if(val == 10){ client S("back I had to go through the struggle I didnt forget that");}
+        else if(val == 11){ client S("I hopped inside of the Maybach and now I can sit back These bitches know me now cause I got them big racks");}
+        else if(val == 12){ client S("Cause Im gettin money now I know you heard that Young nigga on the corner bitch I had to serve crack");}
+        else if(val == 13){ client S("Uncle fronted me some Ps had to get them birds back We came up on dirty money I gave it a birdbath");}
+        else if(val == 14){ client S("Cut off the brain and I give my bitch a new coupe Either you from the Yah Gang or youre SuWoop");}
+        else if(val == 15){ client S("Got a New Orleans bitch and man, that pussy voodoo And Im that nigga now who knew?");}
+        else if(val == 16){ client S("I been wakin up to get the money woahwoah Got a bad bitch her ass tatted woahwoah");}
+        else if(val == 17){ client S("Givenchy to my toes two twins Im fucking em both I put her in a new AP the water like a boat");}
+        else if(val == 18){ client S("I seen you swerve back cause Im in the black Bach New diamonds on me fuck a flash this aint Snapchat Cause I been gettin paid");}
+        else if(val == 19){ client S("Yellow diamonds on me look like lemonade Got my baby mama that new Bentayga Tryna get the dough Joe like a sensei yeah");}
+        else if(val == 20){ client S("Rolls Royce umbrellas when Im in the rain I just mind my business I got brothers that did the time I aint kiddin");}
+        else if(val == 21){ client S("All these rappers just talk about it I live it Goin up I aint got no sky limit yeah yeah yeah");}
     }
 }
 
