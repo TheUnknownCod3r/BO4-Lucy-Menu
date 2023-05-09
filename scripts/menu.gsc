@@ -478,8 +478,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "IX"){
-                self addOpt("Death of Orion", &GiveDeathOfOrion);
                 self addOpt("Brazen Bull", &GiveClientWeapon, "zhield_zword_dw", self);
+                self addOpt("Death of Orion", &GiveClientWeapon, "ww_crossbow_t8", self);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
@@ -490,7 +490,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
-                self addOpt("Golden Spork", &GiveClientWeapon, "spknifeork", self);
+                self addOpt("Golden Spork", &GiveClientWeapon, "golden_knife", self);
             }
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
@@ -652,7 +652,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Winter's Fury", &GiveClientWeapon, "ww_freezegun_t8_upgraded", self);
             }
             else if(BO4GetMap() == "IX"){
-                self addOpt("SerketKiss", &GiveSerketKiss);
+                self addOpt("Serket Kiss", &GiveClientWeapon, "ww_crossbow_t8_upgraded", self);
             }   
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Chaos Theory", &GiveChaosTheory);
