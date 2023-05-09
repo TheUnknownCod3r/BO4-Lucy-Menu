@@ -337,10 +337,10 @@ MenuOptionsPlayer(menu, player)
         case "Specialist Menu":
         self addMenu(menu, "Specialist Menu");
         if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-            self addOpt("RagnarokDG5", &GiveRagnarokDG5);
-            self addOpt("PathOfSorrows", &GivePathOfSorrows);
-            self addOpt("OverKill", &GiveOverKill);
-            self addOpt("HellFire", &GiveHellFire);
+            self addOpt("Ragnarok DG5", &GiveRagnarokDG5);//hero_gravityspikes_lv3 or hero_gravity_spikes_lv3?
+            self addOpt("Path Of Sorrows", &GivePathOfSorrows);//hero_katana_lv3?
+            self addOpt("OverKill", &GiveOverKill);//Won't this be hero_minigun_lv3?
+            self addOpt("HellFire", &GiveHellFire);//again, isnt this hero_flamethrower_lv3? Im sure ive seen the stringnames for them
         }
         if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE"){    
             self addOpt("Chakrams", &GiveClientWeapon, "hero_chakram_lv3", self);
@@ -485,12 +485,10 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
                 self addOpt("Hells Retriever", &GiveClientWeapon, "tomahawk_t8", self);
-                self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
                 self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
-                self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
                 self addOpt("Golden Spork", &GiveClientWeapon, "golden_knife", self);
             }
             else if(BO4GetMap() == "Dead"){
@@ -512,7 +510,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Wunderwaffe DG2", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
-                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
+                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);//should there not be an option for snowball_yellow_upgraded??
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
@@ -630,6 +628,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
                 self addOpt("Vitriolic Withering", &GiveClientWeapon, "ww_blundergat_acid_t8_upgraded", self);
                 self addOpt("The Sweeper", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
+                self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
+                self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
