@@ -495,32 +495,11 @@ GivePathOfSorrows()
     self iPrintLnBold("PathOfSorrows ^2Given");
 }
 
-GiveDeathOfOrion()
-{
-    self GiveWeapon(getweapon(#"hash_4ae11871b1233211"));
-    self switchToWeapon(getweapon(#"hash_4ae11871b1233211"));
-    self iPrintLnBold("Death of Orion ^2Given");
-}
-
-GiveSpork()
-{
-    self giveWeapon(getweapon(#"hash_32a584f5a65c70d1"));
-    self switchToWeapon(getweapon(#"hash_32a584f5a65c70d1"));
-    self iPrintLnBold("Spork ^2Given");
-}
-
 GiveAlistairsFolly()
 {
     self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
     self switchToWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
     self iPrintLnBold("Alistairs Folly ^2Given");
-}
-
-GiveSerketKiss()
-{
-    self GiveWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
-    self switchToWeapon(getWeapon(#"hash_5f8f734c5dd02242"));
-    self iPrintLnBold("SerketKiss ^2Given");
 }
 
 GiveChaosTheory()
@@ -553,9 +532,9 @@ GiveMatryoskaDolls()
 
 GiveSvalinnGuard()
 {
-   self GiveWeapon(getWeapon(#"hash_62d7f56331878d18"));
-   self aat::acquire(getweapon(#"hash_62d7f56331878d18"), "zm_aat_frostbite");
-   self zm_pap_util::repack_weapon(getweapon(#"hash_62d7f56331878d18"), 4);
+   self GiveWeapon(getWeapon("zhield_frost_dw"));
+   self aat::acquire(getweapon("zhield_frost_dw"), "zm_aat_frostbite");
+   self zm_pap_util::repack_weapon(getweapon("zhield_frost_dw"), 4);
    self.var_5ba94c1e = 1;
    self iPrintLnBold("Svalinn Guard ^2Given"); 
 }
