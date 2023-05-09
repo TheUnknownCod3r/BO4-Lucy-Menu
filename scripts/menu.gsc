@@ -301,6 +301,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Clone", &Clone);
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
+            self addOpt("Play EE 2 Song", &PlayEE2Song);
             self addOptBool(self.aimbot, "Aimbot", &bo4_toggleaimbot);
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
@@ -653,6 +654,7 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Serket Kiss", &GiveClientWeapon, "ww_crossbow_t8_upgraded", self);
+                self addOpt("Iron Bull", &GiveClientWeapon, "zhield_zword_dw_upgraded", self);
             }   
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Chaos Theory", &GiveChaosTheory);
