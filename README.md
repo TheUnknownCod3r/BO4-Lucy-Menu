@@ -96,6 +96,16 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.4.4
+<details>
+	<summary>
+		Version 1.4.4
+	</summary>
+
+	- Added Bull Upgrade and EE Song 2, Credit @3P1CBOSS84 
+	- Added Original names for the Death of Orion and Svalinn Guard, Credit @stabz47 @ate47 
+</details>
+
 Version 1.4.3
 <details>
 	<summary>
