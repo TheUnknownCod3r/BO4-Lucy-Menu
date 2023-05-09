@@ -301,7 +301,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Clone", &Clone);
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
-			self addOpt("Play EE 2 Song", &PlayEE2Song);
+	    self addOpt("Play EE 2 Song", &PlayEE2Song);
             self addOptBool(self.aimbot, "Aimbot", &bo4_toggleaimbot);
             self addOptBool(self.TeleGun, "Teleport Gun", &StartTeleGun);
             self addOptBool(self.HideWeapon, "Hide Gun", &HideGun);
@@ -481,7 +481,7 @@ MenuOptionsPlayer(menu, player)
             else if(BO4GetMap() == "IX"){
                 self addOpt("Death of Orion", &GiveDeathOfOrion);
                 self addOpt("Brazen Bull", &GiveClientWeapon, "zhield_zword_dw", self);
-				self addOpt("Iron Bull", &GiveClientWeapon, "zhield_zword_dw_upgraded", self);
+		self addOpt("Iron Bull", &GiveClientWeapon, "zhield_zword_dw_upgraded", self);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Blundergat", &GiveClientWeapon, "ww_blundergat_t8", self);
