@@ -1226,7 +1226,7 @@ sendToJail(player)
     player S("You were sent to JAIL!");
 }
 
-PlayerMessage(val, player)
+PlayerMessage(val, player)//Wish I had a typewriter, lol.
 {
     foreach(client in level.players)
     {
@@ -1251,7 +1251,7 @@ PlayerMessage(val, player)
         else if(val == 18){ client S("I seen you swerve back cause Im in the black Bach New diamonds on me fuck a flash this aint Snapchat Cause I been gettin paid");}
         else if(val == 19){ client S("Yellow diamonds on me look like lemonade Got my baby mama that new Bentayga Tryna get the dough Joe like a sensei yeah");}
         else if(val == 20){ client S("Rolls Royce umbrellas when Im in the rain I just mind my business I got brothers that did the time I aint kiddin");}
-        else if(val == 21){ client S("All these rappers just talk about it I live it Goin up I aint got no sky limit yeah yeah yeah");}
+        else if(val == 21){ client S("All these rappers just talk about it I live it Goin up I aint got no sky limit yeah yeah yeah");}//questionable, but sure lets have this here. ??
     }
 }
 
