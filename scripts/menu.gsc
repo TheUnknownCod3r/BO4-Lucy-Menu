@@ -337,10 +337,10 @@ MenuOptionsPlayer(menu, player)
         case "Specialist Menu":
         self addMenu(menu, "Specialist Menu");
         if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-            self addOpt("Ragnarok DG5", &GiveRagnarokDG5);//hero_gravityspikes_lv3 or hero_gravity_spikes_lv3?
-            self addOpt("Path Of Sorrows", &GivePathOfSorrows);//hero_katana_lv3?
-            self addOpt("OverKill", &GiveOverKill);//Won't this be hero_minigun_lv3?
-            self addOpt("HellFire", &GiveHellFire);//again, isnt this hero_flamethrower_lv3? Im sure ive seen the stringnames for them
+            self addOpt("Ragnarok DG5", &GiveRagnarokDG5);
+            self addOpt("Path Of Sorrows", &GivePathOfSorrows);
+            self addOpt("OverKill", &GiveOverKill);
+            self addOpt("HellFire", &GiveHellFire);
         }
         if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE"){    
             self addOpt("Chakrams", &GiveClientWeapon, "hero_chakram_lv3", self);
