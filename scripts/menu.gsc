@@ -408,6 +408,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Escargot", &GiveClientWeapon, "smg_drum_pistol_t8", self);
             self addOpt("Give Daemon 3XB", &GiveClientWeapon, "smg_fastburst_t8", self);
             self addOpt("Give Switchblade X9", &GiveClientWeapon, "smg_folding_t8", self);
+            self addOpt("Give VMP", &GiveClientWeapon, "smg_vmp_t8", self);
+	    self addOpt("Give MicroMG 9mm", &GiveClientWeapon, "smg_minigun_t8", self);
             self addOpt("Give MP40", &GiveClientWeapon, "smg_mp40_t8", self);
             self addOpt("Give M1927", &GiveClientWeapon, "smg_thompson_t8", self);
         break;
@@ -452,6 +454,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give SG12", &GiveClientWeapon, "shotgun_semiauto_t8", self);
             self addOpt("Give Trenchgun", &GiveClientWeapon, "shotgun_trenchgun_t8", self);
             self addOpt("Give Rampage", &GiveClientWeapon, "shotgun_fullauto_t8", self);
+            self addOpt("Give Argus", &GiveClientWeapon, "shotgun_precision_t8", self);
         break;
         case "Special Weapons and items":
             self addMenu(menu, "Special Weapons and items");
@@ -563,6 +566,8 @@ MenuOptionsPlayer(menu, player)
             self addOpt("PieceDerResistance", &GiveClientWeapon, "smg_drum_pistol_t8_upgraded", self);
             self addOpt("Excisenin3fold", &GiveClientWeapon, "smg_folding_t8_upgraded", self);
             self addOpt("Unseen Vhand", &GiveClientWeapon, "smg_fastburst_t8_upgraded", self);
+            self addOpt("The Dark Impaler", &GiveClientWeapon, "smg_vmp_t8_upgraded", self);
+	    self addOpt("Infernal Mercy", &GiveClientWeapon, "smg_minigun_t8_upgraded", self);
             self addOpt("The Afterburner", &GiveClientWeapon, "smg_mp40_t8_upgraded", self);
             self addOpt("Speakeasy", &GiveClientWeapon, "smg_thompson_t8_upgraded", self);
         break;
@@ -607,6 +612,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Breccius Rebornus", &GiveClientWeapon, "shotgun_semiauto_t8_upgraded", self);
             self addOpt("M9-TKG Home Wrecker", &GiveClientWeapon, "shotgun_trenchgun_t8_upgraded", self);
             self addOpt("Surgical Havoc", &GiveClientWeapon, "shotgun_fullauto_t8_upgraded", self);
+            self addOpt("Ancient Harbinger", &GiveClientWeapon, "shotgun_precision_t8_upgraded", self);
         break;
         case "Upgraded Specials":
             self addMenu(menu, "Upgraded Specials");
