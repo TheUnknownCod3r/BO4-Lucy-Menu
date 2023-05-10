@@ -409,7 +409,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Give Daemon 3XB", &GiveClientWeapon, "smg_fastburst_t8", self);
             self addOpt("Give Switchblade X9", &GiveClientWeapon, "smg_folding_t8", self);
             self addOpt("Give VMP", &GiveClientWeapon, "smg_vmp_t8", self);
-			self addOpt("Give MicroMG 9mm", &GiveClientWeapon, "smg_minigun_t8", self);
+	    self addOpt("Give MicroMG 9mm", &GiveClientWeapon, "smg_minigun_t8", self);
             self addOpt("Give MP40", &GiveClientWeapon, "smg_mp40_t8", self);
             self addOpt("Give M1927", &GiveClientWeapon, "smg_thompson_t8", self);
         break;
@@ -567,7 +567,7 @@ MenuOptionsPlayer(menu, player)
             self addOpt("Excisenin3fold", &GiveClientWeapon, "smg_folding_t8_upgraded", self);
             self addOpt("Unseen Vhand", &GiveClientWeapon, "smg_fastburst_t8_upgraded", self);
             self addOpt("The Dark Impaler", &GiveClientWeapon, "smg_vmp_t8_upgraded", self);
-			self addOpt("Infernal Mercy", &GiveClientWeapon, "smg_minigun_t8_upgraded", self);
+	    self addOpt("Infernal Mercy", &GiveClientWeapon, "smg_minigun_t8_upgraded", self);
             self addOpt("The Afterburner", &GiveClientWeapon, "smg_mp40_t8_upgraded", self);
             self addOpt("Speakeasy", &GiveClientWeapon, "smg_thompson_t8_upgraded", self);
         break;
