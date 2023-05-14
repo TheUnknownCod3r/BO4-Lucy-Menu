@@ -491,7 +491,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
 		self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
-                self addOpt("Spork", &GiveClientWeapon, "spork_alcatraz", self);
+                self addOpt("Golden Spork", &GiveClientWeapon, "spork_alcatraz", self);
             }
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
@@ -637,7 +637,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("The Sweeper", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
-		self addOpt("Golden Spork", &GiveClientWeapon, "spknifeork", self);
+		self addOpt("Golden Spork Knife", &GiveClientWeapon, "spknifeork", self);
 		self addOpt("Golden Scalpel", &GiveClientWeapon, "golden_knife", self);
             }
             else if(BO4GetMap() == "AE"){
