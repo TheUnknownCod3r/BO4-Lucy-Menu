@@ -479,7 +479,6 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
-                self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Brazen Bull", &GiveClientWeapon, "zhield_zword_dw", self);
@@ -513,7 +512,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Wunderwaffe DG2", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
-                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);//should there not be an option for snowball_yellow_upgraded??
+		self addOpt("Snowballs", &GiveClientWeapon, "snowball", self);
+                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
@@ -629,6 +629,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
                 self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+		self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
@@ -648,6 +649,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
                 self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
                 self addOpt("Wunderwaffe DG-Funkenschutze", &GiveClientWeapon, "ww_tesla_sniper_upgraded_t8", self);//Correct stringname from Hashed scripts
+		self addOpt("Snowballs Upgraded", &GiveClientWeapon, "snowball_upgraded", self);
+                self addOpt("Yellow Snowballs Upgraded", &GiveClientWeapon, "snowball_yellow_upgraded", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);
