@@ -299,6 +299,7 @@ MenuOptionsPlayer(menu, player)
         case "Fun Menu":
             self addMenu(menu, "Fun Menu");
             self addOpt("Clone", &Clone);
+	    self addOpt("HUDDisable", &HUDDisable);    
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
             self addOpt("Play EE 2 Song", &PlayEE2Song);
