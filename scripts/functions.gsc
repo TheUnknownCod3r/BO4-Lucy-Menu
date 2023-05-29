@@ -21,6 +21,15 @@ Godmode()
         self DisableInvulnerability();
 }
 
+HUDDisable()
+{
+    self.HUDDisable = isDefined(self.HUDDisable) ? undefined : true;
+    if (isDefined(self.HUDDisable))
+        self setclientuivisibilityflag("hud_visible",0);
+    else
+        self setclientuivisibilityflag("hud_visible",1);
+}
+
 NoclipToggle1(player)
 {
     player.Noclip = isDefined(player.Noclip) ? undefined : true;
