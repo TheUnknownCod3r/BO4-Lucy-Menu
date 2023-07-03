@@ -16,7 +16,7 @@
   <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
-	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.
+	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.<br>Probably complete at this point.
     <br />
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
