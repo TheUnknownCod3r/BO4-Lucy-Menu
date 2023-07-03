@@ -475,35 +475,6 @@ Weapon Modifications
 
 */
 
-GiveHellFire()
-{
-    self GiveWeapon(getweapon(#"hash_18829f56b3fbdac1"));
-    self switchToWeapon(getweapon(#"hash_18829f56b3fbdac1"));
-    self iPrintLnBold("HellFire ^2Given");
-}
-
-
-GiveRagnarokDG5()
-{
-    self GiveWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
-    self switchToWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
-    self iPrintLnBold("RagnarokDG5 ^2Given");
-}
-
-GiveOverKill()
-{
-    self GiveWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
-    self switchToWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
-    self iPrintLnBold("OverKill ^2Given");
-}
-
-GivePathOfSorrows()
-{
-    self GiveWeapon(getweapon(#"hash_6627899099b8a69d"));
-    self switchToWeapon(getweapon(#"hash_6627899099b8a69d"));
-    self iPrintLnBold("PathOfSorrows ^2Given");
-}
-
 GiveAlistairsFolly()
 {
     self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
@@ -524,14 +495,6 @@ GiveAlistairsAnnihilator()
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
-
-GivePegasusStrike()
-{
-    self GiveWeapon(getWeapon(#"hash_27e4878539bc7f72"));
-    self switchToWeapon(getWeapon(#"hash_27e4878539bc7f72"));
-    self iPrintLnBold("Pegasus Strike ^2Given");
-}
-
 GiveMatryoskaDolls()
 {
     self GiveWeapon(getWeapon(#"hash_7a42b57be462143f"));
