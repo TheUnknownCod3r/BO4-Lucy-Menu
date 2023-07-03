@@ -228,7 +228,9 @@ This wouldn't be possible without the following people
 	Homunculus stringname, NoClip Function and Bullet Menu.
 * [TubBuddy](https://www.github.com/TubBuddy/)
 	Most of the Map Teleport Options, Wonder Weapons, Equipments And All Shields.
-	
+* [Ate47](https://github.com/ate47)
+  	Updated Raw files I used for the menu, as well as other fixes / improvements.
+  
 * several community members supplied the unhashed weapon names. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
