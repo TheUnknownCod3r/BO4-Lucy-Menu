@@ -338,10 +338,10 @@ MenuOptionsPlayer(menu, player)
         case "Specialist Menu":
         self addMenu(menu, "Specialist Menu");
         if(BO4GetMap() == "Blood" || BO4GetMap() == "AO" || BO4GetMap() == "Tag" || BO4GetMap() == "Classified"){
-            self addOpt("Ragnarok DG5", &GiveRagnarokDG5);
-            self addOpt("Path Of Sorrows", &GivePathOfSorrows);
-            self addOpt("OverKill", &GiveOverKill);
-            self addOpt("HellFire", &GiveHellFire);
+            self addOpt("Flamethrower", &GiveClientWeapon, "hero_flamethrower_t8_lv3", self);
+            self addOpt("Katana", &GiveClientWeapon, "hero_katana_t8_lv3", self);
+            self addOpt("Ragnaroks", &GiveClientWeapon, "hero_gravityspikes_t8_lv3", self);
+            self addOpt("Minigun", &GiveClientWeapon, "hero_minigun_t8_lv3", self);
         }
         if(BO4GetMap() == "Voyage" || BO4GetMap() == "Dead" || BO4GetMap() == "IX" || BO4GetMap() == "AE"){    
             self addOpt("Chakrams", &GiveClientWeapon, "hero_chakram_lv3", self);
@@ -506,7 +506,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hand of Gaia", &GiveClientWeapon, "ww_hand_g", self);
                 self addOpt("Hand of Charon", &GiveClientWeapon, "ww_hand_c", self);
                 self addOpt("Apollo Will", &GiveClientWeapon, "zhield_zpear_dw", self);
-                self addOpt("Pegasus Strike", &GivePegasusStrike);
+                self addOpt("Pegasus Strike", &GiveClientWeapon, "Thunderstorm", self);
             }
             else if(BO4GetMap() == "Tag"){
                 self addOpt("ThunderGun", &GiveClientWeapon, "thundergun", self);
