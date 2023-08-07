@@ -107,6 +107,7 @@ Version 1.4.5
 	- Updated Several Weapon Stringnames (Credit: @TubBuddy)
 	- Unlock All Now actually unlocks all Camos correctly (Fixes #24)
 </details>
+
 Version 1.4.4
 <details>
 	<summary>
