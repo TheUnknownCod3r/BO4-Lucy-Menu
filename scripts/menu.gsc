@@ -638,8 +638,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("The Sweeper", &GiveClientWeapon, "ww_blundergat_t8_upgraded", self);
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
-		self addOpt("Golden Spork Knife", &GiveClientWeapon, "spknifeork", self);
-		self addOpt("Golden Scalpel", &GiveClientWeapon, "golden_knife", self);
+                self addOpt("Tempered Blundergat", &GiveClientWeapon, "ww_blundergat_fire_t8_unfinished", self);
+		            self addOpt("Golden Spork Knife", &GiveClientWeapon, "spknifeork", self);
+		            self addOpt("Golden Scalpel", &GiveClientWeapon, "golden_knife", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
