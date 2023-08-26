@@ -16,7 +16,7 @@
   <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
-	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.
+	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.<br>Probably complete at this point.
     <br />
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
@@ -59,10 +59,12 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 	1. Download a copy of the Repository by clicking Code> Download Zip
 	
 	2. Load Visual Studio Code, Click File, Open Workspace, and load the Project.workspace in the BO4-Lucy-Menu Folder you downloaded
+
+ 	3. Click File, Preferences, Keyboard Shortcuts and search for Run Test Task. Assign an easy to remember Keybind to Inject the menu (Recommend CTRL+Shift+.)
 	
-	3. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject in a Pre game Lobby, You will crash.
+ 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject while in a game, or anywhere BUT the zombies Lobby screen, You will crash.
 	
-	4. Once the game loads, You should be able to Aim and Knife to open the menu. 
+	5. Once the game loads, You should be able to Aim and Knife to open the menu. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -95,6 +97,16 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Changelog
+
+Version 1.4.5
+<details>
+	<summary>
+		Version 1.4.5
+	</summary>
+
+	- Updated Several Weapon Stringnames (Credit: @TubBuddy)
+	- Unlock All Now actually unlocks all Camos correctly (Fixes #24)
+</details>
 
 Version 1.4.4
 <details>
@@ -228,7 +240,9 @@ This wouldn't be possible without the following people
 	Homunculus stringname, NoClip Function and Bullet Menu.
 * [TubBuddy](https://www.github.com/TubBuddy/)
 	Most of the Map Teleport Options, Wonder Weapons, Equipments And All Shields.
-	
+* [Ate47](https://github.com/ate47)
+  	Updated Raw files I used for the menu, as well as other fixes / improvements.
+  
 * several community members supplied the unhashed weapon names. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

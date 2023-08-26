@@ -480,7 +480,6 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
-                self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "IX"){
                 self addOpt("Brazen Bull", &GiveClientWeapon, "zhield_zword_dw", self);
@@ -491,9 +490,9 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hells Retriever", &GiveClientWeapon, "tomahawk_t8", self);
                 self addOpt("Magmagat", &GiveClientWeapon, "ww_blundergat_fire_t8", self);
                 self addOpt("AcidGat", &GiveClientWeapon, "ww_blundergat_acid_t8", self);
-                self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
                 self addOpt("Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw", self);
-                self addOpt("Golden Spork", &GiveClientWeapon, "golden_knife", self);
+		self addOpt("Spoon", &GiveClientWeapon, "spoon_alcatraz", self);
+                self addOpt("Golden Spork", &GiveClientWeapon, "spork_alcatraz", self);
             }
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
@@ -514,7 +513,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Wunderwaffe DG2", &GiveClientWeapon, "ww_tesla_gun_t8", self);
                 self addOpt("Wonderwaffe Sniper", &GiveClientWeapon, "ww_tesla_sniper_t8", self);
                 self addOpt("Tundragun", &GiveClientWeapon, "tundragun", self);
-                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);//should there not be an option for snowball_yellow_upgraded??
+		self addOpt("Snowballs", &GiveClientWeapon, "snowball", self);
+                self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
@@ -630,6 +630,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
                 self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
+		self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
@@ -638,6 +639,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Hells Redeemer", &GiveClientWeapon, "tomahawk_t8_upgraded", self);
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
                 self addOpt("Tempered Blundergat", &GiveClientWeapon, "ww_blundergat_fire_t8_unfinished", self);
+		            self addOpt("Golden Spork Knife", &GiveClientWeapon, "spknifeork", self);
+		            self addOpt("Golden Scalpel", &GiveClientWeapon, "golden_knife", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
@@ -650,6 +653,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Wonderwaffe DG-3 JZ", &GiveClientWeapon, "ww_tesla_gun_t8_upgraded", self);
                 self addOpt("Boreas Blizzard", &GiveClientWeapon, "tundragun_upgraded", self);
                 self addOpt("Wunderwaffe DG-Funkenschutze", &GiveClientWeapon, "ww_tesla_sniper_upgraded_t8", self);//Correct stringname from Hashed scripts
+		self addOpt("Snowballs Upgraded", &GiveClientWeapon, "snowball_upgraded", self);
+                self addOpt("Yellow Snowballs Upgraded", &GiveClientWeapon, "snowball_yellow_upgraded", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v_upgraded", self);

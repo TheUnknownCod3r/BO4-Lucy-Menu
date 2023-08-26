@@ -895,11 +895,21 @@ bo4_UnlockAll(player)
                     }
                     break;
                 default:
-                    foreach(weap in level.zombie_weapons)
-                        if(isDefined(weap.weapon) && zm_utility::getweaponclasszm(weap.weapon) == stat.type)
-                        {
-                            player AddWeaponStat(weap.weapon, stat.name, stat.value);
-                            wait 0.01;
+                    foreach(weap in level.zombie_weapons){
+                        if(isdefined(weap.weapon.name)) {
+                            player addweaponstat(weap.weapon, #"kills", 5000);//Normal Kills
+                            player addweaponstat(weap.weapon, #"headshots", 5000);//Headshots
+                            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
+                            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
+                            player addweaponstat(weap.weapon, #"packedkills", 5000);//Pack a punched Kills
+                            player addweaponstat(weap.weapon, #"heavykills", 5000);//Catalyst?
+                            player addweaponstat(weap.weapon, #"minibosskills", 5000);//warden, Gladiatiors
+                            player addweaponstat(weap.weapon, #"verminkills", 5000);//Dogs / Tigers
+                            player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
+                            player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
+                            player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
+                            waitframe(1);
+                            }
                         }
                     break;
             }
