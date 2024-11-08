@@ -517,7 +517,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
-                self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
+                self addOpt("Matryoska Dolls", &GiveClientWeapon, "eq_nesting_doll_grenade", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
