@@ -495,12 +495,6 @@ GiveAlistairsAnnihilator()
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
 }
-GiveMatryoskaDolls()
-{
-    self GiveWeapon(getWeapon(#"hash_7a42b57be462143f"));
-    self switchToWeapon(getWeapon(#"hash_7a42b57be462143f"));
-    self iPrintLnBold("Matryoska Dolls ^2Given");
-}
 
 GiveSvalinnGuard()
 {
