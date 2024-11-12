@@ -475,10 +475,6 @@ Weapon Modifications
 
 */
 
-
-
-
-
 GiveAlistairsFolly()
 {
     self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));

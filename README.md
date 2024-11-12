@@ -62,7 +62,7 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 
  	3. Click File, Preferences, Keyboard Shortcuts and search for Run Test Task. Assign an easy to remember Keybind to Inject the menu (Recommend CTRL+Shift+.)
 	
- 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject in a Pre game Lobby, You will crash.
+ 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject while in a game, or anywhere BUT the zombies Lobby screen, You will crash.
 	
 	5. Once the game loads, You should be able to Aim and Knife to open the menu. 
 
