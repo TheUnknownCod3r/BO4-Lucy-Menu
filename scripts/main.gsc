@@ -9,7 +9,8 @@ onPlayerSpawned()
     if(!isDefined(self.menuThreaded))
         self thread playerSetup();
     if(isDefined(level.player_too_many_weapons_monitor))
-        level.player_too_many_weapons_monitor = false;
+        level.player_too_many_weapons_monitor = undefined;
+    
 }
 
 InitializeVarsPrecaches()
@@ -21,6 +22,7 @@ InitializeVarsPrecaches()
     level.menuName = "The Lucy Menu";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
+    level.lucyVersion = "1.4.5";
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
     
 }
@@ -42,7 +44,7 @@ playerSetup()
     if(self hasMenu())
     {
         wait 5;
-        self iPrintln("^9Welcome To " + level.menuName);
+        self iPrintln("^9Welcome To " + level.menuName + ", Version: " + level.lucyVersion);
         self iPrintLn("^1Developed By: ^2" + level.menuDeveloper);
         self iPrintln("^0Verification Status: " + self.playerSetting["verification"]);
     }

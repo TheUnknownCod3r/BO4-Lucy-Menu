@@ -475,34 +475,9 @@ Weapon Modifications
 
 */
 
-GiveHellFire()
-{
-    self GiveWeapon(getweapon(#"hash_18829f56b3fbdac1"));
-    self switchToWeapon(getweapon(#"hash_18829f56b3fbdac1"));
-    self iPrintLnBold("HellFire ^2Given");
-}
 
 
-GiveRagnarokDG5()
-{
-    self GiveWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
-    self switchToWeapon(getweapon(#"hash_1d3a5309fa2c9b80"));
-    self iPrintLnBold("RagnarokDG5 ^2Given");
-}
 
-GiveOverKill()
-{
-    self GiveWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
-    self switchToWeapon(getweapon(#"hash_74dd69dd8a46d4aa"));
-    self iPrintLnBold("OverKill ^2Given");
-}
-
-GivePathOfSorrows()
-{
-    self GiveWeapon(getweapon(#"hash_6627899099b8a69d"));
-    self switchToWeapon(getweapon(#"hash_6627899099b8a69d"));
-    self iPrintLnBold("PathOfSorrows ^2Given");
-}
 
 GiveAlistairsFolly()
 {
@@ -523,20 +498,6 @@ GiveAlistairsAnnihilator()
     self GiveWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
     self iPrintLnBold("Alistairs Annihilator ^2Given");
-}
-
-GivePegasusStrike()
-{
-    self GiveWeapon(getWeapon(#"hash_27e4878539bc7f72"));
-    self switchToWeapon(getWeapon(#"hash_27e4878539bc7f72"));
-    self iPrintLnBold("Pegasus Strike ^2Given");
-}
-
-GiveMatryoskaDolls()
-{
-    self GiveWeapon(getWeapon(#"hash_7a42b57be462143f"));
-    self switchToWeapon(getWeapon(#"hash_7a42b57be462143f"));
-    self iPrintLnBold("Matryoska Dolls ^2Given");
 }
 
 GiveSvalinnGuard()
@@ -912,7 +873,6 @@ bo4_UnlockAll(player)
             stat.value   = Int(TableLookup("gamedata/stats/zm/statsmilestones" + a + ".csv", 0, value, 2));
             stat.type    = TableLookup("gamedata/stats/zm/statsmilestones" + a + ".csv", 0, value, 3);
             stat.name    = TableLookup("gamedata/stats/zm/statsmilestones" + a + ".csv", 0, value, 4);
- 
             switch(stat.type)
             {
                 case "global":
@@ -927,7 +887,6 @@ bo4_UnlockAll(player)
                     {
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"StatValue", stat.value);
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"Challengevalue", stat.value);
- 
                         wait 0.01;
                     }
                     break;
@@ -945,6 +904,7 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
+                            player addweaponstat(weap.weapon, #"enhancedkills", 2000);
                             waitframe(1);
                             }
                         }
@@ -958,6 +918,29 @@ bo4_UnlockAll(player)
     player iPrintlnBold("Unlock All Challenges ^2Done");
     if(player != self)
         self iPrintlnBold(player getName() + ": Unlock All Challenges ^2Done");
+}
+
+Dev_UnlockCamos(player)
+{
+    foreach(weap in level.zombie_weapons)
+    {
+            player addweaponstat(weap.weapon, #"kills", 5000);//Normal Kills
+            player addweaponstat(weap.weapon, #"headshots", 5000);//Headshots
+            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
+            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
+            player addweaponstat(weap.weapon, #"packedkills", 5000);//Pack a punched Kills
+            player addweaponstat(weap.weapon, #"heavykills", 5000);//Catalyst?
+            player addweaponstat(weap.weapon, #"minibosskills", 5000);//warden, Gladiatiors
+            player addweaponstat(weap.weapon, #"verminkills", 5000);//Dogs / Tigers
+            player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
+            player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
+            player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
+            player addweaponstat(weap.weapon, #"enhancedkills", 2000);
+            player addweaponstat(weap.weapon, #"loadedkills", 2000);
+            player addweaponstat(weap.weapon, #"darkopskills", 5000);
+            waitframe(1);
+    }
+    player S("All Camos Unlocked!");    
 }
 
 CompleteActiveContracts(player)

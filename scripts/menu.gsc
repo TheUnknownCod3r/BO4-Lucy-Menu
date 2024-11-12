@@ -60,6 +60,7 @@ runMenuIndex(menu)
                 self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
                 self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
+                self addOpt("Camo Test", &Dev_UnlockCamos, self);
                 self addOpt("Restart Map", &RestartMap);
             break;
         case "Players":
@@ -299,7 +300,7 @@ MenuOptionsPlayer(menu, player)
         case "Fun Menu":
             self addMenu(menu, "Fun Menu");
             self addOpt("Clone", &Clone);
-	    self addOpt("HUDDisable", &HUDDisable);    
+	        self addOpt("HUDDisable", &HUDDisable);    
             self addOptBool(self.thirdperson, "Third Person", &thirdperson);
             self addOpt("Play EE Song", &PlayEESong);
             self addOpt("Play EE 2 Song", &PlayEE2Song);
@@ -326,6 +327,7 @@ MenuOptionsPlayer(menu, player)
         case "Weapons and items Menu":
             self addMenu(menu, "Weapon Menu");
             self addOpt("Normal Weapons and items", &newMenu, "Normal Weapons and items");
+            //self addOpt("Weaps Test", &newMenu, "Weaps Test");
             self addOpt("Upgraded Weapons", &newMenu, "Upgraded Weapons");
             self addOpt("Bullet Effects Menu", &newMenu, "Bullets Menu");
             self addOpt("Camo Selector", &newMenu, "Camo Selector");
@@ -517,7 +519,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Yellow Snowballs", &GiveClientWeapon, "snowball_yellow", self);
                 self addOpt("Samantha Box", &GiveClientWeapon, "music_box", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
-                self addOpt("Matryoska Dolls", &GiveMatryoskaDolls);
+                self addOpt("Matryoska Dolls", &GiveClientWeapon, "eq_nesting_doll_grenade", self);
             }
             else if(BO4GetMap() == "AO"){
                 self addOpt("Ray Gun II-V", &GiveClientWeapon, "ray_gun_mk2v", self);
@@ -640,6 +642,7 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Attuned Spectral Shield", &GiveClientWeapon, "zhield_spectral_dw_upgraded", self);
 		self addOpt("Golden Spork Knife", &GiveClientWeapon, "spknifeork", self);
 		self addOpt("Golden Scalpel", &GiveClientWeapon, "golden_knife", self);
+                self addOpt("Tempered Blundergat", &GiveClientWeapon, "ww_blundergat_fire_t8_unfinished", self);
             }
             else if(BO4GetMap() == "AE"){
                 self addOpt("Hand of Ouranous", &GiveClientWeapon, "ww_hand_o_upgraded", self);
