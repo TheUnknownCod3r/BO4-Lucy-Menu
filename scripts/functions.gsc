@@ -475,27 +475,6 @@ Weapon Modifications
 
 */
 
-GiveAlistairsFolly()
-{
-    self GiveWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
-    self switchToWeapon(GetWeapon(#"hash_138efe2bb30be63c"));
-    self iPrintLnBold("Alistairs Folly ^2Given");
-}
-
-GiveChaosTheory()
-{
-    self GiveWeapon(getWeapon(#"hash_138f012bb30beb55"));
-    self switchToWeapon(getWeapon(#"hash_138f012bb30beb55"));
-    self iPrintLnBold("Chaos Theory ^2Given");
-}
-
-GiveAlistairsAnnihilator()
-{
-    self GiveWeapon(getWeapon(#"hash_138f002bb30be9a2"));
-    self switchToWeapon(getWeapon(#"hash_138f002bb30be9a2"));
-    self iPrintLnBold("Alistairs Annihilator ^2Given");
-}
-
 GiveSvalinnGuard()
 {
    self GiveWeapon(getWeapon("zhield_frost_dw"));
@@ -508,8 +487,16 @@ GiveSvalinnGuard()
 PlayEE2Song()
 {
     level thread zm_audio::sndmusicsystem_stopandflush();
-	waitframe(1);
-	level thread zm_audio::sndmusicsystem_playstate("ee_song_2");
+    waitframe(1);
+    level thread zm_audio::sndmusicsystem_playstate("ee_song_2");
+}
+
+PlayAudioToClients(audioFile)//Future replacement
+{
+    if(!isDefined(audioFile)) return;
+    level thread zm_audio::sndmusicsystem_stopandflush();
+    waitframe(1);
+    level thread zm_audio::sndmusicsystem_playstate(audioFile);
 }
 
 GetWeaponDisplayName()
@@ -900,7 +887,6 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
-                            player addweaponstat(weap.weapon, #"enhancedkills", 2000);
                             waitframe(1);
                             }
                         }
@@ -931,9 +917,6 @@ Dev_UnlockCamos(player)
             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
-            player addweaponstat(weap.weapon, #"enhancedkills", 2000);
-            player addweaponstat(weap.weapon, #"loadedkills", 2000);
-            player addweaponstat(weap.weapon, #"darkopskills", 5000);
             waitframe(1);
     }
     player S("All Camos Unlocked!");    
