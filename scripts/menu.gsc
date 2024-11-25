@@ -498,7 +498,7 @@ MenuOptionsPlayer(menu, player)
             }
             else if(BO4GetMap() == "Dead"){
                 self addOpt("Savage Impaler", &GiveClientWeapon, "ww_crossbow_impaler_t8", self);
-                self addOpt("Alistairs Folly", &GiveAlistairsFolly);
+                self addOpt("Alistairs Folly", &GiveClientWeapon, "ww_random_ray_gun1", self);
                 self addOpt("Ballistic Shield", &GiveClientWeapon, "zhield_dw", self);
                 self addOpt("Stake Knife (will go back to knife when swapping weapons)", &GiveClientWeapon, "stake_knife", self);
             }
@@ -672,8 +672,8 @@ MenuOptionsPlayer(menu, player)
                 self addOpt("Iron Bull", &GiveClientWeapon, "zhield_zword_dw_upgraded", self);
             }   
             else if(BO4GetMap() == "Dead"){
-                self addOpt("Chaos Theory", &GiveChaosTheory);
-                self addOpt("Alistairs Annihilator", &GiveAlistairsAnnihilator);
+                self addOpt("Chaos Theory", &GiveClientWeapon, "ww_random_ray_gun2", self);
+                self addOpt("Alistairs Annihilator", &GiveClientWeapon, "ww_random_ray_gun3", self);
             }   
         break;
         case "Powerups Menu":
