@@ -514,7 +514,7 @@ GetWeaponHash()
 
 GiveClientWeapon(WeaponName, player)
 {
-    newWeap = getWeapon(zm_weapons::get_weapon_with_attachments(WeaponName));//should work? idk I currently don't have bo4, but this is how I do it on IW
+    newWeap = zm_weapons::get_weapon_with_attachments(WeaponName);//should work? idk I currently don't have bo4, but this is how I do it on IW
     player giveWeapon(newWeap);
     wait .1;
     player giveMaxAmmo(newWeap);
