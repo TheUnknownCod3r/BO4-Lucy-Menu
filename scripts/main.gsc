@@ -22,7 +22,7 @@ InitializeVarsPrecaches()
     level.menuName = "The Lucy Menu";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
-    level.lucyVersion = "1.4.5";
+    level.lucyVersion = "1.4.6";
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
     
 }
