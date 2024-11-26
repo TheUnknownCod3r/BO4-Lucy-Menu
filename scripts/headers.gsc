@@ -29,12 +29,12 @@
 #include scripts\zm_common\zm_blockers.gsc;
 #include scripts\core_common\exploder_shared.gsc;
 #include scripts\core_common\challenges_shared.gsc;
-#include script_6ce38ab036223e6e.gsc;
+#include scripts\zm_common\zm_round_logic.gsc;
 #include scripts\zm_common\gametypes\globallogic_score.gsc;
 #include scripts\zm_common\gametypes\globallogic.gsc;
 #include scripts\core_common\contracts_shared.gsc;
-#include script_47fb62300ac0bd60.gsc;
-#include script_14f4a3c583c77d4b.gsc;
+#include scripts\core_common\player\player_stats.gsc;
+#include scripts\zm_common\zm_loadout.gsc;
 #include scripts\core_common\match_record.gsc;
 #include scripts\zm_common\zm_laststand.gsc;
 #include scripts\core_common\laststand_shared.gsc;

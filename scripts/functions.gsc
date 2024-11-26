@@ -180,14 +180,14 @@ GiveAllPerks()
     self thread zm_perks::function_cc24f525();
 }
 
-PlayerGiveScore(value, player)
+PlayerGiveScore(value)
 {
-    player zm_score::add_to_player_score(value);
+    self zm_score::add_to_player_score(value);
 }
 
-PlayerTakeScore(value, player)
+PlayerTakeScore(value)
 {
-    player zm_score::minus_to_player_score(value);
+    self zm_score::minus_to_player_score(value);
 }
 
 Clone()

@@ -1,7 +1,7 @@
 runMenuIndex(menu)
 {
     self endon("disconnect");
-
+    
     if(!isDefined(menu))
         menu = "Main";
     
@@ -39,76 +39,6 @@ runMenuIndex(menu)
                 }
             }
             break;
-        case "AllClient":
-            self addMenu(menu, "All Client Options");
-                self addOpt("All God Mode", &ClientFuncs, 0, undefined);
-                self addOpt("All Unlimited Ammo", &ClientFuncs, 1, undefined);
-                self addOpt("All Max Points", &ClientFuncs, 2, undefined);
-                self addOpt("Give Everyone All Perks", &ClientFuncs, 3, undefined);
-                self addOptIncSlider("Self Revives", &SetSelfRevives, 0, 0, 125, 5);
-        break;
-        case "GameModes":
-            self addMenu(menu, "Game Modes");
-                self addOpt("All The Weapons", &GameModeHandler, "All The Weapons");
-                self addOpt("Gun Game", &GameModeHandler, "Gun Game");
-        break;
-        case "Host Menu":
-            self addMenu(menu, "Host Menu");
-                self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
-                self addOpt("Map Selection", &newMenu, "Map Selection");
-                self addOpt("Exit Level", &PlayerExitLevel);
-                self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
-                self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
-                self addOpt("Print Coords", &BO4OriginPrint);
-                self addOpt("Camo Test", &Dev_UnlockCamos, self);
-                self addOpt("Restart Map", &RestartMap);
-            break;
-        case "Players":
-            self addMenu(menu, "Players");
-                foreach(player in level.players)
-                {
-                    if(!isDefined(player.playerSetting["verification"]))
-                        player.playerSetting["verification"] = level.MenuStatus[level.AutoVerify];
-                    
-                    self addOpt("[^5" + player.playerSetting["verification"] + "^6]" + player getName(), &newMenu, "Options " + player GetEntityNumber());
-                }
-            break;
-        default:
-            foundplayer = false;
-            for(a=0;a<level.players.size;a++)
-            {
-                sepmenu = StrTok(menu, " ");
-                if(int(sepmenu[(sepmenu.size - 1)]) == level.players[a] GetEntityNumber())
-                {
-                    foundplayer = true;
-                    self MenuOptionsPlayer(menu, level.players[a]);
-                }
-            }
-            
-            if(!foundplayer)
-            {
-                self addMenu(menu, "404 ERROR");
-                    self addOpt("Page Not Found");
-            }
-            break;
-    }
-}
-
-MenuOptionsPlayer(menu, player)
-{
-    self endon("disconnect");
-    
-    sepmenu = StrTok(menu, " " + player GetEntityNumber());
-    newmenu = "";
-    for(a=0;a<sepmenu.size;a++)
-    {
-        newmenu += sepmenu[a];
-        if(a != (sepmenu.size - 1))
-            newmenu += " ";
-    }
-    
-    switch(newmenu)
-    {
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
@@ -737,6 +667,76 @@ MenuOptionsPlayer(menu, player)
             self addOptIncSlider("Most Headshots", &Stats_MostHeadshots, 0, 0, 10000, 100);
             self addOptIncSlider("Round", &Stats_Round, 0, 0, 10000, 100);
         break;
+        case "AllClient":
+            self addMenu(menu, "All Client Options");
+                self addOpt("All God Mode", &ClientFuncs, 0, undefined);
+                self addOpt("All Unlimited Ammo", &ClientFuncs, 1, undefined);
+                self addOpt("All Max Points", &ClientFuncs, 2, undefined);
+                self addOpt("Give Everyone All Perks", &ClientFuncs, 3, undefined);
+                self addOptIncSlider("Self Revives", &SetSelfRevives, 0, 0, 125, 5);
+        break;
+        case "GameModes":
+            self addMenu(menu, "Game Modes");
+                self addOpt("All The Weapons", &GameModeHandler, "All The Weapons");
+                self addOpt("Gun Game", &GameModeHandler, "Gun Game");
+        break;
+        case "Host Menu":
+            self addMenu(menu, "Host Menu");
+                self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
+                self addOpt("Map Selection", &newMenu, "Map Selection");
+                self addOpt("Exit Level", &PlayerExitLevel);
+                self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
+                self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
+                self addOpt("Print Coords", &BO4OriginPrint);
+                self addOpt("Camo Test", &Dev_UnlockCamos, self);
+                self addOpt("Restart Map", &RestartMap);
+            break;
+        case "Players":
+            self addMenu(menu, "Players");
+                foreach(player in level.players)
+                {
+                    if(!isDefined(player.playerSetting["verification"]))
+                        player.playerSetting["verification"] = level.MenuStatus[level.AutoVerify];
+                    
+                    self addOpt("[^5" + player.playerSetting["verification"] + "^6]" + player getName(), &newMenu, "Options " + player GetEntityNumber());
+                }
+            break;
+        default:
+            foundplayer = false;
+            for(a=0;a<level.players.size;a++)
+            {
+                sepmenu = StrTok(menu, " ");
+                if(int(sepmenu[(sepmenu.size - 1)]) == level.players[a] GetEntityNumber())
+                {
+                    foundplayer = true;
+                    self MenuOptionsPlayer(menu, level.players[a]);
+                }
+            }
+            
+            if(!foundplayer)
+            {
+                self addMenu(menu, "404 ERROR");
+                    self addOpt("Page Not Found");
+            }
+            break;
+    }
+}
+
+MenuOptionsPlayer(menu, player)
+{
+    self endon("disconnect");
+    
+    sepmenu = StrTok(menu, " " + player GetEntityNumber());
+    newmenu = "";
+    for(a=0;a<sepmenu.size;a++)
+    {
+        newmenu += sepmenu[a];
+        if(a != (sepmenu.size - 1))
+            newmenu += " ";
+    }
+    
+    switch(newmenu)
+    {
         case "Options":       
             self addMenu(menu, "[" + player.playerSetting["verification"] + "]" + player getName());
                 self addOpt("Verification", &newMenu, "Verification " + player GetEntityNumber());
