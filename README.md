@@ -64,7 +64,9 @@ Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
 	
  	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject while in a game, or anywhere BUT the zombies Lobby screen, You will crash.
 	
-	5. Once the game loads, You should be able to Aim and Knife to open the menu. 
+	5. Once the game loads, You should be able to Aim and Knife to open the menu. Aim to Scroll Up, Shoot to Scroll Down. F To Select, Melee to go Back. For controllers, this is LT & RS to open, LT to Scroll Up, RT to scroll Down, X to Select, Melee go back.
+
+	6. If an option has a Slider, you can use 3 and 4 to navigate the slider. For controllers, this is Dpad Left, and Dpad Right.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
