@@ -514,12 +514,12 @@ GetWeaponHash()
 
 GiveClientWeapon(WeaponName, player)
 {
-    newWeap = zm_weapons::get_weapon_with_attachments(WeaponName);//should work? idk I currently don't have bo4, but this is how I do it on IW
-    player giveWeapon(newWeap);
+    self zm_weapons::give_build_kit_weapon(getweapon(WeaponName));
+    self switchtoweapon(getweapon(WeaponName));
     wait .1;
-    player giveMaxAmmo(newWeap);
+    player giveMaxAmmo(getweapon(WeaponName));
     wait .1;
-    player switchToWeapon(newWeap);
+    player switchToWeapon(getweapon(WeaponName));
     player iPrintLnBold("You received "+WeaponName);
 }
 DropWeapon()
