@@ -1411,3 +1411,56 @@ AllWeaponsStart()
         wait 45;
     }
 }
+SetFOV(Value)
+{
+    setDvar("cg_fov", Value);
+    self iPrintLnBold("^4FOV Set To: ^1"+Value);
+}
+
+        get_zvar(zvar) {
+	if(!isdefined(level.zombie_vars)) {
+		level.zombie_vars = [];
+	}
+	return level.zombie_vars[zvar];
+}
+SetXPMultiplier(value = undefined) {
+    if (isdefined(value) && value >= 0) {
+        level.menuXPMult = value;
+        level.var_3426461d = value;
+        self iPrintLnBold("^5XP multiplier set to ^6" + value);
+    } else {
+        level.XPMult = undefined;
+        level.var_3426461d = get_xp_multiplier();
+        self iPrintLnBold("^5XP multiplier set to normal");
+    }
+}
+get_xp_multiplier() {
+    if(isDefined(level.XPMult) && level.XPMult >= 0){
+        return level.XPMult;
+    }
+	n_multiplier = get_zvar(#"hash_1ab42b4d7db4cb3c");
+	if(level.gametype == #"zstandard") {
+		switch(level.players.size) {
+			case 1:
+				return n_multiplier * 0.55;
+			case 2:
+				return n_multiplier * 0.75;
+			case 3:
+				return n_multiplier * 0.9;
+			case 4:
+				return n_multiplier * 1.1;
+		}
+	} else {
+		switch(level.players.size) {
+			case 1:
+				return n_multiplier * 0.63;
+			case 2:
+				return n_multiplier * 0.75;
+			case 3:
+				return n_multiplier * 0.8;
+			case 4:
+				return n_multiplier * 0.95;
+		}
+	}
+    return 1;
+}

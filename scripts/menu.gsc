@@ -1,7 +1,7 @@
 runMenuIndex(menu)
 {
     self endon("disconnect");
-    
+
     if(!isDefined(menu))
         menu = "Main";
     
@@ -20,7 +20,7 @@ runMenuIndex(menu)
                 self addOpt("Zombie Menu", &newMenu, "Zombie Menu");
                 self addOpt("Lobby Settings", &newMenu, "Lobby Settings");
                 self addOpt("Mystery Box Menu", &newMenu, "Mystery Box Menu");
-                self addOpt("Account Menu", &newMenu, "Account Menu");
+                self addOpt("Account Menu", &newMenu, "Rank Menu");
                 self addOpt("Teleport Menu", &newMenu, "Teleport Menu");
                 if(self getVerification() > 1)
                 {
@@ -221,10 +221,10 @@ runMenuIndex(menu)
         break;
         case "Score Menu":
             self addMenu(menu, "Score");
-                self addOpt("Max Points", &PlayerGiveScore, 4000000, player);
-                self addOpt("Take Points", &PlayerTakeScore, 4000000, player);
-                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000, player);
-                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000, player);
+                self addOpt("Max Points", &PlayerGiveScore, 4000000, self);
+                self addOpt("Take Points", &PlayerTakeScore, 4000000, self);
+                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000, self);
+                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000, self);
             break;
 
         case "Fun Menu":
@@ -622,7 +622,7 @@ runMenuIndex(menu)
 
         case "Zombie Menu":
             self addMenu(menu, "Zombie Menu");
-            self addOpt("Kill All Zombies", &KillAllZombies, player);
+            self addOpt("Kill All Zombies", &KillAllZombies, self);
             self addOpt("Teleport Zombies", &TeleportZombies);
             self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 9999, 1);
             self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
@@ -649,14 +649,14 @@ runMenuIndex(menu)
             self addOpt("Random Box Price", &BoxPrice, randomIntRange(0, 999999));
         break;
 
-        case "Account Menu":
+        case "Rank Menu":
             self addMenu(menu,"Account Menu");
-            self addOpt("Complete Active Contracts", &CompleteActiveContracts, player);
-            self addOpt("Max Level", &BO4Level55, player);
-            self addOptBool(player.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, player);
-            self addOpt("Unlock All", &bo4_UnlockAll, player);
-            self addOpt("Max Weapon Levels", &bo4_MaxLevels, player);
-            self addOpt("Give Achievements", &Achievements, player);
+            self addOpt("Max Level", &BO4Level55, self);
+            self addOptBool(self.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, self);
+            self addOpt("Complete Active Contracts", &CompleteActiveContracts, self);
+            self addOpt("Unlock All", &bo4_UnlockAll, self);
+            self addOpt("Max Weapon Levels", &bo4_MaxLevels, self);
+            self addOpt("Give Achievements", &Achievements, self);
             self addOpt("Stats Menu", &newMenu, "Stats Menu");
         break;
         case "Stats Menu":
