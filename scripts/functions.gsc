@@ -652,7 +652,43 @@ KillAllZombies(player)
     }
     self iPrintLnBold("All Zombies ^1Eliminated");
 }
+ToggleKillAura()
+{
+    self.killAura = isDefined(self.killAura) ? undefined: true;
+    if(self.killAura)
+    {
+        self thread KillAura();
+        self iPrintLnBold("Kill Aura ^2Enabled");
+    }
+    else
+    {
+        self notify("end_kill_aura");
+        self iPrintLnBold("Kill Aura ^1Disabled");
+    }
+}
 
+ReturnAIArray()
+{
+    return GetAISpeciesArray(level.zombie_team, "axis");
+}
+KillAura()//Shaolin Shuffle Glitch on BO4??
+{
+    self endon("end_kill_aura");
+    self endon("disconnect");
+
+    for(;;)
+    {
+        zombies = GetAISpeciesArray(level.zombie_team,"all");
+        foreach (zombie in zombies)
+        {
+            if(distanceSquared(zombie.origin, self.origin) < 150 * 150)
+            {
+                zombie dodamage(zombie.health+1,self.origin,self,undefined,"MOD_EXPLOSIVE");
+            }
+        }
+        wait .05;
+    }
+}
 TeleportZombies() 
 {
     foreach(zombie in GetAITeamArray(level.zombie_team)) 

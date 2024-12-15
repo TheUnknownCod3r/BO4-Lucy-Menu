@@ -47,6 +47,7 @@ runMenuIndex(menu)
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
+                self addOptBool(self.killAura, "Kill Aura", &ToggleKillAura);
                 self addOpt("Award Self Res", &GetSelfRes);
                 self addOpt("Revive Yourself", &BO4Rev);
                 self addOpt("All Perks", &GiveAllPerks);
