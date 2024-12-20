@@ -1,9 +1,8 @@
 init()
 {
     level thread InitializeVarsPrecaches();
-    level.player_out_of_playable_area_monitor = undefined;       
+    level.player_out_of_playable_area_monitor = undefined;     
 }
-
 onPlayerSpawned()
 {
     if(!isDefined(self.menuThreaded))

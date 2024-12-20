@@ -643,7 +643,7 @@ KillAllZombies(player)
     level.zombie_total = 0;
     for(a=0;a<3;a++) //Gotta get those zombies killed :D
     {
-        zombies = GetAISpeciesArray(level.zombie_team, "all");
+        zombies = ReturnAIArray();
         for(z=0;z<zombies.size;z++)
         {
             if(isDefined(zombies[z]) && IsAlive(zombies[z]))
@@ -669,7 +669,7 @@ ToggleKillAura()
 
 ReturnAIArray()
 {
-    return GetAISpeciesArray(level.zombie_team, "axis");
+    return GetAITeamArray(level.zombie_team);
 }
 KillAura()//Shaolin Shuffle Glitch on BO4??
 {
@@ -678,7 +678,7 @@ KillAura()//Shaolin Shuffle Glitch on BO4??
 
     for(;;)
     {
-        zombies = GetAISpeciesArray(level.zombie_team,"all");
+        zombies = GetAITeamArray(level.zombie_team);
         foreach (zombie in zombies)
         {
             if(distanceSquared(zombie.origin, self.origin) < 150 * 150)
@@ -691,7 +691,7 @@ KillAura()//Shaolin Shuffle Glitch on BO4??
 }
 TeleportZombies() 
 {
-    foreach(zombie in GetAITeamArray(level.zombie_team)) 
+    foreach(zombie in ReturnAIArray()) 
     {
         if (isDefined(zombie)) zombie ForceTeleport(self.origin + (+40, 0, 0));
     }
@@ -1459,44 +1459,14 @@ SetFOV(Value)
 	}
 	return level.zombie_vars[zvar];
 }
-SetXPMultiplier(value = undefined) {
-    if (isdefined(value) && value >= 0) {
-        level.menuXPMult = value;
-        level.var_3426461d = value;
-        self iPrintLnBold("^5XP multiplier set to ^6" + value);
-    } else {
-        level.XPMult = undefined;
-        level.var_3426461d = get_xp_multiplier();
-        self iPrintLnBold("^5XP multiplier set to normal");
+
+
+ActivatePAP(mapname)
+{
+    if(!isDefined(mapname)) mapname = level.script;
+    switch(level.script)
+    {
+        case "zm_towers": level flag::set("zm_towers_pap_quest_completed"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5; sentinel_model = getent("mdl_pap_quest_sentinel_artifact", "targetname"); sentinel_model delete(); wait .5; pap_debris_clip = getentarray("mdl_pap_room_debris_clip","targetname"); foreach (clip in pap_debris_clip) { clip connectPaths(); clip delete();} wait .5; var_10761775 = getent("t_pap_quest_place_head", "targetname"); var_10761775 delete(); var_8a3d82fc = getentarray("script_brush_lgt_pap_door", "targetname"); foreach(clip2 in var_8a3d82fc) clip2 delete(); exploder::exploder("exp_lgt_pap"); level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded"); wait .5;     var_3075677 = getentarray("mdl_pap_quest_head", "targetname"); foreach(enemyHead in var_3075677){ enemyHead flag::clear(#"hash_26125a3306681e2"); enemyHead delete();} level flag::set("connect_pap_room_to_danu_ra_tunnel"); level flag::set("connect_pap_room_to_odin_zeus_tunnel"); wait .5; var_f7afe1a0 = getent("sarcophagus_destroyed","targetname"); var_f7afe1a0 delete(); self iPrintLnBold("Pap Opened, Walls will still appear"); break;
+        case "zm_escape": self iPrintLnBold("Not Added Yet"); break;
     }
-}
-get_xp_multiplier() {
-    if(isDefined(level.XPMult) && level.XPMult >= 0){
-        return level.XPMult;
-    }
-	n_multiplier = get_zvar(#"hash_1ab42b4d7db4cb3c");
-	if(level.gametype == #"zstandard") {
-		switch(level.players.size) {
-			case 1:
-				return n_multiplier * 0.55;
-			case 2:
-				return n_multiplier * 0.75;
-			case 3:
-				return n_multiplier * 0.9;
-			case 4:
-				return n_multiplier * 1.1;
-		}
-	} else {
-		switch(level.players.size) {
-			case 1:
-				return n_multiplier * 0.63;
-			case 2:
-				return n_multiplier * 0.75;
-			case 3:
-				return n_multiplier * 0.8;
-			case 4:
-				return n_multiplier * 0.95;
-		}
-	}
-    return 1;
 }

@@ -222,10 +222,10 @@ runMenuIndex(menu)
         break;
         case "Score Menu":
             self addMenu(menu, "Score");
-                self addOpt("Max Points", &PlayerGiveScore, 4000000, self);
-                self addOpt("Take Points", &PlayerTakeScore, 4000000, self);
-                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000, self);
-                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000, self);
+                self addOpt("Max Points", &PlayerGiveScore, 4000000);
+                self addOpt("Take Points", &PlayerTakeScore, 4000000);
+                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000);
+                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000);
             break;
 
         case "Fun Menu":
@@ -690,6 +690,7 @@ runMenuIndex(menu)
                 self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Camo Test", &Dev_UnlockCamos, self);
+                self addOpt("Activate PAP", &ActivatePAP);
                 self addOpt("Restart Map", &RestartMap);
             break;
         case "Players":

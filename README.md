@@ -16,7 +16,7 @@
   <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
-	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.<br>Probably complete at this point.
+	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.<br>For Battle.net, and Shield Client
     <br />
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
@@ -47,6 +47,7 @@
 To use this Mod Menu, you must have Visual Studio Code, and T7 Compiler.
 You can download T7 Compiler [Here](https://www.github.com/shiversoftdev/t7-compiler/releases/)
 Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
+These Instructions Apply to BOTH Battle.net, and Shield Client.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
