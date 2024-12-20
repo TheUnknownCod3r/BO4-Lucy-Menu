@@ -105,6 +105,7 @@ Version 1.4.6
 	<summary>
 		Version 1.4.6
 	</summary>
+	
 	- More Weapon Stringnames
 	- Re-add Open PAP
 	- Give Weapons with Player Build Kits
