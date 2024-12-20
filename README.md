@@ -46,7 +46,7 @@
 
 To use this Mod Menu, you must have Visual Studio Code, and T7 Compiler.
 You can download T7 Compiler [Here](https://www.github.com/shiversoftdev/t7-compiler/releases/)
-Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)
+Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)<br>
 These Instructions Apply to BOTH Battle.net, and Shield Client.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -79,7 +79,6 @@ These Instructions Apply to BOTH Battle.net, and Shield Client.
 - [ ] Full Map Completion of EE's
 - [ ] Map Switch with character support
 - [ ] More Game Modes, Model changer, More features
-- [ ] Fix Menu Options Disappearing randomly.
 - [ ] Add Spawning Catalysts, Blightfathers, Stokers etc.
 
 
@@ -100,6 +99,20 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Changelog
+
+Version 1.4.6
+<details>
+	<summary>
+		Version 1.4.6
+	</summary>
+	- More Weapon Stringnames
+	- Re-add Open PAP
+	- Give Weapons with Player Build Kits
+	- Shaolin Shuffle inspired Kill Aura
+	- Fixes and Improvements across the board
+	- Update Hashes in Headers
+	- More coming Soon!
+</details>
 
 Version 1.4.5
 <details>
