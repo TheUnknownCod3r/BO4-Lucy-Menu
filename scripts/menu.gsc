@@ -42,6 +42,7 @@ runMenuIndex(menu)
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
+                self addOptBool(self.demiMode, "Demi-God Mode", &DemiGod);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);

@@ -21,6 +21,25 @@ Godmode()
         self DisableInvulnerability();
 }
 
+DemiGod()
+{
+    self.demiMode = isDefined(self.demiMode) ? undefined : true;
+ 
+    if(isDefined(self.demiMode))
+    {
+        self endon("disconnect");
+ 
+        while(isDefined(self.demiMode)) 
+        {
+            if(self.health < 100) {
+                self.health = 100;
+            }
+
+            wait 0.05;
+        }
+    }
+}
+
 ScoreOnlyIncreases() {
 
     self.onlyIncrease = isDefined(self.onlyIncrease) ? undefined : true;
