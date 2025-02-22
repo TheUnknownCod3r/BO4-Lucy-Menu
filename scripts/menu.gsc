@@ -44,6 +44,7 @@ runMenuIndex(menu)
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.demiMode, "Demi-God Mode", &DemiGod);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
+                self addOptSlider("Better Unlimited Ammo", &BetterUnlimitedAmmo, "Reload;Continuous");
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);

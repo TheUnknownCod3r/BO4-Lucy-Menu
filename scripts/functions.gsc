@@ -127,6 +127,59 @@ UnlimitedAmmo()
     }
 }
 
+//Also makes equipment and gadgets unlimited. 
+//Found implementation on how to do this from SeriousHD's BO3 subversion menu. 
+//Still works for BO4 but needed the sheild tweak.
+BetterUnlimitedAmmo(val)
+{
+    self.betterUnlimitedAmmo = isDefined(self.betterUnlimitedAmmo) ? undefined : true;
+    if(isDefined(self.betterUnlimitedAmmo))
+    {   
+        self endon("disconnect");
+
+        while(isDefined(self.betterUnlimitedAmmo))
+        {
+            weapons = self GetWeaponsList();
+            foreach(weapon in weapons)
+            {
+                if(weapon.isgadget) {
+                    slot = self GadgetGetSlot(weapon);
+                    if(self GadgetPowerGet(slot) < 100 && !self GetCurrentWeapon().isgadget || self GadgetPowerGet(slot) < 10 ) {
+                        self GadgetPowerSet(slot, 100);
+                    }
+                } 
+                else {
+                    if(val == "Reload"){
+                        //check if weapon is a shield
+                        switch(weapon.name){ 
+                            case "zhield_dw":
+                            case "zhield_riot_dw":
+                            case "zhield_zword_dw":
+                            case "zhield_spectral_dw":
+                            case "zhield_zpear_dw":
+                            case "zhield_dw_upgraded":
+                            case "zhield_riot_dw_upgraded":
+                            case "zhield_zword_dw_upgraded":
+                            case "zhield_spectral_dw_upgraded":
+                            case "zhield_zpear_dw_upgraded":
+                                self giveMaxAmmo(weapon); //need to do this or shield ammo will always be set to 0 for some reason...
+                                break;
+                            default: //set ammo stock to max for designated weapon if not a shield
+                                self setWeaponAmmoStock(weapon, weapon.maxammo);                                 
+                                break;
+                        }
+                    } 
+                    else {
+                        self giveMaxAmmo(weapon);
+                        self SetWeaponAmmoClip(weapon, weapon.clipsize);
+                    }
+                }
+            }
+            wait .05;
+        }
+    }
+}
+
 ToggleRecoil()
 {
     self.recoil = isDefined(self.recoil) ? undefined : true;
