@@ -222,6 +222,7 @@ runMenuIndex(menu)
         break;
         case "Score Menu":
             self addMenu(menu, "Score");
+                self addOptBool(self.onlyIncrease, "Score Only Increases", &ScoreOnlyIncreases);
                 self addOpt("Max Points", &PlayerGiveScore, 4000000);
                 self addOpt("Take Points", &PlayerTakeScore, 4000000);
                 self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000);

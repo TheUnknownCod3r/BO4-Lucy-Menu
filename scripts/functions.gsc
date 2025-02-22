@@ -21,6 +21,29 @@ Godmode()
         self DisableInvulnerability();
 }
 
+ScoreOnlyIncreases() {
+
+    self.onlyIncrease = isDefined(self.onlyIncrease) ? undefined : true;
+
+    if (isDefined(self.onlyIncrease)) {
+
+        self endon("disconnect");
+        tempScore = self.score;
+
+        while (isDefined(self.onlyIncrease)) {
+
+            if (self.score < tempScore){
+                self.score = tempScore;
+            }
+            else if(self.score > tempScore){
+                tempScore = self.score;
+            }
+
+            wait 0.05;
+        }
+    }
+}
+
 HUDDisable()
 {
     self.HUDDisable = isDefined(self.HUDDisable) ? undefined : true;
