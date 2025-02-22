@@ -620,7 +620,7 @@ UpgradeWeapon()
     weapon = self GetCurrentWeapon();
     self TakeWeapon(weapon);
     wait .1;
-    self GiveWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
+    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self IPrintLnBold("^2Your current weapon has been upgraded!");
 }
