@@ -21,6 +21,48 @@ Godmode()
         self DisableInvulnerability();
 }
 
+DemiGod()
+{
+    self.demiMode = isDefined(self.demiMode) ? undefined : true;
+ 
+    if(isDefined(self.demiMode))
+    {
+        self endon("disconnect");
+ 
+        while(isDefined(self.demiMode)) 
+        {
+            if(self.health < 100) {
+                self.health = 100;
+            }
+
+            wait 0.05;
+        }
+    }
+}
+
+ScoreOnlyIncreases() {
+
+    self.onlyIncrease = isDefined(self.onlyIncrease) ? undefined : true;
+
+    if (isDefined(self.onlyIncrease)) {
+
+        self endon("disconnect");
+        tempScore = self.score;
+
+        while (isDefined(self.onlyIncrease)) {
+
+            if (self.score < tempScore){
+                self.score = tempScore;
+            }
+            else if(self.score > tempScore){
+                tempScore = self.score;
+            }
+
+            wait 0.05;
+        }
+    }
+}
+
 HUDDisable()
 {
     self.HUDDisable = isDefined(self.HUDDisable) ? undefined : true;
@@ -80,6 +122,59 @@ UnlimitedAmmo()
         {
             self GiveMaxAmmo(self GetCurrentWeapon());
             self SetWeaponAmmoClip(self GetCurrentWeapon(), self GetCurrentWeapon().clipsize);
+            wait .05;
+        }
+    }
+}
+
+//Also makes equipment and gadgets unlimited. 
+//Found implementation on how to do this from SeriousHD's BO3 subversion menu. 
+//Still works for BO4 but needed the sheild tweak.
+BetterUnlimitedAmmo(val)
+{
+    self.betterUnlimitedAmmo = isDefined(self.betterUnlimitedAmmo) ? undefined : true;
+    if(isDefined(self.betterUnlimitedAmmo))
+    {   
+        self endon("disconnect");
+
+        while(isDefined(self.betterUnlimitedAmmo))
+        {
+            weapons = self GetWeaponsList();
+            foreach(weapon in weapons)
+            {
+                if(weapon.isgadget) {
+                    slot = self GadgetGetSlot(weapon);
+                    if(self GadgetPowerGet(slot) < 100 && !self GetCurrentWeapon().isgadget || self GadgetPowerGet(slot) < 10 ) {
+                        self GadgetPowerSet(slot, 100);
+                    }
+                } 
+                else {
+                    if(val == "Reload"){
+                        //check if weapon is a shield
+                        switch(weapon.name){ 
+                            case "zhield_dw":
+                            case "zhield_riot_dw":
+                            case "zhield_zword_dw":
+                            case "zhield_spectral_dw":
+                            case "zhield_zpear_dw":
+                            case "zhield_dw_upgraded":
+                            case "zhield_riot_dw_upgraded":
+                            case "zhield_zword_dw_upgraded":
+                            case "zhield_spectral_dw_upgraded":
+                            case "zhield_zpear_dw_upgraded":
+                                self giveMaxAmmo(weapon); //need to do this or shield ammo will always be set to 0 for some reason...
+                                break;
+                            default: //set ammo stock to max for designated weapon if not a shield
+                                self setWeaponAmmoStock(weapon, weapon.maxammo);                                 
+                                break;
+                        }
+                    } 
+                    else {
+                        self giveMaxAmmo(weapon);
+                        self SetWeaponAmmoClip(weapon, weapon.clipsize);
+                    }
+                }
+            }
             wait .05;
         }
     }
@@ -578,7 +673,7 @@ UpgradeWeapon()
     weapon = self GetCurrentWeapon();
     self TakeWeapon(weapon);
     wait .1;
-    self GiveWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
+    self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self IPrintLnBold("^2Your current weapon has been upgraded!");
 }

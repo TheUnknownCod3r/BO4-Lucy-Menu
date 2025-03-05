@@ -42,7 +42,9 @@ runMenuIndex(menu)
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
+                self addOptBool(self.demiMode, "Demi-God Mode", &DemiGod);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
+                self addOptSlider("Better Unlimited Ammo", &BetterUnlimitedAmmo, "Reload;Continuous");
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
@@ -222,6 +224,7 @@ runMenuIndex(menu)
         break;
         case "Score Menu":
             self addMenu(menu, "Score");
+                self addOptBool(self.onlyIncrease, "Score Only Increases", &ScoreOnlyIncreases);
                 self addOpt("Max Points", &PlayerGiveScore, 4000000);
                 self addOpt("Take Points", &PlayerTakeScore, 4000000);
                 self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000);
