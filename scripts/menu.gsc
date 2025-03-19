@@ -38,7 +38,7 @@ runMenuIndex(menu)
                     }
                 }
             }
-            break;
+        break;
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
@@ -56,6 +56,15 @@ runMenuIndex(menu)
                 self addOpt("Score Menu", &newMenu, "Score Menu");
                 self addOpt("Open All Doors", &BO4_OpenAllDoors);
         break;
+        case "Score Menu":
+            self addMenu(menu, "Score");
+                self addOptBool(self.onlyIncrease, "Score Only Increases", &ScoreOnlyIncreases);
+                self addOpt("Max Points", &PlayerGiveScore, 4000000);
+                self addOpt("Take Points", &PlayerTakeScore, 4000000);
+                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000);
+                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000);
+        break;
+
         case "Elixir Menu":
             self addMenu(menu, "Elixir Menu");//Should be complete
             self addOpt("Mega Elixirs", &newMenu, "Mega Elixirs");
@@ -222,15 +231,6 @@ runMenuIndex(menu)
                     self addOpt("Secret :D", &BO4newOrigin, (-7432.51, -24841.3, 13.5001), "Secret :D");
                 }
         break;
-        case "Score Menu":
-            self addMenu(menu, "Score");
-                self addOptBool(self.onlyIncrease, "Score Only Increases", &ScoreOnlyIncreases);
-                self addOpt("Max Points", &PlayerGiveScore, 4000000);
-                self addOpt("Take Points", &PlayerTakeScore, 4000000);
-                self addOptIncSlider("Add Points", &PlayerGiveScore, 0, 0, 1000000, 10000);
-                self addOptIncSlider("Take Points", &PlayerTakeScore, 0, 0, 1000000, 10000);
-            break;
-
         case "Fun Menu":
             self addMenu(menu, "Fun Menu");
             self addOpt("Clone", &Clone);
@@ -492,7 +492,6 @@ runMenuIndex(menu)
             self addOpt("Fanged Doom", &GiveClientWeapon, "ar_doublebarrel_upgraded", self);
             self addOpt("Nightmare Awakened 49", &GiveClientWeapon, "ar_an94_t8_upgraded", self);
         break;
-        break;
         case "Upgraded SMG":
             self addMenu(menu, "Upgraded SMGs");
             self addOpt("Nuevemuertes xx", &GiveClientWeapon, "smg_standard_t8_upgraded", self);
@@ -566,7 +565,7 @@ runMenuIndex(menu)
                 self addOpt("Purified Kraken", &GiveClientWeapon, "ww_tricannon_water_t8_upgraded", self);
                 self addOpt("Radiant Kraken", &GiveClientWeapon, "ww_tricannon_air_t8_upgraded", self);
                 self addOpt("Upgraded Kraken", &GiveClientWeapon, "ww_tricannon_t8_upgraded", self);
-		self addOpt("Svalinn Guard", &GiveSvalinnGuard);
+		        self addOpt("Svalinn Guard", &GiveSvalinnGuard);
             }
             else if(BO4GetMap() == "Blood"){
                 self addOpt("Magnus Operandi", &GiveClientWeapon, "ww_blundergat_fire_t8_upgraded", self);
@@ -626,7 +625,7 @@ runMenuIndex(menu)
 
         case "Zombie Menu":
             self addMenu(menu, "Zombie Menu");
-            self addOpt("Kill All Zombies", &KillAllZombies, self);
+            self addOpt("Kill All Zombies", &KillAllZombies);
             self addOpt("Teleport Zombies", &TeleportZombies);
             self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 9999, 1);
             self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
@@ -654,7 +653,7 @@ runMenuIndex(menu)
         break;
 
         case "Rank Menu":
-            self addMenu(menu,"Account Menu");
+            self addMenu(menu,"Rank Menu");
             self addOpt("Max Level", &BO4Level55, self);
             self addOptBool(self.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, self);
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, self);
@@ -692,7 +691,6 @@ runMenuIndex(menu)
                 self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
                 self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
-                self addOpt("Camo Test", &Dev_UnlockCamos, self);
                 self addOpt("Activate PAP", &ActivatePAP);
                 self addOpt("Restart Map", &RestartMap);
             break;

@@ -82,11 +82,6 @@ BackMenu()
     return self.menuParent[(self.menuParent.size - 1)];
 }
 
-PlayerExitLevel()
-{
-    ExitLevel(false);
-}
-
 spawnSM(origin, model, angles)
 {
     ent = Spawn("script_model", origin);
