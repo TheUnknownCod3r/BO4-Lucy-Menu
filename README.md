@@ -100,6 +100,18 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.4.7
+<details>
+	<summary>
+		Version 1.4.7
+	</summary>
+	- Fix Crash in Stat Menu
+	- Custom XP Modifier
+	- Extra Unlimited Ammo Function
+	- Demi God Function
+	- Clean menu Structure to make Future Maintenance Easier.
+</details>
+
 Version 1.4.6
 <details>
 	<summary>
@@ -258,8 +270,10 @@ This wouldn't be possible without the following people
 * [TubBuddy](https://www.github.com/TubBuddy/)
 	Most of the Map Teleport Options, Wonder Weapons, Equipments And All Shields.
 * [Ate47](https://github.com/ate47)
-  	Updated Raw files I used for the menu, as well as other fixes / improvements.
-  
+  	Updated Raw files I used for the menu, as well as the XP Modifier Initial code, and more.
+* [Ori-Jakob](https://github.com/Ori-Jakob)
+	Updated Unlimited Ammo, Demi God, and Score Only Increase Function
+
 * several community members supplied the unhashed weapon names. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
