@@ -105,6 +105,7 @@ Version 1.4.7
 	<summary>
 		Version 1.4.7
 	</summary>
+	
 	- Fix Crash in Stat Menu
 	- Custom XP Modifier
 	- Extra Unlimited Ammo Function
