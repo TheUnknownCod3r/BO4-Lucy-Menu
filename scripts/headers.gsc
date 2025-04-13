@@ -21,6 +21,7 @@
 #include scripts\zm_common\zm_pack_a_punch.gsc;
 #include scripts\zm_common\zm_weapons.gsc;
 #include scripts\core_common\aat_shared.gsc;
+#include scripts\core_common\ai\zombie_utility.gsc;
 #include scripts\zm_common\zm_utility.gsc;
 #include scripts\zm_common\zm_equipment.gsc;
 #include scripts\zm_common\zm_perks.gsc;
@@ -45,6 +46,22 @@
 autoexec __init__sytem__()
 {
 	system::register("clientids_shared", &__init__, undefined, undefined);
+
+    setGametypeSetting(#"hash_3c5363541b97ca3e", 1); // ee enabled
+    setDvar(#"zm_ee_enabled", 1);
+    setDvar(#"zm_debug_ee", 0); // revert IX fast ee
+    setDvar(#"hash_2b64162aa40fe2bb", 0); // ^
+
+    // no contract
+    level.var_aa2d5655 = undefined;
+    // can xp
+    level.var_5164a0ca = undefined;
+    // xp multi
+    level.var_3426461d = &GetXPMultiplier; // has to be done even with detours
+    // disable ee
+    level.var_73d1e054 = undefined;
+    // end game mode type
+    level.var_211e3a53 = undefined;
 }
 
 __init__()
