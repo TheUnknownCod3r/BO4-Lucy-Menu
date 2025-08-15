@@ -96,18 +96,19 @@ SetCustomXPMultiplier(value)
 {
     if(value > 1)
     {
-        self S("Custom XP Rate Enabled at "+value+"x"); 
-        if(zm_utility::is_standard())
+        //level.CustomXPValue = value;
+        self S("Custom XP Rate Enabled at "+value+"x");
+        if(zm_utility::is_standard())//do this so it multiplies the base values for XP in game, and returns the base rate x our custom rate.
         {
             switch(level.players.size)
             {
-                case 1: level.CustomXPValue = value * 0.55;
+                case 1: level.CustomXPValue = value * 0.55;//solo xp rate
                         break;
-                case 2: level.CustomXPValue = value * 0.75;
+                case 2: level.CustomXPValue = value * 0.75;//2p xp rate
                         break;
-                case 3: level.CustomXPValue = value * 0.9;
+                case 3: level.CustomXPValue = value * 0.9;//3p xp rate
                         break;
-                case 4: level.CustomXPValue = value * 1.1;
+                case 4: level.CustomXPValue = value * 1.1;//4p xp rate
                         break;
             }
         }
@@ -138,6 +139,12 @@ SetCustomXPMultiplier(value)
         self S("Custom XP Rate ^1Disabled");
         level.var_3426461d = &GetXPMultiplier; 
     }
+}
+
+PrintDefaultXPRate()
+{
+    self.xprate = zombie_utility::function_d2dfacfd(#"hash_1ab42b4d7db4cb3c");
+    self S("Current XP Rate is: "+self.xprate);
 }
 GetXPMultiplier() 
 {

@@ -689,6 +689,7 @@ runMenuIndex(menu)
                 self addOpt("Map Selection", &newMenu, "Map Selection");
                 self addOpt("Exit Level", &PlayerExitLevel);
                 self addOptIncSlider("Set XP Rate", &SetCustomXPMultiplier,0,0,100,1);
+                self addOpt("Print XP Rate", &PrintDefaultXPRate);
                 self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
                 self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);
