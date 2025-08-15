@@ -21,6 +21,10 @@
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Request Feature</a>
+	<br />
+    <a href="https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/">Cold War Menu Base Port</a>
+	<br />
+    <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-MP-Base/">BO4 Multiplayer Menu Base Port</a>
   </p>
 </div>
 
