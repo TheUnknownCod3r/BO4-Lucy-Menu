@@ -626,9 +626,8 @@ runMenuIndex(menu)
         case "Zombie Menu":
             self addMenu(menu, "Zombie Menu");
             self addOpt("Kill All Zombies", &KillAllZombies);
-            self addOpt("Teleport Zombies", &TeleportZombies);
             self addOptIncSlider("Edit Round: ", &RoundEdit, 0, 0, 9999, 1);
-            self addOptBool(self.ZombiePos, "Spawn Zombies In Front Of You", &StartZombiePosistion);
+            self addOptBool(self.ZombiePos, "Teleport to Crosshair Loop", &StartZombiePosistion);
             self addOptBool(self.NoTarg, "No Target", &notarget);
             self addOptBool(self.personal_instakill, "Insta Kill", &selfInstaKill);
         break;
@@ -690,6 +689,7 @@ runMenuIndex(menu)
                 self addOpt("Exit Level", &PlayerExitLevel);
                 self addOptIncSlider("Set XP Rate", &SetCustomXPMultiplier,0,0,100,1);
                 self addOpt("Print XP Rate", &PrintDefaultXPRate);
+                self addOpt("Clan Tag", &ClanTag);
                 self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
                 self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
                 self addOpt("Print Coords", &BO4OriginPrint);

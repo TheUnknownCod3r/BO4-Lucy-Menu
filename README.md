@@ -48,9 +48,8 @@
 
 ### Prerequisites
 
-To use this Mod Menu, you must have Visual Studio Code, and T7 Compiler.
-You can download T7 Compiler [Here](https://www.github.com/shiversoftdev/t7-compiler/releases/)
-Visual Studio Code can be obtained [Here](https://code.visualstudio.com/)<br>
+To use this Mod Menu, you must have Atian Cod Tools.
+You can download Atian Tools [Here](https://github.com/ate47/atian-cod-tools/releases)
 These Instructions Apply to BOTH Battle.net, and Shield Client.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -61,17 +60,17 @@ These Instructions Apply to BOTH Battle.net, and Shield Client.
 ## Usage
 	To use The Mod Menu, The following instructions can be used with ease. 
 	
-	1. Download a copy of the Repository by clicking Code> Download Zip
+	1. Download a Compiled Version of the Menu from Releases, and save it to your desktop.
 	
-	2. Load Visual Studio Code, Click File, Open Workspace, and load the Project.workspace in the BO4-Lucy-Menu Folder you downloaded
+	2. Open the zip you downloaded for Atian Tools, and extract the folder inside to your desktop.
 
- 	3. Click File, Preferences, Keyboard Shortcuts and search for Run Test Task. Assign an easy to remember Keybind to Inject the menu (Recommend CTRL+Shift+.)
+ 	3. Open Atian Tools via ACTS-UI inside the Atian Tools Folder, and click GSC Inject. In the first box, click Open File, go to your Desktop, and click the compiled.gscc you downloaded from Lucy Menu Releases, and click load. In the second box, change the hook link from scripts/core_common/load_shared.gsc to scripts\zm_common\load.gsc.
 	
- 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Inject the Menu. Do NOT inject while in a game, or anywhere BUT the zombies Lobby screen, You will crash.
+ 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Click "Inject PC Script". If successful, Atian Tools will confirm the Script was injected successfully.
 	
 	5. Once the game loads, You should be able to Aim and Knife to open the menu. Aim to Scroll Up, Shoot to Scroll Down. F To Select, Melee to go Back. For controllers, this is LT & RS to open, LT to Scroll Up, RT to scroll Down, X to Select, Melee go back.
 
-	6. If an option has a Slider, you can use 3 and 4 to navigate the slider. For controllers, this is Dpad Left, and Dpad Right.
+	6. If an option has a Slider, you can use Smoke and Frag to navigate.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

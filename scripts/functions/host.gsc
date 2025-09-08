@@ -39,6 +39,8 @@ ChangeMap(Mapname)
     setDvar("ui_previewmap", Mapname);
     setDvar("ui_showmap", Mapname);
     map(Mapname);
+    wait .1;
+    switchmap_switch();
 }
 
 
@@ -79,4 +81,11 @@ ActivatePAP(mapname)
 RestartMap()
 {
     map_restart(0);
+}
+
+ClanTag()
+{
+    self stats::set_stat("clantagstats","clanname","^1");
+    uploadStats(self);
+    self iPrintLnBold("Clan tag Set To ^1Red");
 }

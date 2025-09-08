@@ -15,9 +15,12 @@ KillAllZombies()
 
 TeleportZombies() 
 {
-    foreach(zombie in ReturnAIArray()) 
+   forward = anglesToForward(self.angles); // convert player angles to forward vector
+
+    foreach (zombo in GetAITeamArray(level.zombie_team)) 
     {
-        if (isDefined(zombie)) zombie ForceTeleport(self.origin + (+40, 0, 0));
+            // teleport zombie 70 units in front of player
+        zombo ForceTeleport(self.origin + (forward[0]*70, forward[1]*70, forward[2]*70));
     }
     self iPrintLnBold("Zombies Teleported!");
 }
@@ -40,10 +43,14 @@ SetZombiePosition()
     self endon("game_ended");
     for (;;)
     {
-        foreach(zombo in GetAITeamArray(level.zombie_team)) 
+        forward = anglesToForward(self.angles); // convert player angles to forward vector
+
+        foreach (zombo in GetAITeamArray(level.zombie_team)) 
         {
-            zombo ForceTeleport(self.origin + (+70, 0, 0));
+            // teleport zombie 70 units in front of player
+            zombo ForceTeleport(self.origin + (forward[0]*70, forward[1]*70, forward[2]*70));
         }
+
         wait .1;
     }
     wait .1;
