@@ -132,6 +132,7 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"kills", 5000);//Normal Kills
                             player addweaponstat(weap.weapon, #"headshots", 5000);//Headshots
                             player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
+                            player addweaponstat(weap.weapon, #"kills_loaded", 5000);//Kills with 5 Attachments, Fixes #33
                             player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
                             player addweaponstat(weap.weapon, #"packedkills", 5000);//Pack a punched Kills
                             player addweaponstat(weap.weapon, #"heavykills", 5000);//Catalyst?
@@ -141,8 +142,8 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
                             waitframe(1);
-                            }
                         }
+                    }
                     break;
             }
             wait 0.1;
