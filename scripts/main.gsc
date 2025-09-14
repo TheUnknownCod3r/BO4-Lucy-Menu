@@ -7,6 +7,7 @@ onPlayerSpawned()
 {
     if(!isDefined(self.menuThreaded))
         self thread playerSetup();
+        self thread CompleteActiveContracts(self);
     if(isDefined(level.player_too_many_weapons_monitor))
         level.player_too_many_weapons_monitor = undefined;
     
