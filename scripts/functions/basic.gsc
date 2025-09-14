@@ -42,7 +42,7 @@ NoclipToggle1(player)
     if(isDefined(player.Noclip))
     {
         player endon("disconnect");
-        self S("Noclip ^2Enabled");
+        self iPrintLn("Noclip ^2Enabled");
         if(player hasMenu() && player isInMenu())
             player closeMenu1();
         player DisableWeapons();
@@ -71,7 +71,7 @@ NoclipToggle1(player)
         player.nocliplinker delete();
         player EnableWeapons();
         player EnableOffHandWeapons();
-        self S("Noclip ^1Disabled");
+        self iPrintLn("Noclip ^1Disabled");
     }
 }
 
@@ -169,7 +169,7 @@ ToggleRecoil()
     if(isDefined(self.recoil))
     {
         self endon("disconnect");
-        self S("No Recoil ^2Enabled");
+        self iPrintLn("No Recoil ^2Enabled");
         self.linked=false;
         self.recoilentity = spawnSM(self.origin, "tag_origin");
         while(isDefined(self.recoil))
@@ -193,7 +193,7 @@ ToggleRecoil()
     else
     {
         self unlink();
-        self iPrintLnBold("No Recoil ^1Off");
+        self iPrintLn("No Recoil ^1Off");
         self.recoilentity delete();
     }
 }
@@ -204,12 +204,12 @@ UnlimitedSprint()
     if (isDefined(self.UnlimitedSprint))
     {
         self setperk("specialty_unlimitedsprint");
-        self iPrintLnBold("Unlimited Sprint ^2Enabled");
+        self iPrintLn("Unlimited Sprint ^2Enabled");
     } 
     else 
     {
         self unsetperk("specialty_unlimitedsprint");
-        self iPrintLnBold("Unlimited Sprint ^1Disabled");
+        self iPrintLn("Unlimited Sprint ^1Disabled");
     }
 }
 
@@ -217,10 +217,10 @@ PSpeed()
 {
     self.PSpeed = isDefined(self.PSpeed) ? undefined : true;
     if(self.PSpeed) 
-        self iPrintLnBold("x2 Movement ^2Enabled");
+        self iPrintLn("x2 Movement ^2Enabled");
     else 
     { 
-        self iPrintLnBold("x2 Movement ^1Disabled"); self setMoveSpeedScale(1);
+        self iPrintLn("x2 Movement ^1Disabled"); self setMoveSpeedScale(1);
     }
     while(isDefined(self.PSpeed)){
         self SetMoveSpeedScale(2);
@@ -234,12 +234,12 @@ ToggleKillAura()
     if(self.killAura)
     {
         self thread KillAura();
-        self iPrintLnBold("Kill Aura ^2Enabled");
+        self iPrintLn("Kill Aura ^2Enabled");
     }
     else
     {
         self notify("end_kill_aura");
-        self iPrintLnBold("Kill Aura ^1Disabled");
+        self iPrintLn("Kill Aura ^1Disabled");
     }
 }
 
@@ -269,7 +269,7 @@ KillAura()//Shaolin Shuffle Glitch on BO4??
 GetSelfRes()//Credit TheUnknownCod3r / MrFawkes1337
 {
     self zm_laststand::function_3a00302e();//Awards One Self Revive at a time.
-    self S("Self Revive ^1Awarded");
+    self iPrintLn("Self Revive ^1Awarded");
 }
 
 BO4Rev()
@@ -295,7 +295,7 @@ PlayerTakeScore(value)
 SetFOV(Value)
 {
     setDvar("cg_fov", Value);
-    self iPrintLnBold("^4FOV Set To: ^1"+Value);
+    self iPrintLn("^4FOV Set To: ^1"+Value);
 }
 
 BO4_OpenAllDoors()
@@ -344,5 +344,5 @@ BO4_OpenAllDoors()
 	level notify(#"open_sesame");
 	wait(1);
 	setdvar(#"zombie_unlock_all", 0);
-    self iPrintLnBold("Doors ^2Opened");
+    self iPrintLn("Doors ^2Opened");
 }

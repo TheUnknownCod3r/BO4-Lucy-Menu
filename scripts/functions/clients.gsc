@@ -42,14 +42,14 @@ ClientHandler(func, player)
 
 S(Message)
 {
-    self iPrintLnBold(Message);
+    self iPrintLn(Message);
 }
 
 SetSelfRevives(count)
 {
     foreach(player in level.players){
         player zm_laststand::function_3d685b5f(count);
-        player S("Awarded "+count+" Self Revives");
+        player iPrintLn("Awarded "+count+" Self Revives");
     }
 }
 
@@ -57,31 +57,31 @@ DownPlayer(player)
 {
     player disableInvulnerability();
     player doDamage(player.health + 1, player.origin);
-    self iPrintLnBold("Player ^1Downed");
-    player iPrintLnBold("You Were Downed by "+self.name);
+    self iPrintLn("Player ^1Downed");
+    player iPrintLn("You Were Downed by "+self.name);
 }
 
 KillPlayer(player)
 {
     player notify("player_suicide");
     player zm_laststand::bleed_out();
-    self iPrintLnBold("Killed "+player.name);
-    player iPrintLnBold("You Just got murdered By: "+self.name);
+    self iPrintLn("Killed "+player.name);
+    player iPrintLn("You Just got murdered By: "+self.name);
 }
 
 sendToJail(player)
 {
     if(!isDefined(level.JailCoords)){
-        self S("Jail Coords are Not Defined for the Map"); return;}
+        self iPrintLn("Jail Coords are Not Defined for the Map"); return;}
     
     player setOrigin(level.JailCoords);
-    player S("You were sent to JAIL!");
+    player iPrintLn("You were sent to JAIL!");
 }
 
 TakeAllPlayerWeaps(player)
 {
     player takeAllWeapons();
-    player iPrintLnBold("You just had your Weapons Taken!");
+    player iPrintLn("You just had your Weapons Taken!");
 }
 
 PlayerMessage(val, player)//Wish I had a typewriter, lol.

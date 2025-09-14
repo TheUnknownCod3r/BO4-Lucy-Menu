@@ -831,7 +831,7 @@ menuMonitor()
                         wait .13;
                     }
                 }
-                else if(self UseButtonPressed() & 1)//Just noticed this, why is there & 1 when theres no actual function question except if user presses :/
+                else if(self UseButtonPressed())
                 {
                     menu = self getCurrent();
                     curs = self getCursor();
@@ -916,20 +916,20 @@ drawText()
     curs = self getCursor();
     start = 0;
 
-    if(curs > 3 && curs < (text.size - 4) && text.size > 8)
-        start = curs - 3;
-    if(curs > (text.size - 5) && text.size > 8)
-        start = text.size - 8;
+    if (curs > 2 && curs < (text.size - 3) && text.size > 5)
+        start = curs - 2;
+    if (curs > (text.size - 4) && text.size > 5)
+        start = text.size - 5;
     
     if(text.size > 0)
     {
         if(isDefined(self.menu["items"][menu].title))
-            self iPrintln("^4[ " + self.menu["items"][menu].title + " ]");
+            self iPrintlnBold("^3[ " + self.menu["items"][menu].title + " ]");
         self.lastRefresh = getTime();
 
         numOpts = text.size;
-        if(numOpts >= 8)
-            numOpts = 8;
+        if(numOpts >= 5)
+            numOpts = 5;
         
         for(a=0;a<numOpts;a++)
         {
@@ -943,16 +943,16 @@ drawText()
                 str += " < " + self.menu_S[menu][(a + start)][self.menu_SS[menu][(a + start)]] + " >";
             
             if(curs == (a + start))
-                self iPrintln("^2   -> " + str + " ^0<-");
+                self iPrintlnBold("^2   -> " + str + " ^0<-");
             else
-                self iPrintln("^." + str);
+                self iPrintlnBold("^." + str);
         }
 
-        if(numOpts < 9)
+        if(numOpts < 5)
         {
-            printSize = 8 - numOpts;
+            printSize = 5 - numOpts;
             for(a=0;a<printSize;a++)
-                self iPrintln(".");
+                self iPrintlnBold(".");
         }
     }
 }
@@ -965,6 +965,7 @@ RefreshMenu()
         self drawText();
     }
 }
+
 
 openMenu1(menu)
 {
@@ -989,7 +990,7 @@ MonitorMenuRefresh()
         self drawText();
         while(self isInMenu())
         {
-            if(self.lastRefresh < GetTime() - 6000)
+            if(self.lastRefresh < GetTime() - 3000)
                 self drawText();
             wait 1;
         }
@@ -1005,6 +1006,6 @@ closeMenu1()
 
 DestroyOpts()
 {
-    for(a=0;a<9;a++)
-        self iPrintln(".");
+    for(a=0;a<6;a++)
+        self iPrintlnBold(".");
 }

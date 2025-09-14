@@ -10,7 +10,7 @@ KillAllZombies()
             zombies[z] DoDamage(zombies[z].health + 99, zombies[z].origin);
         }
     }
-    self iPrintLnBold("All Zombies ^1Eliminated");
+    self iPrintLn("All Zombies ^1Eliminated");
 }
 
 TeleportZombies() 
@@ -22,7 +22,7 @@ TeleportZombies()
             // teleport zombie 70 units in front of player
         zombo ForceTeleport(self.origin + (forward[0]*70, forward[1]*70, forward[2]*70));
     }
-    self iPrintLnBold("Zombies Teleported!");
+    self iPrintLn("Zombies Teleported!");
 }
 StartZombiePosistion() 
 {

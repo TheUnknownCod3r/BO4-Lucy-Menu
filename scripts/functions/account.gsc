@@ -4,7 +4,7 @@ BO4Level55(player)
     player rank::updaterank();
     wait .1;
     uploadStats(player);
-    player iPrintLnBold("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
+    player iPrintLn("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
 }
 
 PlasmaLoop()
@@ -16,7 +16,7 @@ PlasmaLoop()
         {
             self function_e8f77739(#"zm_timeplayed", 1000000);
             self.PlasmaGiven += 1000000;
-            self iPrintLnBold("You Just Got 100k Plasma. Total: "+self.PlasmaGiven);
+            self iPrintLn("You Just Got 100k Plasma. Total: "+self.PlasmaGiven);
             wait 1;
         }
     }
@@ -38,7 +38,7 @@ PlasmaLoopplayer(player)
 bo4_MaxLevels(player)
 {
     player endon("disconnect");
-    self iPrintLnBold("^2Maxing Out Weapon Levels!");
+    self iPrintLn("^2Maxing Out Weapon Levels!");
 
     foreach(gun in level.zombie_weapons)
     {
@@ -59,7 +59,7 @@ bo4_MaxLevels(player)
 
     wait 0.1;
     UploadStats(player);
-    player iPrintlnBold("Max Weapon Ranks ^2Set");
+    player iPrintLn("Max Weapon Ranks ^2Set");
 }
 
 bo4_UnlockAll(player)
@@ -70,9 +70,9 @@ bo4_UnlockAll(player)
  
     player endon("disconnect");
  
-    player iPrintlnBold("Unlock All ^2Started");
+    player iPrintLn("Unlock All ^2Started");
     if(player != self)
-        self iPrintlnBold(player getName() + ": Unlock All ^2Started");
+        self iPrintLn(player getName() + ": Unlock All ^2Started");
  
     for(a=1;a<6;a++)
     {
@@ -151,9 +151,9 @@ bo4_UnlockAll(player)
         }
     }
  
-    player iPrintlnBold("Unlock All Challenges ^2Done");
+    player iPrintLn("Unlock All Challenges ^2Done");
     if(player != self)
-        self iPrintlnBold(player getName() + ": Unlock All Challenges ^2Done");
+        self iPrintLn(player getName() + ": Unlock All Challenges ^2Done");
 }
 
 CompleteActiveContracts(player)
@@ -173,11 +173,11 @@ Achievements(player)
     foreach(Achiev in Achievs) 
     {
         player GiveAchievement(Achiev);
-        player iPrintLnBold("^2" + Achiev);
+        player iPrintLn("^2" + Achiev);
         wait .5;
     }
     wait .5;
-    player iPrintLnBold("^6All Achievements Unlocked");
+    player iPrintLn("^6All Achievements Unlocked");
 }
 
 BO4SetPrestigeMax()
@@ -191,7 +191,7 @@ BO4SetPrestigeMax()
     self rank::updaterank();
     wait .1;
     uploadStats(self);
-    self S("This should set you to master 1000");
+    self iPrintLn("This should set you to master 1000");
     }
     else{
         self stats::set_stat("playerstatslist", "plevel", "statvalue", 10);

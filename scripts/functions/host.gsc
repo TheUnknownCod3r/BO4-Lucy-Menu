@@ -8,7 +8,7 @@ ModvarTest()
     }
     else 
     {
-        self S("ModVars ^1Disabled");
+        self iPrintLn("ModVars ^1Disabled");
         setDvar("g_speed", 100);
         setDvar("cg_fov", 100);
     }
@@ -29,7 +29,7 @@ BO4GetMap()
 
 ChangeMap(Mapname)
 {
-    self iPrintLnBold("Map Changing To "+Mapname);
+    self iPrintLn("Map Changing To "+Mapname);
     wait 0.5;
     setDvar("ls_mapname", Mapname);
     setDvar("mapname", Mapname);
@@ -52,20 +52,20 @@ PlayerExitLevel()
 GetWeaponDisplayName()
 {
     WeaponName = self GetCurrentWeapon().DisplayName;
-    self iPrintLnBold(WeaponName);
+    self iPrintLn(WeaponName);
 }
 
 GetWeaponHash()
 {
     Weap = self GetCurrentWeapon().Name;
     wait .1;
-    self iPrintLnBold("Weapon Hash: "+Weap);
+    self iPrintLn("Weapon Hash: "+Weap);
 }
 
 BO4OriginPrint()
 {
     current_origin = self.origin;
-    self S("Coords: "+current_origin);
+    self iPrintLn("Coords: "+current_origin);
 }
 
 ActivatePAP(mapname)
@@ -87,5 +87,5 @@ ClanTag()
 {
     self stats::set_stat("clantagstats","clanname","^1");
     uploadStats(self);
-    self iPrintLnBold("Clan tag Set To ^1Red");
+    self iPrintLn("Clan tag Set To ^1Red");
 }

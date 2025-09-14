@@ -41,11 +41,11 @@
 #include scripts\core_common\laststand_shared.gsc;
 #include scripts\zm_common\zm_bgb.gsc;
 
-#namespace clientids_shared;
+#namespace lucy_menu;
 
 autoexec __init__sytem__()
 {
-	system::register("clientids_shared", &__init__, undefined, undefined);
+	system::register("lucy_menu", &__init__, undefined, undefined);
 
     setGametypeSetting(#"hash_3c5363541b97ca3e", 1); // ee enabled
     setDvar(#"zm_ee_enabled", 1);

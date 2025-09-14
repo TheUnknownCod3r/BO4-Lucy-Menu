@@ -4,7 +4,7 @@ GiveSvalinnGuard()
    self aat::acquire(getweapon("zhield_frost_dw"), "zm_aat_frostbite");
    self zm_pap_util::repack_weapon(getweapon("zhield_frost_dw"), 4);
    self.var_5ba94c1e = 1;
-   self iPrintLnBold("Svalinn Guard ^2Given"); 
+   self iPrintLn("Svalinn Guard ^2Given"); 
 }
 
 
@@ -16,13 +16,13 @@ GiveClientWeapon(WeaponName, player)
     player giveMaxAmmo(getweapon(WeaponName));
     wait .1;
     player switchToWeapon(getweapon(WeaponName));
-    player iPrintLnBold("You received "+WeaponName);
+    player iPrintLn("You received "+WeaponName);
 }
 DropWeapon()
 {
     Current_Weapon = self GetCurrentWeapon();
     self DropItem(Current_Weapon);
-    self iPrintLnBold("^2Current Weapon Dropped");
+    self iPrintLn("^2Current Weapon Dropped");
 }
 
 TakeWeapons()
@@ -54,7 +54,7 @@ RemoveEff(weapon)
     self thread aat::remove(weapon);
     wait .5;
     self switchToWeapon(weapon);
-    self S("Removed Effect");
+    self iPrintLn("Removed Effect");
 }
 
 bo4_CamoGiver(Camo) 
@@ -71,7 +71,7 @@ UpgradeWeapon()
     wait .1;
     self zm_weapons::give_build_kit_weapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
     self SwitchToWeapon(self zm_weapons::get_upgrade_weapon(weapon, zm_weapons::weapon_supports_aat(weapon)));
-    self IPrintLnBold("^2Your current weapon has been upgraded!");
+    self iPrintLn("^2Your current weapon has been upgraded!");
 }
 
 magicbullets()
@@ -80,7 +80,7 @@ magicbullets()
     if(isDefined(self.magicBullets))
     {
         self.bulletEffectType = "launcher_standard_t8_upgraded";
-        self S("Magic Bullets Enabled, Effect: Rocket Launcher");
+        self iPrintLn("Magic Bullets Enabled, Effect: Rocket Launcher");
         while(isDefined(self.magicBullets))
         {
             self waittill(#"weapon_fired");
@@ -90,7 +90,7 @@ magicbullets()
     }
     else 
     {
-        self S("Magic Bullets ^1Disabled");
+        self iPrintLn("Magic Bullets ^1Disabled");
         self.bulletEffectType=undefined;
     }
 }
@@ -101,14 +101,14 @@ changeBulletType(val)
     {
         switch(val)
         {
-            case 0: self.bulletEffectType=  "minigun"; self S("Bullet Effect Set To: Minigun"); break;
-            case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self S("Bullet Effect Set To: Ballistic Knife"); break;
-            case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self S("Bullet Effect Set To: Rocket Launcher"); break;
-            case 3: self.bulletEffectType = "ray_gun"; self S("Bullet Effect Set To: Ray Gun"); break;
+            case 0: self.bulletEffectType=  "minigun"; self iPrintLn("Bullet Effect Set To: Minigun"); break;
+            case 1: self.bulletEffectType = "special_ballisticknife_t8_dw_upgraded"; self iPrintLn("Bullet Effect Set To: Ballistic Knife"); break;
+            case 2: self.bulletEffectType = "launcher_standard_t8_upgraded"; self iPrintLn("Bullet Effect Set To: Rocket Launcher"); break;
+            case 3: self.bulletEffectType = "ray_gun"; self iPrintLn("Bullet Effect Set To: Ray Gun"); break;
         }
     }
     else
     {
-        self S("Custom Bullet Effects are not Enabled");
+        self iPrintLn("Custom Bullet Effects are not Enabled");
     }
 }

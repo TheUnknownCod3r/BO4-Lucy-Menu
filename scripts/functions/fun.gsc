@@ -42,12 +42,12 @@ bo4_toggleaimbot()
     if (isDefined(self.aimbot))
     {
         self thread bo4_AimBot();
-        self iPrintLnBold("Aimbot ^2Enabled");
+        self iPrintLn("Aimbot ^2Enabled");
     } 
     else 
     {
         self notify("StopAimbotting");
-        self iPrintLnBold("Aimbot ^1Disabled");
+        self iPrintLn("Aimbot ^1Disabled");
     }
 }
 
@@ -148,13 +148,13 @@ FloatingZombies()
     {
         self.FloatingZombies = true;
         setDvar("phys_gravity", 100);
-        self iPrintLnBold("Newtonian Negation ^2Enabled");
+        self iPrintLn("Newtonian Negation ^2Enabled");
     }
     else 
     {
         self.FloatingZombies = undefined;
         setDvar("phys_gravity", 800);
-        self iPrintLnBold("Newtonian Negation ^1Disabled");
+        self iPrintLn("Newtonian Negation ^1Disabled");
     }
 }
 
@@ -163,7 +163,7 @@ ForceHostToggle()
     self.ForcingTheHost = isDefined(self.ForcingTheHost) ? undefined : true;
     if(isDefined(self.ForcingTheHost))
     {
-    self iPrintLnBold("Force Host ^2ON");
+    self iPrintLn("Force Host ^2ON");
     if(getDvarString("party_connectTimeout") != "0")
     {
         SetDvar("lobbySearchListenCountries", "0,103,6,5,8,13,16,23,25,32,34,24,37,42,44,50,71,74,76,75,82,84,88,31,90,18,35");
@@ -188,7 +188,7 @@ ForceHostToggle()
     } 
     else 
     {
-        self iPrintLnBold("Force Host ^1OFF");
+        self iPrintLn("Force Host ^1OFF");
         SetDvar("lobbySearchListenCountries", "");
         SetDvar("excellentPing", 30);
         SetDvar("goodPing", 100);
@@ -228,7 +228,7 @@ SaveLocation(Val)
     else if(Val == 1)
     {
         if(!IsDefined(self.SaveLocTog))
-            return self iPrintLnBold("^1Error: ^7No Location Saved");
+            return self iPrintLn("^1Error: ^7No Location Saved");
             
         self SetPlayerAngles(self.SaveLocationAngle);
         self SetOrigin(self.SaveLocation);
