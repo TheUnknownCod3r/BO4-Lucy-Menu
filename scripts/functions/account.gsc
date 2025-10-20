@@ -123,7 +123,7 @@ bo4_UnlockAll(player)
                     {
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"StatValue", stat.value);
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"Challengevalue", stat.value);
-                        wait 0.01;
+                        wait 1;
                     }
                     break;
                 default:
@@ -141,12 +141,12 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
-                            waitframe(1);
+                            wait 1;
                         }
                     }
                     break;
             }
-            wait 0.1;
+            wait 1;
             UploadStats(player);
         }
     }
