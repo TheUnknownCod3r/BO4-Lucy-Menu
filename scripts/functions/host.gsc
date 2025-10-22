@@ -49,24 +49,6 @@ PlayerExitLevel()
     ExitLevel(false);
 }
 
-GetWeaponDisplayName()
-{
-    WeaponName = self GetCurrentWeapon().DisplayName;
-    self iPrintLn(WeaponName);
-}
-
-GetWeaponHash()
-{
-    Weap = self GetCurrentWeapon().Name;
-    wait .1;
-    self iPrintLn("Weapon Hash: "+Weap);
-}
-
-BO4OriginPrint()
-{
-    current_origin = self.origin;
-    self iPrintLn("Coords: "+current_origin);
-}
 
 ActivatePAP(mapname)
 {
@@ -83,9 +65,9 @@ RestartMap()
     map_restart(0);
 }
 
-ClanTag()
+
+SafeEndGame()
 {
-    self stats::set_stat("clantagstats","clanname","^1");
-    uploadStats(self);
-    self iPrintLn("Clan tag Set To ^1Red");
+    level notify("end_game");
+    foreach(client in level.players) client iPrintLn("^2Sorry, "+level.hostname+" Ended The Game");
 }

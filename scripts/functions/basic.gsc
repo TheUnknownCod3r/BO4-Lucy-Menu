@@ -220,9 +220,11 @@ PSpeed()
         self iPrintLn("x2 Movement ^2Enabled");
     else 
     { 
-        self iPrintLn("x2 Movement ^1Disabled"); self setMoveSpeedScale(1);
+        self iPrintLn("x2 Movement ^1Disabled"); 
+        self setMoveSpeedScale(1);
     }
-    while(isDefined(self.PSpeed)){
+    while(isDefined(self.PSpeed))
+    {
         self SetMoveSpeedScale(2);
         wait .01;
     }
@@ -231,14 +233,14 @@ PSpeed()
 ToggleKillAura()
 {
     self.killAura = isDefined(self.killAura) ? undefined: true;
-    if(self.killAura)
+    if(isDefined(self.killAura))
     {
         self thread KillAura();
         self iPrintLn("Kill Aura ^2Enabled");
     }
     else
     {
-        self notify("end_kill_aura");
+        self notify(#"end_kill_aura");
         self iPrintLn("Kill Aura ^1Disabled");
     }
 }
@@ -249,9 +251,8 @@ ReturnAIArray()
 }
 KillAura()//Shaolin Shuffle Glitch on BO4??
 {
+    self endon("disconnect", "end_game");
     self endon("end_kill_aura");
-    self endon("disconnect");
-
     for(;;)
     {
         zombies = GetAITeamArray(level.zombie_team);
@@ -297,7 +298,6 @@ SetFOV(Value)
     setDvar("cg_fov", Value);
     self iPrintLn("^4FOV Set To: ^1"+Value);
 }
-
 BO4_OpenAllDoors()
 {
 	setdvar(#"zombie_unlock_all", 1);

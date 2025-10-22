@@ -144,7 +144,8 @@ Multijump(currentNum = 0)
 
 FloatingZombies()
 {
-    if(!isDefined(self.FloatingZombies))
+    self.FloatingZombies = isDefined(self.FloatingZombies) ? undefined : true;
+    if(self.FloatingZombies)
     {
         self.FloatingZombies = true;
         setDvar("phys_gravity", 100);

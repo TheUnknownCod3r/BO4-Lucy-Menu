@@ -49,7 +49,7 @@ runMenuIndex(menu)
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
                 self addOptBool(self.PSpeed, "x2 Speed", &PSpeed);
-                self addOptBool(self.killAura, "Kill Aura", &ToggleKillAura);
+                self addOptBool(self.killAura, "Kill Aura", &ToggleKillAura);//fixed 22/10/25 theunknowncod3r
                 self addOpt("Award Self Res", &GetSelfRes);
                 self addOpt("Revive Yourself", &BO4Rev);
                 self addOpt("All Perks", &GiveAllPerks);
@@ -654,6 +654,7 @@ runMenuIndex(menu)
         case "Rank Menu":
             self addMenu(menu,"Rank Menu");
             self addOpt("Max Level", &BO4Level55, self);
+            self addOpt("Level 1000", &BO4Level1000, self);
             self addOptBool(self.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, self);
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, self);
             self addOpt("Unlock All", &bo4_UnlockAll, self);
@@ -686,13 +687,9 @@ runMenuIndex(menu)
             self addMenu(menu, "Host Menu");
                 self addOptBool(level.Modvars, "Toggle ModVars", &ModvarTest);
                 self addOpt("Map Selection", &newMenu, "Map Selection");
-                self addOpt("Exit Level", &PlayerExitLevel);
+                self addOpt("Safe end Game (Stats)", &SafeEndGame);
+                self addOpt("Exit Level (No Stats)", &PlayerExitLevel);
                 self addOptIncSlider("Set XP Rate", &SetCustomXPMultiplier,0,0,100,1);
-                self addOpt("Print XP Rate", &PrintDefaultXPRate);
-                self addOpt("Clan Tag", &ClanTag);
-                self addOpt("Print Weapon Display Name", &GetWeaponDisplayName);//Not a permanent option, can sit here
-                self addOpt("Print Weapon Hash", &GetWeaponHash);//Not a permanent Option, can sit here.
-                self addOpt("Print Coords", &BO4OriginPrint);
                 self addOpt("Activate PAP", &ActivatePAP);
                 self addOpt("Restart Map", &RestartMap);
             break;

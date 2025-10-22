@@ -1,12 +1,22 @@
 BO4Level55(player)
 {
-    player AddRankXpValue("kill", 25160000);
+    newXP = player rank::getrankinfomaxxp(54);
+    currXP = player stats::get_stat_global( #"rankxp", 1 );
+    player AddRankXpValue("kill", newXP - currXP);
     player rank::updaterank();
     wait .1;
     uploadStats(player);
-    player iPrintLn("^2In order for the rank to save, please end the game via the pause menu and not the fast end!!!");
+    player iPrintLn("^2Rank and XP Set!");
 }
-
+BO4Level1000(player)
+{
+    player AddRankXpValue("kill", 2516000000);
+    player SetParagonRank(999);
+    player rank::updaterank();
+    wait .1;
+    uploadStats(player);
+    player iPrintLn("^2Rank and XP Set!");
+}
 PlasmaLoop()
 {
     self.PlasmaLoop2 = isDefined(self.PlasmaLoop2) ? undefined : true;
@@ -54,10 +64,10 @@ bo4_MaxLevels(player)
         player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"StatValue", 5000);
         player stats::set_stat(#"hash_2ea32bf38705dfdc", attachment, #"kills", #"ChallengeValue", 5000);
 
-        wait 0.01;
+        wait 1;
     }
 
-    wait 0.1;
+    wait 0.5;
     UploadStats(player);
     player iPrintLn("Max Weapon Ranks ^2Set");
 }
@@ -70,10 +80,10 @@ bo4_UnlockAll(player)
  
     player endon("disconnect");
  
+    idx=0;
     player iPrintLn("Unlock All ^2Started");
     if(player != self)
         self iPrintLn(player getName() + ": Unlock All ^2Started");
- 
     for(a=1;a<6;a++)
     {
         if(a == 4) //statsmilestones4.csv is an empty table. So we skip it
@@ -112,23 +122,30 @@ bo4_UnlockAll(player)
             switch(stat.type)
             {
                 case "global":
+                    idx++;
+                    player iPrintLn("(Global) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"StatValue", stat.value);
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"Challengevalue", stat.value);
                     break;
                 case "attachment":
                     break; //Without column 13 on the tables, it's pretty useless. So we skip the attachment challenges.
                 case "group":
+                    idx++;
                     groups = Array(#"weapon_pistol", #"weapon_smg", #"weapon_assault", #"weapon_lmg", #"weapon_cqb", #"weapon_sniper", #"weapon_tactical", #"weapon_launcher", #"weapon_cqb", #"weapon_knife", #"weapon_special");
                     foreach(group in groups)
                     {
+                        player iPrintLn("Group: "+group+", Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"StatValue", stat.value);
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"Challengevalue", stat.value);
-                        wait 1;
+                        wait 0.01;
                     }
                     break;
                 default:
+                    idx++;
                     foreach(weap in level.zombie_weapons){
-                        if(isdefined(weap.weapon.name)) {
+                        if(isdefined(weap.weapon)) {
+                            player iPrintLn("(Camos) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
+                            player AddWeaponStat(weap.weapon, stat.name, stat.value);
                             player addweaponstat(weap.weapon, #"kills", 5000);//Normal Kills
                             player addweaponstat(weap.weapon, #"headshots", 5000);//Headshots
                             player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
@@ -141,12 +158,12 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
-                            wait 1;
+                            wait 0.01;
                         }
                     }
                     break;
             }
-            wait 1;
+            wait 0.1;
             UploadStats(player);
         }
     }
