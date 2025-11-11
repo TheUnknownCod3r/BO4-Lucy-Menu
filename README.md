@@ -62,11 +62,11 @@ These Instructions Apply to BOTH Battle.net, and Shield Client.
 	
 	1. Download a Compiled Version of the Menu from Releases, and save it to your desktop.
 	
-	2. Open the zip you downloaded for Atian Tools, and extract the folder inside to your desktop.
+	2. Download and Extract T8 Compiler GUI from [This Link](https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC) (The Password is: Jek47), then open T8 Compiler GUI.
 
- 	3. Open Atian Tools via ACTS-UI inside the Atian Tools Folder, and click GSC Inject. In the first box, click Open File, go to your Desktop, and click the compiled.gscc you downloaded from Lucy Menu Releases, and click load. In the second box, change the hook link from scripts/core_common/load_shared.gsc to scripts\zm_common\load.gsc.
+ 	3. Inside T8 Compiler GUI, hit Import a GSC Script, and load the Compiled.gscc you downloaded from the releases section. Select the script on the right, and make sure the mode is "ZOMBIES"!
 	
- 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Click "Inject PC Script". If successful, Atian Tools will confirm the Script was injected successfully.
+ 	4. Load Black Ops 4, Go into a Zombies private match Lobby, and Click "Inject GSC". If successful, You will get a popup box telling you GSC Injected successfully.
 	
 	5. Once the game loads, You should be able to Aim and Knife to open the menu. Aim to Scroll Up, Shoot to Scroll Down. F To Select, Melee to go Back. For controllers, this is LT & RS to open, LT to Scroll Up, RT to scroll Down, X to Select, Melee go back.
 
@@ -277,6 +277,8 @@ This wouldn't be possible without the following people
   	Updated Raw files I used for the menu, as well as the XP Modifier Initial code, and more.
 * [Ori-Jakob](https://github.com/Ori-Jakob)
 	Updated Unlimited Ammo, Demi God, and Score Only Increase Function
+* [Jek47](https://www.github.com/Jek47/)
+  	The GUI for T8 Compiler. 
 
 * several community members supplied the unhashed weapon names. 
 
