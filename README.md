@@ -49,7 +49,7 @@
 ### Prerequisites
 
 To use this Mod Menu, you must have Atian Cod Tools.
-You can download Atian Tools [Here](https://github.com/ate47/atian-cod-tools/releases)
+You can download T8 Compiler GUI [Here](https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC)
 These Instructions Apply to BOTH Battle.net, and Shield Client.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
