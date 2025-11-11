@@ -62,7 +62,7 @@ These Instructions Apply to BOTH Battle.net, and Shield Client.
 	
 	1. Download a Compiled Version of the Menu from Releases, and save it to your desktop.
 	
-	2. Download and Extract T8 Compiler GUI from [This Link](https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC) (The Password is: Jek47), then open T8 Compiler GUI.
+	2. Download and Extract T8 Compiler GUI from https://github.com/Jek47/BO4-GSC-Mods/tree/main/Tools/PC (The Password is: Jek47), then open T8 Compiler GUI.
 
  	3. Inside T8 Compiler GUI, hit Import a GSC Script, and load the Compiled.gscc you downloaded from the releases section. Select the script on the right, and make sure the mode is "ZOMBIES"!
 	
