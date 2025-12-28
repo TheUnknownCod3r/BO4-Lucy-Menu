@@ -43,7 +43,7 @@ runMenuIndex(menu)
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
                 self addOptBool(self.demiMode, "Demi-God Mode", &DemiGod);
-                self addOptSlider("Unlimited Ammo", &BetterUnlimitedAmmo);
+                self addOptBool(self.betterUnlimitedAmmo,"Unlimited Ammo", &BetterUnlimitedAmmo);
                 self addOptBool(self.Noclip, "No Clip", &NoclipToggle1, self);
                 self addOptBool(self.recoil, "No Recoil", &ToggleRecoil);
                 self addOptBool(self.UnlimitedSprint, "Unlimited Sprint", &UnlimitedSprint);
@@ -633,7 +633,7 @@ MenuOptionsPlayer(menu, player)
         case "ClientPMods":
             self addMenu(menu, "Personal Modifications");
                 self addOptBool(player.godmode, "God Mode", &ClientHandler, 0, player);
-                self addOptBool(player.UnlimitedAmmo, "Unlimited Ammo", &ClientHandler, 1, player);
+                self addOptBool(player.betterUnlimitedAmmo, "Unlimited Ammo", &ClientHandler, 1, player);
                 self addOpt("Give All Perks", &ClientHandler, 4, player);
                 self addOpt("Give Self Revive", &ClientHandler, 5, player);
                 self addOpt("Teleport To Player", &TeleTo, 1,player);
