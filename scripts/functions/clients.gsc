@@ -14,7 +14,7 @@ ClientFuncs(args, val1)
         switch(args)
         {
             case 0: player thread Godmode(); break;
-            case 1: player thread UnlimitedAmmo(); break;
+            case 1: player thread BetterUnlimitedAmmo(); break;
             case 2: player thread zm_score::add_to_player_score(40000000); break;
             case 3: player thread GiveAllPerks(); break;
         }
@@ -28,7 +28,7 @@ ClientHandler(func, player)
     switch(func)
     {
         case 0: player thread Godmode(); break;
-        case 1: player thread UnlimitedAmmo(); break;
+        case 1: player thread BetterUnlimitedAmmo(); break;
         case 2: player thread BO4Level55(player); break;
         case 3: player thread PlasmaLoop(); break;
         case 4: player thread GiveAllPerks(); break;

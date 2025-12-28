@@ -90,7 +90,7 @@ UnlimitedAmmo()
     }
 }
 
-BetterUnlimitedAmmo(val)
+BetterUnlimitedAmmo()
 {
     self.betterUnlimitedAmmo = isDefined(self.betterUnlimitedAmmo) ? undefined : true;
     if(isDefined(self.betterUnlimitedAmmo))
@@ -109,30 +109,8 @@ BetterUnlimitedAmmo(val)
                     }
                 } 
                 else {
-                    if(val == "Reload"){
-                        //check if weapon is a shield
-                        switch(weapon.name){ 
-                            case "zhield_dw":
-                            case "zhield_riot_dw":
-                            case "zhield_zword_dw":
-                            case "zhield_spectral_dw":
-                            case "zhield_zpear_dw":
-                            case "zhield_dw_upgraded":
-                            case "zhield_riot_dw_upgraded":
-                            case "zhield_zword_dw_upgraded":
-                            case "zhield_spectral_dw_upgraded":
-                            case "zhield_zpear_dw_upgraded":
-                                self giveMaxAmmo(weapon); //need to do this or shield ammo will always be set to 0 for some reason...
-                                break;
-                            default: //set ammo stock to max for designated weapon if not a shield
-                                self setWeaponAmmoStock(weapon, weapon.maxammo);                                 
-                                break;
-                        }
-                    } 
-                    else {
                         self giveMaxAmmo(weapon);
                         self SetWeaponAmmoClip(weapon, weapon.clipsize);
-                    }
                 }
             }
             wait .05;
@@ -345,4 +323,10 @@ BO4_OpenAllDoors()
 	wait(1);
 	setdvar(#"zombie_unlock_all", 0);
     self iPrintLn("Doors ^2Opened");
+}
+
+GivePlayerPerk(perkName,player)
+{
+    if(player hasPerk(perkName)){ player notify(perkName+"_stop");}
+    else{ player thread zm_perks::wait_give_perk(perkName);}
 }

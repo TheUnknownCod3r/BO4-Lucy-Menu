@@ -46,11 +46,12 @@ acquireaat(id) {
     self thread aat::acquire(weapon, id);
 } 
 
-RemoveEff(weapon)
+RemoveEff()
 {
     //self TakeWeapon(weapon);
     //wait 0.1;
     //self GiveWeapon(weapon);
+    weapon = self GetCurrentWeapon();
     self thread aat::remove(weapon);
     wait .5;
     self switchToWeapon(weapon);

@@ -1,8 +1,6 @@
 BO4Level55(player)
 {
-    newXP = player rank::getrankinfomaxxp(54);
-    currXP = player stats::get_stat_global( #"rankxp", 1 );
-    player AddRankXpValue("kill", newXP - currXP);
+    player AddRankXpValue(#"kill", 2516000000);
     player rank::updaterank();
     wait .1;
     uploadStats(player);
@@ -10,7 +8,7 @@ BO4Level55(player)
 }
 BO4Level1000(player)
 {
-    player AddRankXpValue("kill", 2516000000);
+    player AddRankXpValue(#"kill", 2516000000);
     player SetParagonRank(999);
     player rank::updaterank();
     wait .1;
@@ -79,7 +77,8 @@ bo4_UnlockAll(player)
     player.UnlockAll = true;
  
     player endon("disconnect");
- 
+    
+    batchCount = 0; // how many stat entries since last UploadStats
     idx=0;
     player iPrintLn("Unlock All ^2Started");
     if(player != self)
@@ -126,6 +125,7 @@ bo4_UnlockAll(player)
                     player iPrintLn("(Global) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"StatValue", stat.value);
                     player stats::set_stat(#"PlayerStatsList", stat.name, #"Challengevalue", stat.value);
+                    batchCount++;
                     break;
                 case "attachment":
                     break; //Without column 13 on the tables, it's pretty useless. So we skip the attachment challenges.
@@ -139,21 +139,22 @@ bo4_UnlockAll(player)
                         player stats::set_stat(#"GroupStats", group, #"stats", stat.name, #"Challengevalue", stat.value);
                         wait 0.01;
                     }
+                    batchCount++;
                     break;
                 default:
                     idx++;
                     foreach(weap in level.zombie_weapons){
                         if(isdefined(weap.weapon)) {
                             player iPrintLn("(Camos) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
-                            player AddWeaponStat(weap.weapon, stat.name, stat.value);
-                            player addweaponstat(weap.weapon, #"kills", 5000);//Normal Kills
-                            player addweaponstat(weap.weapon, #"headshots", 5000);//Headshots
-                            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
-                            player addweaponstat(weap.weapon, #"kills_loaded", 5000);//Kills with 5 Attachments, Fixes #33
-                            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
+                            player addweaponstat(weap.weapon, stat.name, 5000);
+                            player addweaponstat(weap.weapon, #"kills",5000);
+                            player addweaponstat(weap.weapon, #"headshots", 5000);
                             player addweaponstat(weap.weapon, #"packedkills", 5000);//Pack a punched Kills
+                            //player addweaponstat(weap.weapon, #"kills_loaded", 5000);//Kills with 5 Attachments, Fixes #33
                             player addweaponstat(weap.weapon, #"heavykills", 5000);//Catalyst?
                             player addweaponstat(weap.weapon, #"minibosskills", 5000);//warden, Gladiatiors
+                            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
+                            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
                             player addweaponstat(weap.weapon, #"verminkills", 5000);//Dogs / Tigers
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
@@ -161,13 +162,20 @@ bo4_UnlockAll(player)
                             wait 0.01;
                         }
                     }
+                    batchCount++;
                     break;
             }
             wait 0.1;
-            UploadStats(player);
+            if(batchCount >= 25)
+            {
+                UploadStats(player);
+                batchCount = 0;
+            }
         }
     }
- 
+    if(batchCount > 0)
+        UploadStats(player);
+    
     player iPrintLn("Unlock All Challenges ^2Done");
     if(player != self)
         self iPrintLn(player getName() + ": Unlock All Challenges ^2Done");
@@ -219,29 +227,14 @@ BO4SetPrestigeMax()
     }
 }
 
-Stats_TotalPlayed(score)
+StatEditor(amount,which)
 {
-    self zm_stats::function_ab006044("TOTAL_GAMES_PLAYED", score);
-}
-
-Stats_HighestReached(score)
-{
-    self zm_stats::function_1b763e4("HIGHEST_ROUND_REACHED", score);
-}
-
-Stats_MostKills(score)
-{
-    self zm_stats::function_1b763e4("kills", score);
-}
-
-Stats_MostHeadshots(score)
-{
-    self zm_stats::function_1b763e4("MOST_HEADSHOTS", score);
-}
-
-Stats_Round(score)
-{
-    self zm_stats::function_ab006044("TOTAL_ROUNDS_SURVIVED", score);
-    self zm_stats::function_a6efb963("TOTAL_ROUNDS_SURVIVED", score);
-    self zm_stats::function_9288c79b("TOTAL_ROUNDS_SURVIVED", score);
+    switch(which)
+    {
+        case 0: self zm_stats::function_ab006044("TOTAL_GAMES_PLAYED", amount); break;
+        case 1: self zm_stats::function_1b763e4("HIGHEST_ROUND_REACHED", amount); break;
+        case 2: self zm_stats::function_1b763e4("kills", amount); break;
+        case 3: self zm_stats::function_1b763e4("MOST_HEADSHOTS", amount); break;
+        case 4:  self zm_stats::function_ab006044("TOTAL_ROUNDS_SURVIVED", amount); self zm_stats::function_a6efb963("TOTAL_ROUNDS_SURVIVED", amount); self zm_stats::function_9288c79b("TOTAL_ROUNDS_SURVIVED", amount); break;
+    }
 }
