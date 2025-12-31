@@ -48,9 +48,6 @@ acquireaat(id) {
 
 RemoveEff()
 {
-    //self TakeWeapon(weapon);
-    //wait 0.1;
-    //self GiveWeapon(weapon);
     weapon = self GetCurrentWeapon();
     self thread aat::remove(weapon);
     wait .5;

@@ -78,7 +78,7 @@ bo4_UnlockAll(player)
  
     player endon("disconnect");
     
-    batchCount = 0; // how many stat entries since last UploadStats
+    batchCount = 0;
     idx=0;
     player iPrintLn("Unlock All ^2Started");
     if(player != self)
@@ -143,21 +143,22 @@ bo4_UnlockAll(player)
                     break;
                 default:
                     idx++;
-                    foreach(weap in level.zombie_weapons){
+                    foreach(weap in level.zombie_weapons)
+                    {
                         if(isdefined(weap.weapon)) {
                             player iPrintLn("(Camos) Name: "+stat.name+" : Value: "+stat.value+", ("+idx+"/972)");
-                            player addweaponstat(weap.weapon, stat.name, 5000);
+                            player addweaponstat(weap.weapon, stat.name, stat.value);
                             player addweaponstat(weap.weapon, #"kills",5000);
                             player addweaponstat(weap.weapon, #"headshots", 5000);
+                            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
+                            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
                             player addweaponstat(weap.weapon, #"packedkills", 5000);//Pack a punched Kills
-                            //player addweaponstat(weap.weapon, #"kills_loaded", 5000);//Kills with 5 Attachments, Fixes #33
                             player addweaponstat(weap.weapon, #"heavykills", 5000);//Catalyst?
                             player addweaponstat(weap.weapon, #"minibosskills", 5000);//warden, Gladiatiors
-                            player addweaponstat(weap.weapon, #"noperkkills", 5000);//No perks
-                            player addweaponstat(weap.weapon, #"allperkkills", 5000);//Kills with All Perks
                             player addweaponstat(weap.weapon, #"verminkills", 5000);//Dogs / Tigers
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
+                            player addweaponstat(weap.weapon, #"hash_704097a2cc8e63e5", 5000);//Kills with 5 Attachments, Fixes #33
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
                             wait 0.01;
                         }

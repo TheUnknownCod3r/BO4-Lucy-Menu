@@ -194,7 +194,7 @@ UnlimitedSprint()
 PSpeed()
 {
     self.PSpeed = isDefined(self.PSpeed) ? undefined : true;
-    if(self.PSpeed) 
+    if(isDefined(self.PSpeed)) 
         self iPrintLn("x2 Movement ^2Enabled");
     else 
     { 

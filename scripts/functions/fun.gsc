@@ -22,25 +22,12 @@ thirdperson()
         self setclientthirdperson(0);
 }
 
-PlayEESong()
-{
-    level thread zm_audio::sndmusicsystem_stopandflush();
-	waitframe(1);
-	level thread zm_audio::sndmusicsystem_playstate("ee_song");
-}
-
 PlayAudioToPlayers(songName)
 {
     level thread zm_audio::sndmusicsystem_stopandflush();
     waitframe(1);
     level thread zm_audio::sndmusicsystem_playstate(songName);
-}
-PlayEE2Song()
-{
-    level thread zm_audio::sndmusicsystem_stopandflush();
-    waitframe(1);
-    level thread zm_audio::sndmusicsystem_playstate("ee_song_2");
-}
+} 
 
 bo4_toggleaimbot()
 {
