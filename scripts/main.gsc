@@ -21,7 +21,7 @@ InitializeVarsPrecaches()
     level.menuName = "The Lucy Menu";
     level.menuDeveloper = "MrFawkes1337";
     level.AutoVerify = 0;
-    level.lucyVersion = "1.4.8";
+    level.lucyVersion = "1.5.0";
     level.MenuStatus = StrTok("None, Verified, VIP, Co-Host, Admin, Host, Developer", ",");
     level._PowerupStrings = StrTok("full_ammo,fire_sale,bonus_points_player,free_perk,nuke,hero_weapon_power,insta_kill,double_points,carpenter,bonfire_sale", ",");
     level._PowerupNames = StrTok("Max Ammo,Fire Sale,Bonus Points,Free Perk,Nuke,Full Power,Insta Kill,Double Points,Carpenter,Bonfire Sale",",");

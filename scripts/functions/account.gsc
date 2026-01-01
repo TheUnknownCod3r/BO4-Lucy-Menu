@@ -74,6 +74,8 @@ bo4_UnlockAll(player)
 {
     if(isDefined(player.UnlockAll))
         return;
+
+    if(player stats::get_stat(#"playerstatslist","rank","statvalue") < 54) { self iPrintLn("MUST BE LEVEL 55 TO USE THIS"); return;}
     player.UnlockAll = true;
  
     player endon("disconnect");
@@ -158,7 +160,7 @@ bo4_UnlockAll(player)
                             player addweaponstat(weap.weapon, #"verminkills", 5000);//Dogs / Tigers
                             player addweaponstat(weap.weapon, #"crawlerkills", 5000);//Crawlers
                             player addweaponstat(weap.weapon, #"instakills", 5000);//Instakill
-                            player addweaponstat(weap.weapon, #"hash_704097a2cc8e63e5", 5000);//Kills with 5 Attachments, Fixes #33
+                            player addweaponstat(weap.weapon, #"hash_704097a2cc8e63e5", 5000);//Kills_loaded
                             player addweaponstat(weap.weapon, #"hash_657e22dcdd18da77", 5000);//Pop Shocks Challenge
                             wait 0.01;
                         }
@@ -170,6 +172,7 @@ bo4_UnlockAll(player)
             if(batchCount >= 25)
             {
                 UploadStats(player);
+                player iPrintLn("Stats Uploaded");
                 batchCount = 0;
             }
         }
