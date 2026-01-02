@@ -103,6 +103,29 @@ Contributions by the community are welcome, as are Bug Fixes, and suggestions. I
 
 ## Changelog
 
+Version 1.5.0
+<details>
+	<summary>
+		Version 1.5.0
+	</summary>
+
+	- Change Kills_Loaded to hash value, which doesnt error, fix #33 & others
+	- Overhaul entire menu to look cleaner, function better, take up less resources overrall, and removed some useless things
+	- Add Perk Selection Menu
+	- Fix Unlock All on all maps other than Voyage, which worked as intended. Close #48 & #49
+	- Various other code cleanups, to make future maintenance easier.
+</details>
+
+Version 1.4.8
+<details>
+	<summary>
+		Version 1.4.8
+	</summary>
+
+	- Fix Missing Challenge in Unlock All Camos
+	- Various changes.
+</details>
+
 Version 1.4.7
 <details>
 	<summary>
