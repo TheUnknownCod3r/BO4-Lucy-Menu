@@ -16,7 +16,7 @@
   <h3 align="center">The Lucy Menu</h3>
 
   <p align="center">
-	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC.<br>For Battle.net, and Shield Client
+	A Free, Open Source, Fully Maintained BO4 GSC Mod Menu for PC & PS4.<br>For Battle.net, Shield Client & Homebrew PS4 Consoles!
     <br />
     <a href="https://github.com/TheUnknownCod3r/BO4-Lucy-Menu/issues">Report Bug</a>
     ·
@@ -114,6 +114,7 @@ Version 1.5.0
 	- Add Perk Selection Menu
 	- Fix Unlock All on all maps other than Voyage, which worked as intended. Close #48 & #49
 	- Various other code cleanups, to make future maintenance easier.
+	- PS4 Support (Thanks Muzzman) <3
 </details>
 
 Version 1.4.8
@@ -301,7 +302,9 @@ This wouldn't be possible without the following people
 * [Ori-Jakob](https://github.com/Ori-Jakob)
 	Updated Unlimited Ammo, Demi God, and Score Only Increase Function
 * [Jek47](https://www.github.com/Jek47/)
-  	The GUI for T8 Compiler. 
+  	The GUI for T8 Compiler.
+* [Muzzman](https://discord.gg/muzzman)
+  	Compiled for PS4 and Tested.
 
 * several community members supplied the unhashed weapon names. 
 
