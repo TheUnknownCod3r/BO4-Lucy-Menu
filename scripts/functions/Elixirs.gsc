@@ -12,11 +12,11 @@ GiveTimedElixir(name)//Works for Timed Elixirs
 
 GiveElixir(which,name)
 {
+    self thread bgb::give(name);
     which = int(which);
     switch(which)
     {
         case 1: self thread bgb::function_b7ba7d51(name);break;//Instant Use
         case 2: self thread bgb::function_62f40b0d(name);break;//Timed
     }
-    self thread bgb::give(name);
 }
