@@ -501,7 +501,7 @@ runMenuIndex(menu)
         case "Account Menu":
             self addMenu(menu,"Rank Menu");
             self addOpt("Max Level", &BO4Level55, self);
-            self addOpt("Level 1000", &BO4Level1000, self);
+            self addOpt("Level 1000 (MAY NOT WORK)", &BO4Level1000, self);
             self addOptBool(self.PlasmaLoop, "Plasma Loop", &PlasmaLoopplayer, self);
             self addOpt("Complete Active Contracts", &CompleteActiveContracts, self);
             self addOpt("Unlock All", &bo4_UnlockAll, self);
