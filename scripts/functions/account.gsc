@@ -1,14 +1,14 @@
 BO4Level55(player)
 {
-    player AddRankXpValue(#"kill", 2516000000);
+    player AddRankXpValue("kill", 2516000000);
     player rank::updaterank();
     wait .1;
     uploadStats(player);
     player iPrintLn("^2Rank and XP Set!");
 }
-BO4Level1000(player)
+BO4Level1000(player)//this is WIP, DO NOT USE
 {
-    player AddRankXpValue(#"kill", 2516000000);
+    player AddRankXpValue("kill", 2516000000);
     player SetParagonRank(999);
     player rank::updaterank();
     wait .1;
